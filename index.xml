@@ -6,24 +6,6 @@
       <description>Last 10 notes on Neon Champions Game Design</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>AGENTS</title>
-    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</link>
-    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</guid>
-    <description><![CDATA[ AGENTS.md — Neon Champions Game Design Repo This repository is the production-facing game design and agent-control source of truth for Neon Champions. ]]></description>
-    <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
-  </item><item>
-    <title>README</title>
-    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/README</link>
-    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/README</guid>
-    <description><![CDATA[ Neon Champions Game Design Private production-facing design repo for Neon Champions. ]]></description>
-    <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
-  </item><item>
-    <title>SCHEMA</title>
-    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</link>
-    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</guid>
-    <description><![CDATA[ Neon Champions Game Design Schema Domain Production-facing game design and AI-assisted development control for Neon Champions. ]]></description>
-    <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
-  </item><item>
     <title>index</title>
     <link>https://myriwe-bot.github.io/neon-champions-game-design-site/</link>
     <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/</guid>
@@ -35,6 +17,12 @@
     <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/log</guid>
     <description><![CDATA[ Neon Champions Game Design Log Append-only project log. ]]></description>
     <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
+  </item><item>
+    <title>SCHEMA</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</guid>
+    <description><![CDATA[ Neon Champions Game Design Schema Domain Production-facing game design and AI-assisted development control for Neon Champions. ]]></description>
+    <pubDate>Sat, 30 May 2026 14:50:50 GMT</pubDate>
   </item><item>
     <title>GDD Reading Guide</title>
     <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/README</link>
@@ -64,6 +52,18 @@
     <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/intel-resource</link>
     <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/intel-resource</guid>
     <description><![CDATA[ Intel Resource System Status: Draft. ]]></description>
+    <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Strategic Map</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/strategic-map</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/strategic-map</guid>
+    <description><![CDATA[ Strategic Map Status: Draft. ]]></description>
+    <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Systems Index</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/systems-index</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/systems-index</guid>
+    <description><![CDATA[ Systems Index Status: Draft. Use for system orientation and planning only; implementation still requires an approved GDD section or READY story. ]]></description>
     <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
