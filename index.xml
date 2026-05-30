@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Neon Champions Game Design</title>
+      <link>https://myriwe-bot.github.io/neon-champions-game-design-site</link>
+      <description>Last 10 notes on Neon Champions Game Design</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>AGENTS</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</guid>
+    <description><![CDATA[ AGENTS.md — Neon Champions Game Design Repo This repository is the production-facing game design and agent-control source of truth for Neon Champions. ]]></description>
+    <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
+  </item><item>
+    <title>README</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/README</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/README</guid>
+    <description><![CDATA[ Neon Champions Game Design Private production-facing design repo for Neon Champions. ]]></description>
+    <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
+  </item><item>
+    <title>SCHEMA</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</guid>
+    <description><![CDATA[ Neon Champions Game Design Schema Domain Production-facing game design and AI-assisted development control for Neon Champions. ]]></description>
+    <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
+  </item><item>
+    <title>index</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/</guid>
+    <description><![CDATA[ Neon Champions Game Design Index Last updated: 2026-05-30 Current phase: Phase 1 — Concept Review mode: Lean default, Full for major gates Start Here README — repository purpose and separation from worldbuilding. ]]></description>
+    <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
+  </item><item>
+    <title>log</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/log</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/log</guid>
+    <description><![CDATA[ Neon Champions Game Design Log Append-only project log. ]]></description>
+    <pubDate>Sat, 30 May 2026 19:23:42 GMT</pubDate>
+  </item><item>
+    <title>GDD Reading Guide</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/README</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/README</guid>
+    <description><![CDATA[ GDD Reading Guide Use this page as the first stop for humans and LLM agents working inside design/gdd/. ]]></description>
+    <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Greenland Faction Unit Rosters</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/faction-unit-rosters</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/faction-unit-rosters</guid>
+    <description><![CDATA[ Greenland Faction Unit Rosters One-Line Summary The first-campaign factions still make sense if their units are not generic soldiers in different colors, but expressions of what each faction believes survival should become: local sovereignty, proprietary climate maintenance, certified polar control,... ]]></description>
+    <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Game Concept</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/game-concept</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/game-concept</guid>
+    <description><![CDATA[ Game Concept: Neon Champions Creative Brief Neon Champions is a single-player-first turn-based strategy/RPG inspired by Heroes of Might and Magic III and Olden Era, translated into a no-magic cyberpunk world where Champions lead factions through infrastructure wars, polluted information, body techno... ]]></description>
+    <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Game Pillars</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/game-pillars</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/game-pillars</guid>
+    <description><![CDATA[ Game Pillars Pillars Pillar: Strategic Clarity Under Dirty Information Definition: The player should make readable strategic choices in a world where information is partial, polluted, source-tagged, or politically shaped. ]]></description>
+    <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Intel Resource System</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/intel-resource</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/intel-resource</guid>
+    <description><![CDATA[ Intel Resource System Status: Draft. ]]></description>
+    <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

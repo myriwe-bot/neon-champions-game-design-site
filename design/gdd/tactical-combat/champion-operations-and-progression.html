@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Tactical Combat — Champion Operations and Progression · Neon Champions</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Neon Champions Game Design"/><meta property="og:title" content="Tactical Combat — Champion Operations and Progression · Neon Champions"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Tactical Combat — Champion Operations and Progression · Neon Champions"/><meta name="twitter:description" content="Tactical Combat — Champion Operations and Progression This article preserves and reorganizes design-session content from tactical-combat-deep-reference."/><meta property="og:description" content="Tactical Combat — Champion Operations and Progression This article preserves and reorganizes design-session content from tactical-combat-deep-reference."/><meta property="og:image:alt" content="Tactical Combat — Champion Operations and Progression This article preserves and reorganizes design-session content from tactical-combat-deep-reference."/><meta property="twitter:domain" content="myriwe-bot.github.io/neon-champions-game-design-site"/><meta property="og:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/champion-operations-and-progression"/><meta property="twitter:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/champion-operations-and-progression"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="Tactical Combat — Champion Operations and Progression This article preserves and reorganizes design-session content from tactical-combat-deep-reference."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ24vbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ24vcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://myriwe-bot.github.io/neon-champions-game-design-site/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/champion-operations-and-progression-og-image.webp"/><meta property="og:image:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/champion-operations-and-progression-og-image.webp"/><meta name="twitter:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/champion-operations-and-progression-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="design/gdd/tactical-combat/champion-operations-and-progression"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Neon Champions Game Design</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-29"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-29" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../design/">design</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../design/gdd/">gdd</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../design/gdd/tactical-combat/">Tactical Combat</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Tactical Combat — Champion Operations and Progression</a></div></nav><h1 class="article-title">Tactical Combat — Champion Operations and Progression</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-30T00:00:00.000Z">May 30, 2026</time><span>46 min read</span></p></div></div><article class="popover-hint"><h1 id="tactical-combat--champion-operations-and-progression">Tactical Combat — Champion Operations and Progression<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tactical-combat--champion-operations-and-progression" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote>
+<p>This article preserves and reorganizes design-session content from <a href="../../../design/research/tactical-combat-deep-reference" class="internal" data-slug="design/research/tactical-combat-deep-reference">tactical-combat-deep-reference</a>. It is part of the tactical combat GDD split for readability. Do not treat missing context as permission to invent rules; check the active overview at <a href="../../../design/gdd/tactical-combat" class="internal" data-slug="design/gdd/tactical-combat">tactical-combat</a>.</p>
+</blockquote>
+<h2 id="article-contents">Article Contents<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#article-contents" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Champion Operations and Doctrine</li>
+<li>Champion Progression Stats</li>
+<li>AP Abilities Group</li>
+</ul>
+<hr/>
+<h2 id="champion-operations-and-doctrine">Champion Operations and Doctrine<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-operations-and-doctrine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="champion-archetype-poles">Champion Archetype Poles<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-archetype-poles" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<p>Neon Champions uses two broad Champion archetype poles inspired by HoMM’s Might/Magic split:</p>
+<ol>
+<li><strong>Marshal</strong> — the Might analogue.</li>
+<li><strong>Operator</strong> — the Magic analogue.</li>
+</ol>
+<p>These are poles, not necessarily rigid classes. Individual Champions may hybridize.</p>
+<p>Marshal emphasis:</p>
+<ul>
+<li>Army improvement.</li>
+<li>Direct battle stats.</li>
+<li>Initiative.</li>
+<li>Retaliation and Zone of Control.</li>
+<li>Movement and positioning.</li>
+<li>Cohesion.</li>
+<li>Logistics discipline and endurance.</li>
+<li>Unit throughput and battlefield reliability.</li>
+</ul>
+<p>Operator emphasis:</p>
+<ul>
+<li>Battle-level interventions.</li>
+<li>Disruption.</li>
+<li>Battlefield manipulation.</li>
+<li>Remote assets.</li>
+<li>Signal, logistics, covert, Echo, biotech, or infrastructure tricks.</li>
+<li>Effects that units alone cannot produce.</li>
+</ul>
+<h3 id="command-operations-and-doctrine">Command, Operations, and Doctrine<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#command-operations-and-doctrine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>The universal battle-level Champion resource is <strong>Command</strong>.</li>
+<li>The active spellbook-equivalent is <strong>Operations</strong>.</li>
+<li>The passive/army-shaping Champion build layer is <strong>Doctrine</strong>.</li>
+<li>Hacking/tech is one Operation channel, not the universal magic equivalent.</li>
+</ol>
+<p>Definitions:</p>
+<ul>
+<li><strong>Command</strong> — the Champion’s limited battle-level capacity to issue meaningful interventions. Command represents operational leverage, authority, access, focus, and prepared battle control.</li>
+<li><strong>Operations</strong> — active battle powers used by the Champion: the non-magic equivalent of spells.</li>
+<li><strong>Doctrine</strong> — passive or conditional Champion identity effects that shape the army, comparable to a Might hero’s army-wide strengths or a build-defining skill package.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Avoid making every Operator a hacker/netrunner. Signal is important, but it must not swallow the entire magic-equivalent system.</li>
+<li>Tech/hacking should be a major channel because the setting is cyberpunk, but analogue, street, biotech, logistics, and Echo factions need equally valid Operation expressions.</li>
+<li>This preserves the high-tech vs analogue tradeoff: high-tech armies can access powerful Signal/network Operations, but are more vulnerable to spoofing, jamming, EMP, and system disruption.</li>
+<li>Marshal/Operator should echo HoMM’s Might/Magic distinction without copying fantasy magic literally.</li>
+</ul>
+<p>Candidate Operation channels/schools:</p>
+<ul>
+<li><strong>Signal</strong> — hacking, spoofing, jamming, sensor lock, counter-hack, network intrusion.</li>
+<li><strong>Logistics</strong> — resupply, recharge, repair, extraction, redeploy, emergency capacity.</li>
+<li><strong>Fire Support</strong> — drone strike, artillery, missile call, White Sky-linked targeting, area denial.</li>
+<li><strong>Covert</strong> — ambush, smoke, false flag, sabotage, decoys, informants, trap activation.</li>
+<li><strong>Doctrine</strong> — rally, initiative shift, Cohesion restoration, coordinated attack, defensive formation.</li>
+<li><strong>Echo</strong> — continuity override, afterimage action, identity disruption, death-state manipulation.</li>
+<li><strong>Bio</strong> — pheromone trigger, growth surge, spore bloom, regeneration, contamination control.</li>
+<li><strong>Infrastructure / Systems</strong> — doors, turrets, cameras, local grid, security state, battlefield objects.</li>
+</ul>
+<p>Example framing:</p>
+<ul>
+<li>A Marshal spends Command to execute a clean military order: Rally, Forced March, Hold the Line, Emergency Resupply.</li>
+<li>An Operator spends Command to launch a battle-level Operation: Spoof Targeting, Sensor Blackout, Drone Strike, Echo Override, Spore Bloom, Trap Network.</li>
+</ul>
+<h3 id="command-economy">Command Economy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#command-economy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Starting Command uses a hybrid calculation.</li>
+<li>Command is primarily a finite battle pool.</li>
+<li>By default, Command does not regenerate during battle.</li>
+<li>Exceptions may exist later through specific Operations, Doctrines, units, objectives, faction mechanics, or scenario rules.</li>
+<li>Major Operations have a cadence limit; minor Commands can be more frequent.</li>
+<li>Marshals and Operators differ partly through Command economy and power profile: Operators get stronger/more flexible Command and Operations; Marshals get stronger Doctrine/passive army effects.</li>
+</ol>
+<p>Starting Command candidate inputs:</p>
+<ul>
+<li>Champion level/build/archetype.</li>
+<li>Marshal vs Operator leaning.</li>
+<li>Army Cohesion.</li>
+<li>Army composition.</li>
+<li>Logistics/supply state.</li>
+<li>Strategic preparation.</li>
+<li>Battlefield/site context.</li>
+</ul>
+<p>Cadence direction:</p>
+<ul>
+<li>Major Operations should not be spammable even if Command remains.</li>
+<li>Minor Commands may allow more frequent low-impact Champion expression.</li>
+<li>This preserves HoMM-like pacing while allowing cyberpunk command/intervention flavor.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>No-regeneration by default keeps MVP balance cleaner and makes Operations feel weighty.</li>
+<li>Exception-based Command generation leaves space for future Songs of Conquest-style army-generated resource, but avoids making that complexity core from day one.</li>
+<li>Operators should feel more like Magic heroes because they access stronger and more flexible Operations, not because every battle becomes operation spam.</li>
+<li>Marshals should feel more like Might heroes because their armies are more reliable, coherent, mobile, supplied, and dangerous even before spending Command.</li>
+</ul>
+<h3 id="operation-cadence-and-action-types">Operation Cadence and Action Types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operation-cadence-and-action-types" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>By default, a Champion can use <strong>1 Major Operation per combat round</strong>.</li>
+<li>Major Operations may be used during any allied stack activation, subject to timing rules and Command cost.</li>
+<li><strong>Minor Commands</strong> are smaller Champion actions that may be used more than once per round.</li>
+<li>Minor Commands may use Command, cooldowns, charges, trigger conditions, or a combination depending on the specific command.</li>
+<li>Marshal identity leans more on Minor Commands and Doctrine; Operator identity leans more on Major Operations.</li>
+</ol>
+<p>Definitions:</p>
+<ul>
+<li><strong>Major Operation</strong> — a high-impact Champion battle intervention, similar to a spell in HoMM. Examples: Sensor Blackout, Drone Strike, Emergency Resupply, Echo Override, Spore Bloom, coordinated battlefield-wide Rally.</li>
+<li><strong>Minor Command</strong> — a lower-impact Champion order or intervention. Examples: initiative bump, small Cohesion restore, targeted reload assist, Mark target, forced reposition order, brief defensive command.</li>
+<li><strong>Doctrine</strong> — passive/conditional army-shaping rules that do not usually consume the Major Operation slot.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Allowing Major Operations during allied stack activations makes the Champion feel reactive and commander-like without putting them on the battlefield.</li>
+<li>The 1 Major Operation per round limit prevents operation spam even when Command remains.</li>
+<li>Minor Commands must stay modest; they should not become a second AP system.</li>
+<li>Marshal Champions should feel active through reliable battlefield orders, formation discipline, Cohesion, logistics, and passive superiority.</li>
+<li>Operator Champions should feel active through fewer but more transformative battle-level interventions.</li>
+</ul>
+<h3 id="operation-channels">Operation Channels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operation-channels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Operation channels are <strong>semi-formal categories</strong> used for design, UI grouping, progression, and player comprehension. They are not rigid spell schools.</li>
+<li>MVP should support <strong>5 core channels</strong>.</li>
+<li>MVP core channels:
+<ul>
+<li><strong>Signal</strong></li>
+<li><strong>Logistics</strong></li>
+<li><strong>Fire Support</strong></li>
+<li><strong>Doctrine</strong></li>
+<li><strong>Covert</strong></li>
+</ul>
+</li>
+<li><strong>Bio</strong> and <strong>Echo</strong> are important faction/special channels, not default universal MVP channels.</li>
+<li>Bio and Echo should be treated as mutually exclusive or strongly opposed special channels by default.</li>
+<li>Infrastructure / Systems is not its own channel for now; fold it into Signal, Logistics, or Covert depending on the specific Operation.</li>
+<li>Channels are mostly universal in concept, but specific Operations may be faction-locked, Champion-locked, tech-locked, site-locked, or otherwise gated.</li>
+</ol>
+<p>Core channel meanings:</p>
+<ul>
+<li><strong>Signal</strong> — hacking, spoofing, jamming, sensor lock, counter-hack, network intrusion, targeting-feed manipulation.</li>
+<li><strong>Logistics</strong> — resupply, recharge, repair, redeploy, extraction, emergency capacity, supply-state manipulation.</li>
+<li><strong>Fire Support</strong> — drone strike, artillery, missile call, area denial, delayed/telegraphed indirect pressure.</li>
+<li><strong>Doctrine</strong> — rally, initiative shift, Cohesion restoration, coordinated attack, defensive formation, disciplined execution.</li>
+<li><strong>Covert</strong> — ambush, smoke, false flag, sabotage, decoys, informants, trap activation, hidden positioning.</li>
+</ul>
+<p>Special/factional channels:</p>
+<ul>
+<li><strong>Bio</strong> — biosplicing, forced adaptation, organic bolstering, regeneration, contamination, growth surge, battlefield organism control. Bio may play a necromancy-like role through body recovery, mutation, and organic reinforcement.</li>
+<li><strong>Echo</strong> — continuity manipulation, identity persistence, afterimage action, death-state ambiguity, Echo disruption, post-mortem command traces. Echo may play a necromancy-like role from an informational/identity angle rather than a biological one.</li>
+</ul>
+<p>Bio/Echo design note:</p>
+<ul>
+<li>Bio and Echo overlap thematically around death, persistence, replacement, and army bolstering, but they should approach those themes from opposite metaphysical/technical angles.</li>
+<li>Bio asks: what can be regrown, spliced, repaired, or repurposed as living matter?</li>
+<li>Echo asks: what persists as identity, command trace, simulation, memory, or continuity after bodily loss?</li>
+<li>Do not make them just two flavors of resurrection. Preserve the philosophical difference.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Keep channels broad enough that analogue and low-tech factions can still have compelling Operations.</li>
+<li>Avoid making Signal the default answer to every Operator ability.</li>
+<li>Use Infrastructure / Systems as context: e.g. opening security doors may be Signal, emergency grid power may be Logistics, and booby-trapped local systems may be Covert.</li>
+<li>Semi-formal channels should help UI and progression, not force every Operation into a narrow taxonomy.</li>
+</ul>
+<h3 id="operation-example-vocabulary">Operation Example Vocabulary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operation-example-vocabulary" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Draft a broader Operation vocabulary: <strong>5 examples per core channel</strong>.</li>
+<li>Draft <strong>5 Bio examples</strong> and <strong>5 Echo examples</strong> as special/factional channels.</li>
+<li>Include both tactical-combat and strategic-map Operations in the vocabulary.</li>
+</ol>
+<p>These examples are provisional vocabulary, not final balance specs.</p>
+<h4 id="signal-operations">Signal Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#signal-operations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operation</th><th>Scope</th><th>Type</th><th>Concept</th></tr></thead><tbody><tr><td>Sensor Lock</td><td>Tactical</td><td>Minor Command / Major Operation variant</td><td>Mark an enemy stack; allied ranged/indirect attacks gain accuracy or targeting access against it.</td></tr><tr><td>Spoof Targeting</td><td>Tactical</td><td>Major Operation</td><td>Enemy stack’s next ranged or indirect attack suffers accuracy penalty, target restriction, or may be redirected to invalid/decoy target.</td></tr><tr><td>Blackout Pulse</td><td>Tactical</td><td>Major Operation</td><td>Temporarily disables Overwatch, targeting assists, and some networked bonuses in an area.</td></tr><tr><td>Counter-Intrusion</td><td>Tactical/Strategic</td><td>Minor Command / Reaction</td><td>Cancel or reduce an enemy Signal Operation; strategic version protects army/site from hostile feed manipulation.</td></tr><tr><td>Feed Poisoning</td><td>Strategic</td><td>Major Operation</td><td>Corrupt local information state before battle: enemy starts with worse Cohesion, false scouting, or reduced starting Command.</td></tr></tbody></table></div>
+<h4 id="logistics-operations">Logistics Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#logistics-operations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operation</th><th>Scope</th><th>Type</th><th>Concept</th></tr></thead><tbody><tr><td>Emergency Resupply</td><td>Tactical</td><td>Major Operation</td><td>Restore Capacity to one or more allied stacks, especially ranged/heavy units.</td></tr><tr><td>Field Repair</td><td>Tactical</td><td>Major Operation</td><td>Restore HP to mechanical/cybernetic/armored stacks or repair Shield/Armor state.</td></tr><tr><td>Rapid Redeploy</td><td>Tactical</td><td>Major Operation</td><td>Move an allied stack without spending its AP, or reposition a limited distance under restrictions.</td></tr><tr><td>Supply Corridor</td><td>Strategic/Tactical</td><td>Major Operation</td><td>Improve battle Supply State or negate Cut Off/Strained penalties for a limited time.</td></tr><tr><td>Extraction Window</td><td>Tactical/Strategic</td><td>Major Operation</td><td>Enable safe retreat, partial casualty recovery, evacuation of objective unit, or reduced post-battle losses.</td></tr></tbody></table></div>
+<h4 id="fire-support-operations">Fire Support Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fire-support-operations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operation</th><th>Scope</th><th>Type</th><th>Concept</th></tr></thead><tbody><tr><td>Drone Strike</td><td>Tactical</td><td>Major Operation</td><td>Direct or semi-indirect strike against a marked/visible target; moderate damage, high precision.</td></tr><tr><td>Suppression Barrage</td><td>Tactical</td><td>Major Operation</td><td>Area pressure that applies Suppressed, damages lightly, and punishes clumping.</td></tr><tr><td>Delayed Missile Call</td><td>Tactical</td><td>Major Operation</td><td>Telegraph a high-impact strike resolving later; enemies can move, jam, shield, or disable spotters.</td></tr><tr><td>Area Denial Pattern</td><td>Tactical</td><td>Major Operation</td><td>Create temporary danger tiles that discourage movement or protect a flank.</td></tr><tr><td>Pre-Battle Fire Plan</td><td>Strategic/Tactical</td><td>Major Operation</td><td>Strategic preparation that starts combat with damaged cover, exposed enemies, or a first-round targeting advantage.</td></tr></tbody></table></div>
+<h4 id="doctrine-operations">Doctrine Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#doctrine-operations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operation</th><th>Scope</th><th>Type</th><th>Concept</th></tr></thead><tbody><tr><td>Rally</td><td>Tactical</td><td>Minor Command / Major Operation variant</td><td>Restore Cohesion or remove a low-Cohesion penalty from selected allied stacks.</td></tr><tr><td>Forced March</td><td>Tactical/Strategic</td><td>Minor Command / Major Operation</td><td>Tactical version grants movement/reposition; strategic version improves campaign movement or battle entry position.</td></tr><tr><td>Hold the Line</td><td>Tactical</td><td>Minor Command / Major Operation variant</td><td>Boost Defend, Retaliation readiness, ZoC reliability, or Shield/Armor for a defensive turn.</td></tr><tr><td>Coordinated Assault</td><td>Tactical</td><td>Major Operation</td><td>One target becomes vulnerable to follow-up attacks from multiple allied stacks this round.</td></tr><tr><td>Battle Rhythm</td><td>Tactical</td><td>Major Operation</td><td>Adjust initiative timing, recover Wait positioning, or let a stack act earlier under constraints.</td></tr></tbody></table></div>
+<h4 id="covert-operations">Covert Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#covert-operations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operation</th><th>Scope</th><th>Type</th><th>Concept</th></tr></thead><tbody><tr><td>Smoke Break</td><td>Tactical</td><td>Major Operation</td><td>Create smoke/obscurement that blocks line of sight, weakens Overwatch, and enables disengage.</td></tr><tr><td>Ambush Cell</td><td>Tactical/Strategic</td><td>Major Operation</td><td>Reveal hidden allied asset/stack, or start battle with a flanking/hidden position if prepared strategically.</td></tr><tr><td>Sabotage Kit</td><td>Tactical/Strategic</td><td>Major Operation</td><td>Disable a battlefield object, enemy supply source, turret, door, or heavy weapon for a limited time.</td></tr><tr><td>False Flag</td><td>Strategic</td><td>Major Operation</td><td>Manipulate feed/legitimacy before or after battle; may alter enemy response, reinforcements, or public accounting.</td></tr><tr><td>Decoy Signature</td><td>Tactical</td><td>Minor Command / Major Operation variant</td><td>Create false target/heat/signal/visual signature that soaks targeting or enables repositioning.</td></tr></tbody></table></div>
+<h4 id="bio-operations--specialfactional">Bio Operations — special/factional<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bio-operations--specialfactional" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operation</th><th>Scope</th><th>Type</th><th>Concept</th></tr></thead><tbody><tr><td>Growth Surge</td><td>Tactical</td><td>Major Operation</td><td>Temporarily bolster a Bio stack’s HP, Armor-like tissue, movement, or damage; may have post-effect decay.</td></tr><tr><td>Spore Bloom</td><td>Tactical</td><td>Major Operation</td><td>Area contamination that pressures cover, applies Chemical risk, or punishes enemies who remain clustered.</td></tr><tr><td>Tissue Reclamation</td><td>Tactical/Post-Battle</td><td>Major Operation</td><td>Recover losses from nearby organic casualties or convert battlefield biomass into healing/reinforcement.</td></tr><tr><td>Forced Adaptation</td><td>Tactical/Strategic</td><td>Major Operation</td><td>Grant temporary resistance or trait response after taking a damage type; strategic version prepares adaptation before battle.</td></tr><tr><td>Brood Signal</td><td>Tactical</td><td>Major Operation</td><td>Coordinate organic/swarm units: extra movement, Cohesion stabilization, or synchronized attack.</td></tr></tbody></table></div>
+<h4 id="echo-operations--specialfactional">Echo Operations — special/factional<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#echo-operations--specialfactional" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operation</th><th>Scope</th><th>Type</th><th>Concept</th></tr></thead><tbody><tr><td>Afterimage Action</td><td>Tactical</td><td>Major Operation</td><td>A recently damaged or destroyed stack leaves an Echo trace that performs a limited final action.</td></tr><tr><td>Continuity Anchor</td><td>Tactical/Strategic</td><td>Major Operation</td><td>Reduce casualty permanence, stabilize Cohesion after losses, or preserve command identity through disruption.</td></tr><tr><td>Ghost Command</td><td>Tactical</td><td>Minor Command / Major Operation variant</td><td>Issue an order through an Echo trace, allowing a stack to ignore some Signal/Cohesion disruption or act from memory-pattern discipline.</td></tr><tr><td>Identity Fracture</td><td>Tactical</td><td>Major Operation</td><td>Disrupt enemy Echo/networked/command-linked units; may reduce Cohesion, initiative, or Retaliation reliability.</td></tr><tr><td>Memorial Protocol</td><td>Strategic/Tactical</td><td>Major Operation</td><td>Convert fallen-unit memory into morale/Cohesion, recruitment legitimacy, or a battle-start Doctrine bonus.</td></tr></tbody></table></div>
+<h2 id="champion-progression-stats">Champion Progression Stats<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-progression-stats" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="primary-champion-stats">Primary Champion Stats<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#primary-champion-stats" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<p>Neon Champions uses <strong>5 primary Champion stats</strong> for now.</p>
+<p>The stat model preserves the functional readability of HoMM’s classic stat split while using setting-appropriate terms.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Neon Champion Stat</th><th>HoMM Analogue</th><th>Primary Role</th></tr></thead><tbody><tr><td><strong>Attack</strong></td><td>Attack</td><td>Improves army offensive performance.</td></tr><tr><td><strong>Defense</strong></td><td>Defense</td><td>Improves army durability and defensive performance.</td></tr><tr><td><strong>Control</strong></td><td>Spell Power</td><td>Improves Operation strength, duration, radius, reliability, or penetration across all channels.</td></tr><tr><td><strong>Command</strong></td><td>Knowledge</td><td>Increases starting Command pool and/or prepared operation capacity.</td></tr><tr><td><strong>Logistics</strong></td><td>Logistics / campaign skill elevated to primary</td><td>Improves supply, movement, capacity recovery, battle preparation, strategic reach, and post-battle recovery.</td></tr></tbody></table></div>
+<p>Design rationale:</p>
+<ul>
+<li>Keep <strong>Attack</strong> and <strong>Defense</strong> because they are clear and avoid muddying terms like Command/Doctrine.</li>
+<li><strong>Command</strong> should not mean generic unit efficiency. It is the Knowledge analogue: the size/reach of the Champion’s battle-level Command pool.</li>
+<li><strong>Control</strong> is the Spell Power analogue. It affects Operations broadly, not just hacking/Signal.</li>
+<li><strong>Logistics</strong> is primary because ammo, capacity, supply state, strategic movement, and recovery are central to Neon Champions’ combat/strategy loop.</li>
+<li>Champion stats describe off-board command influence, not personal battlefield combat.</li>
+</ul>
+<p>Archetype leaning:</p>
+<ul>
+<li><strong>Marshal</strong> Champions tend to favor Attack, Defense, and Logistics.</li>
+<li><strong>Operator</strong> Champions tend to favor Command and Control.</li>
+<li>Hybrid Champions may combine army stats with limited but efficient Operations, or strong logistics with specialized operations.</li>
+</ul>
+<p>Open tuning questions:</p>
+<ul>
+<li>Whether Attack/Defense are flat bonuses, percentage modifiers, trait unlock thresholds, or formula inputs.</li>
+<li>Whether Command increases only starting Command or also prepared Operation count/loadout flexibility.</li>
+<li>Whether Control affects all Operation channels identically or each Operation defines its own Control scaling.</li>
+<li>Whether Logistics affects tactical reload/recharge directly, strategic Supply State, campaign movement, post-battle recovery, or all of these.</li>
+</ul>
+<h3 id="primary-stat-scopes">Primary Stat Scopes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#primary-stat-scopes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li><strong>Attack</strong> improves offensive unit performance broadly.</li>
+<li><strong>Defense</strong> improves army durability and defensive reliability broadly.</li>
+<li><strong>Command</strong> increases starting Command pool and prepared Operation loadout.</li>
+<li><strong>Control</strong> scales Operation strength, duration, radius, reliability, penetration, or similar per Operation.</li>
+<li><strong>Logistics</strong> affects supply state, capacity recovery, deployment, retreat/extraction, post-battle recovery, and campaign movement.</li>
+</ol>
+<p>Stat scope notes:</p>
+<h4 id="attack">Attack<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#attack" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Attack may affect:</p>
+<ul>
+<li>Unit damage.</li>
+<li>Accuracy or hit reliability where relevant.</li>
+<li>Suppression output.</li>
+<li>Offensive retaliation strength.</li>
+<li>Conditional offensive bonuses from Doctrine, traits, or formations.</li>
+</ul>
+<p>Attack should not directly improve Champion Operation damage unless a specific Operation says so.</p>
+<h4 id="defense">Defense<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#defense" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Defense may affect:</p>
+<ul>
+<li>Armor and Shield effectiveness.</li>
+<li>Damage mitigation.</li>
+<li>Defend action strength.</li>
+<li>Cohesion stability under fire.</li>
+<li>Resistance to suppression, forced movement, or low-Cohesion penalties.</li>
+<li>Defensive Retaliation/ZoC reliability where appropriate.</li>
+</ul>
+<p>Defense should represent army defensive performance, not the Champion’s personal toughness.</p>
+<h4 id="command">Command<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#command" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Command affects:</p>
+<ul>
+<li>Starting Command pool.</li>
+<li>Prepared Operation loadout size/flexibility.</li>
+</ul>
+<p>Possible later extensions:</p>
+<ul>
+<li>Minor Command availability.</li>
+<li>Command retention under bad Cohesion.</li>
+<li>Operation readiness under poor Supply State.</li>
+</ul>
+<h4 id="control">Control<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#control" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Control affects Operations per-operation rather than as a universal flat bonus.</p>
+<p>Possible scaling knobs:</p>
+<ul>
+<li>Damage or healing.</li>
+<li>Duration.</li>
+<li>Radius / affected tiles.</li>
+<li>Number of affected stacks.</li>
+<li>Reliability / resistance penetration.</li>
+<li>Cooldown/charge efficiency.</li>
+<li>Strength of status effects.</li>
+</ul>
+<p>Control applies across all Operation channels, not only Signal/hacking.</p>
+<h4 id="logistics">Logistics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#logistics" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Logistics affects:</p>
+<ul>
+<li>
+<p>Strategic movement.</p>
+</li>
+<li>
+<p>Battle Supply State.</p>
+</li>
+<li>
+<p>Tactical Capacity recovery / reload-recharge access.</p>
+</li>
+<li>
+<p>Deployment and starting position advantages.</p>
+</li>
+<li>
+<p>Retreat, extraction, and casualty preservation.</p>
+</li>
+<li>
+<p>Post-battle recovery and readiness.</p>
+</li>
+<li>
+<p>Prepared supply corridors, field repair, and support assets.</p>
+</li>
+<li>
+<p>Logistics is a primary stat because Neon combat makes ammo/capacity/supply strategically important.</p>
+</li>
+</ul>
+<h3 id="champion-leveling-and-progression-structure">Champion Leveling and Progression Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-leveling-and-progression-structure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Champion level-ups grant primary stat increases, like HoMM.</li>
+<li>Champion archetype affects stat growth probabilities.
+<ul>
+<li>Marshals lean toward Attack, Defense, and Logistics.</li>
+<li>Operators lean toward Command and Control.</li>
+</ul>
+</li>
+<li>Level-ups also offer skills, perks, Doctrines, and/or Operations.</li>
+<li>Operations can be learned through multiple sources, but buildings/sites should be the dominant source.</li>
+<li>Skill/channel progression is semi-linked: skills improve Operation channels, but Operations remain individual unlocks.</li>
+</ol>
+<p>Progression sources:</p>
+<ul>
+<li><strong>Leveling</strong> — primary stat gains, skill/perk choices, occasional Operation/Doctrine access.</li>
+<li><strong>Buildings / Sites</strong> — main source of new Operations, analogous to spell guilds, training facilities, black sites, relays, clinics, field schools, archives, or faction institutions.</li>
+<li><strong>Faction tech / research</strong> — unlocks operation families, upgrades, or channel access.</li>
+<li><strong>Artifacts / Assets</strong> — grant specific Operations, modify Command/Control, or enable unusual channels.</li>
+<li><strong>Campaign events / quests</strong> — unlock rare factional or narrative Operations, especially Bio/Echo or politically sensitive effects.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Buildings/sites being the dominant Operation source preserves HoMM-like strategic map importance.</li>
+<li>Leveling should shape the Champion, but not replace the need to control/visit/build the right institutions.</li>
+<li>Semi-linked channels avoid rigid spell schools while still allowing progression identity: e.g. Signal Training improves Signal Operations, but Spoof Targeting remains its own unlock.</li>
+<li>Marshal progression should not be just worse Operator progression; Marshals need strong stat/passive/Doctrine growth and meaningful Minor Commands.</li>
+<li>Operator progression should feel like expanding a battle-intervention toolkit, gated by Command, Control, preparation, and strategic access.</li>
+</ul>
+<h3 id="operation-preparation-and-loadout">Operation Preparation and Loadout<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operation-preparation-and-loadout" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Use a hybrid known/prepared Operation model.</li>
+<li>Basic/core Operations may be always available.</li>
+<li>Advanced/special Operations require preparation into Operation slots.</li>
+<li><strong>Command</strong> affects Operation loadout size/flexibility.</li>
+<li>Strategic Operations may be affected by pre-battle scouting, supply, and site context.</li>
+<li>Marshals have fewer Major Operation slots but more Doctrine/Minor Command capacity.</li>
+<li>Operators have more/flexible Major Operation preparation and stronger Operation scaling.</li>
+<li>Faction/town/site buildings function like HoMM spell guilds for Operations, offering themed Operation unlocks.</li>
+</ol>
+<p>Design notes:</p>
+<ul>
+<li>This preserves some HoMM spellbook collection appeal without allowing late-game Operators to answer every situation at once.</li>
+<li>Preparation should not become annoying inventory management. Use saved loadouts, recommendations, and clear warnings.</li>
+<li>Common fallback Operations prevent players from feeling punished for not preparing a basic tool.</li>
+<li>Advanced Operations should be powerful enough that choosing a loadout matters.</li>
+<li>Strategic Operations are more sensitive to scouting/supply/site context than ordinary tactical Operations.</li>
+<li>Command should not only be a spendable pool stat; it also governs how broad and flexible the prepared Operation kit can be.</li>
+</ul>
+<p>Example structure:</p>
+<ul>
+<li><strong>Core Operations</strong> — always available if the Champion/faction supports them: Rally, basic resupply, basic mark, baseline retreat/extraction.</li>
+<li><strong>Prepared Operations</strong> — chosen before battle or during strategic preparation: Blackout Pulse, Drone Strike, Ambush Cell, False Flag, Continuity Anchor, Spore Bloom.</li>
+<li><strong>Site-granted Operations</strong> — learned or temporarily available from faction buildings, map sites, black clinics, relay towers, firebases, archives, or local infrastructure.</li>
+</ul>
+<h3 id="operation-resistance-and-counterplay">Operation Resistance and Counterplay<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operation-resistance-and-counterplay" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Some Operations always succeed if paid and valid; hostile/disruptive Operations may be resisted.</li>
+<li>Operation resistance is based on <strong>Cohesion + traits + relevant defenses</strong>, not one universal magic-resistance stat.</li>
+<li>Counter-Operations exist, but should be limited and mostly passive, prepared, or reactive.</li>
+<li>Enemy Command/Control affects Operation clashes mainly through Counter-Operations, not through every Operation resolution.</li>
+<li>High-tech/networked armies are more vulnerable to some Operations but better at countering others.</li>
+</ol>
+<p>Resistance model:</p>
+<ul>
+<li>Beneficial self/allied Operations usually succeed if valid.</li>
+<li>Logistics and Doctrine Operations usually succeed unless blocked by supply, disruption, or specific scenario conditions.</li>
+<li>Hostile Signal, Covert, Echo, Bio, suppression, manipulation, or control-style Operations may be resisted.</li>
+<li>Resistance should depend on the target’s Cohesion, unit traits, defensive state, network/analogue status, and relevant active protections.</li>
+<li>Avoid a single generic “Magic Resistance” stat.</li>
+</ul>
+<p>Counter-Operation examples:</p>
+<ul>
+<li><strong>Counter-Intrusion</strong> — reacts to or reduces hostile Signal Operations.</li>
+<li><strong>Jamming Screen</strong> — prepared protection against targeting, drones, indirect fire, or Signal effects.</li>
+<li><strong>Intercept Window</strong> — prepared/passive response against Fire Support Operations.</li>
+<li><strong>Countermand</strong> — Doctrine response that reduces enemy forced-movement, Cohesion, or initiative manipulation.</li>
+<li><strong>Bio-Quarantine</strong> — prepared mitigation against contamination, spore, or biomass reclamation effects.</li>
+<li><strong>Continuity Firewall</strong> — Echo-facing protection against identity disruption or post-mortem command interference.</li>
+</ul>
+<p>High-tech tradeoff:</p>
+<ul>
+<li>High-tech/networked armies can access stronger Signal, targeting, drone, and counter-operation tools.</li>
+<li>They are also more exposed to spoofing, jamming, EMP/Shock disruption, hostile Signal Operations, and command-link attacks.</li>
+<li>Analogue/low-tech armies have fewer advanced channels but better baseline resistance to network-specific disruption.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Counterplay should usually be prepared, positional, trait-based, or reactive; avoid making every Operation trigger a slow counterspell minigame.</li>
+<li>Operators should have meaningful duels, but Champion-vs-Champion clashes must not dominate every battle action.</li>
+<li>Counter-Operations are a way to make preparation matter without turning Operations into random failure rolls.</li>
+</ul>
+<h3 id="marshal--operator-balance-guardrails">Marshal / Operator Balance Guardrails<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#marshal--operator-balance-guardrails" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Marshals have meaningful active tools: Minor Commands and some Major Operations, not only passive bonuses.</li>
+<li>Operators have slightly weaker army stat growth to compensate for stronger Command/Control and Operation flexibility.</li>
+<li>Some Operations may scale from Attack, Defense, or Logistics instead of Control when they are Marshal-flavored.</li>
+<li>Marshal Doctrine should be able to rival Operations in impact over a full battle through sustained value.</li>
+<li>Hybrid Champions should be viable, but weaker than specialists at extreme Marshal/Operator roles.</li>
+</ol>
+<p>Balance intent:</p>
+<ul>
+<li>Operators should feel like the “magic hero” analogue because they produce dramatic battle interventions.</li>
+<li>Marshals should feel like the “might hero” analogue because their army performs better before, during, and after every engagement.</li>
+<li>A Marshal should not become boring passive math; they need active decisions through Minor Commands, Doctrine triggers, logistics calls, and some Major Operations.</li>
+<li>An Operator should not become a universal answer machine; Command pool, prepared slots, cadence limits, resistance, and counterplay constrain them.</li>
+</ul>
+<p>Marshal-flavored Operation scaling examples:</p>
+<ul>
+<li><strong>Hold the Line</strong> may scale with Defense.</li>
+<li><strong>Coordinated Assault</strong> may scale with Attack.</li>
+<li><strong>Emergency Resupply</strong> or <strong>Supply Corridor</strong> may scale with Logistics.</li>
+<li><strong>Forced March</strong> may scale with Logistics or Attack depending on use.</li>
+<li><strong>Rally</strong> may scale with Defense, Logistics, or Champion-specific Doctrine rather than Control.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Control remains the default Operation scaling stat, but not the only possible one.</li>
+<li>Logistics-heavy Champions should be valid, not merely support builds.</li>
+<li>Hybrid Champions should trade peak power for flexibility: e.g. decent army stats plus a smaller prepared Operation kit.</li>
+<li>Marshal sustained value should be visible in UI and post-battle reports, otherwise players will undervalue it compared to flashy Operator effects.</li>
+</ul>
+<h3 id="example-champion-builds">Example Champion Builds<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#example-champion-builds" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Initial Champion build examples work as a starting point, but ranged-focused archetypes must exist.</li>
+<li>Bio and Echo special Operator examples are deferred until faction design.</li>
+<li>Marshal examples should include aggressive and defensive/logistics builds.</li>
+<li>Operator examples should include non-Signal builds, but Signal remains the most important Operator channel.</li>
+</ol>
+<p>These are proof examples, not final named Champions.</p>
+<h4 id="frontline-marshal">Frontline Marshal<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#frontline-marshal" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Fantasy:</p>
+<ul>
+<li>A hard-command battlefield leader who wins by making ordinary stacks hit harder, hold longer, and trade better.</li>
+</ul>
+<p>Stat lean:</p>
+<ul>
+<li>High Attack.</li>
+<li>High Defense.</li>
+<li>Medium Logistics.</li>
+<li>Low/medium Command.</li>
+<li>Low Control.</li>
+</ul>
+<p>Doctrine examples:</p>
+<ul>
+<li><strong>Combined Arms Discipline</strong> — adjacent allied stacks or mixed-role formations gain small offensive/defensive reliability bonuses.</li>
+<li><strong>Retaliation Drill</strong> — melee-capable stacks gain stronger Retaliation or better ZoC reliability.</li>
+</ul>
+<p>Minor Command examples:</p>
+<ul>
+<li><strong>Hold Formation</strong> — one stack gains improved Defend/ZoC until next activation.</li>
+<li><strong>Push the Line</strong> — one stack gains limited movement or initiative correction.</li>
+<li><strong>Focus Fire Order</strong> — mark one enemy for improved allied direct attacks this round.</li>
+</ul>
+<p>Major Operation examples:</p>
+<ul>
+<li><strong>Coordinated Assault</strong> — one enemy becomes vulnerable to sequential attacks.</li>
+<li><strong>Rally Under Fire</strong> — restore Cohesion and remove one low-Cohesion penalty from nearby stacks.</li>
+<li><strong>Emergency Resupply</strong> — limited, less efficient than a Logistics specialist.</li>
+</ul>
+<h4 id="ranged--fire-control-marshal">Ranged / Fire-Control Marshal<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ranged--fire-control-marshal" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Fantasy:</p>
+<ul>
+<li>A Marshal who turns ranged stacks into a disciplined kill network: lanes, overwatch-like threat, marked targets, ammunition discipline, and synchronized volleys.</li>
+</ul>
+<p>Stat lean:</p>
+<ul>
+<li>High Attack.</li>
+<li>Medium/high Logistics.</li>
+<li>Medium Defense.</li>
+<li>Medium Command.</li>
+<li>Low/medium Control.</li>
+</ul>
+<p>Doctrine examples:</p>
+<ul>
+<li><strong>Fire Discipline</strong> — ranged stacks suffer less accuracy falloff or waste less Capacity when firing under pressure.</li>
+<li><strong>Kill Lanes</strong> — ranged stacks gain bonuses against enemies crossing marked lanes, chokepoints, or exposed tiles.</li>
+<li><strong>Target Priority Doctrine</strong> — marked or exposed enemies take better follow-up damage from allied ranged stacks.</li>
+</ul>
+<p>Minor Command examples:</p>
+<ul>
+<li><strong>Focus Fire Order</strong> — selected enemy becomes priority target for allied ranged attacks.</li>
+<li><strong>Reload Priority</strong> — one ranged/heavy stack restores Capacity or reduces reload/recharge cost.</li>
+<li><strong>Shift Firing Line</strong> — limited reposition for a ranged stack without fully sacrificing tempo.</li>
+</ul>
+<p>Major Operation examples:</p>
+<ul>
+<li><strong>Coordinated Volley</strong> — multiple ranged stacks gain a one-round bonus against a marked/exposed target.</li>
+<li><strong>Suppressive Fire Plan</strong> — area or lane receives suppression pressure without being pure Fire Support artillery.</li>
+<li><strong>Emergency Resupply</strong> — restore Capacity to key ranged/heavy stack(s).</li>
+</ul>
+<p>Design note:</p>
+<ul>
+<li>This archetype is still a Marshal, not an Operator: the power comes from making units execute ranged doctrine better, not from external spell-like interventions.</li>
+</ul>
+<h4 id="logistics-marshal">Logistics Marshal<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#logistics-marshal" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Fantasy:</p>
+<ul>
+<li>An army that should be exhausted, cut off, and empty somehow keeps fighting.</li>
+</ul>
+<p>Stat lean:</p>
+<ul>
+<li>High Logistics.</li>
+<li>Medium Defense.</li>
+<li>Medium Attack.</li>
+<li>Medium Command.</li>
+<li>Low Control.</li>
+</ul>
+<p>Doctrine examples:</p>
+<ul>
+<li><strong>Supply Discipline</strong> — better battle Supply State; reduced penalty when Strained/Cut Off.</li>
+<li><strong>Recovery Network</strong> — reduced post-battle losses, faster readiness recovery.</li>
+</ul>
+<p>Minor Command examples:</p>
+<ul>
+<li><strong>Reload Priority</strong> — one stack reloads/recharges more efficiently.</li>
+<li><strong>Field Rotation</strong> — move a damaged stack backward or swap positions under constraints.</li>
+<li><strong>Stabilize Line</strong> — restore small Cohesion plus defensive state.</li>
+</ul>
+<p>Major Operation examples:</p>
+<ul>
+<li><strong>Supply Corridor</strong>.</li>
+<li><strong>Extraction Window</strong>.</li>
+<li><strong>Field Repair</strong>.</li>
+<li><strong>Emergency Resupply</strong>.</li>
+</ul>
+<h4 id="signal-operator">Signal Operator<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#signal-operator" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Fantasy:</p>
+<ul>
+<li>The battle is won through targeting feeds, spoofed sensors, jammed weapons, and enemy command confusion.</li>
+</ul>
+<p>Stat lean:</p>
+<ul>
+<li>High Control.</li>
+<li>High Command.</li>
+<li>Medium Logistics.</li>
+<li>Low Attack.</li>
+<li>Low Defense.</li>
+</ul>
+<p>Doctrine examples:</p>
+<ul>
+<li><strong>Sensor Supremacy</strong> — marked enemies are more vulnerable; allied indirect/ranged units benefit from targeting support.</li>
+<li><strong>Hardened Channels</strong> — better resistance to hostile Signal Operations.</li>
+</ul>
+<p>Minor Command examples:</p>
+<ul>
+<li><strong>Sensor Lock</strong>.</li>
+<li><strong>Counter-Intrusion</strong>.</li>
+<li><strong>Decoy Signature</strong>.</li>
+</ul>
+<p>Major Operation examples:</p>
+<ul>
+<li><strong>Blackout Pulse</strong>.</li>
+<li><strong>Spoof Targeting</strong>.</li>
+<li><strong>Feed Poisoning</strong>.</li>
+<li><strong>Drone Strike</strong>.</li>
+<li><strong>Jamming Screen</strong>.</li>
+</ul>
+<p>Design note:</p>
+<ul>
+<li>Signal should remain the most important Operator channel, but not the only viable way to build an Operator.</li>
+</ul>
+<h4 id="covert-operator">Covert Operator<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#covert-operator" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Fantasy:</p>
+<ul>
+<li>The enemy never gets a clean fight: smoke, sabotage, false flags, ambushes, and manipulated public accounting.</li>
+</ul>
+<p>Stat lean:</p>
+<ul>
+<li>High Command.</li>
+<li>Medium/high Control.</li>
+<li>Medium Logistics.</li>
+<li>Low/medium Attack.</li>
+<li>Low Defense.</li>
+</ul>
+<p>Doctrine examples:</p>
+<ul>
+<li><strong>Prepared Cells</strong> — better opening position, hidden assets, or ambush access when scouting/prep succeeds.</li>
+<li><strong>Plausible Deniability</strong> — strategic/public consequences of certain battles are reduced or redirected.</li>
+</ul>
+<p>Minor Command examples:</p>
+<ul>
+<li><strong>Decoy Signature</strong>.</li>
+<li><strong>Smoke Break</strong>.</li>
+<li><strong>Countermand</strong> or <strong>Ambush Signal</strong>.</li>
+</ul>
+<p>Major Operation examples:</p>
+<ul>
+<li><strong>Ambush Cell</strong>.</li>
+<li><strong>Sabotage Kit</strong>.</li>
+<li><strong>False Flag</strong>.</li>
+<li><strong>Extraction Window</strong>.</li>
+<li><strong>Pre-Battle Fire Plan</strong>.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Covert Operator proves that Operator does not mean hacker only.</li>
+<li>This archetype should rely more on preparation and battle context than raw Control scaling.</li>
+</ul>
+<h3 id="champion-build-grammar">Champion Build Grammar<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-build-grammar" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Use a consistent Champion build grammar for design docs, not necessarily as player-facing structure.</li>
+<li>Every Champion should have a strategic-map specialty.</li>
+<li>Every Champion should have soft preferred army composition rather than hard restrictions.</li>
+<li>Champion abilities may allow specialization in particular creature/unit types, similar in spirit to HoMM4 creature specialization.</li>
+<li>Every Champion should have an explicit weakness/counterplay note.</li>
+</ol>
+<p>Design-doc build grammar:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody><tr><td><strong>Archetype pole</strong></td><td>Marshal, Operator, or Hybrid.</td></tr><tr><td><strong>Stat lean</strong></td><td>Top stats, secondary stats, and weak stats.</td></tr><tr><td><strong>Primary channels</strong></td><td>Doctrine, Signal, Logistics, Fire Support, Covert, Bio, Echo, or special/factional channels.</td></tr><tr><td><strong>Army preference</strong></td><td>Soft preference: melee, ranged, fast, armored, swarm, elite, expendable, mixed, etc.</td></tr><tr><td><strong>Unit specialization</strong></td><td>Optional explicit synergy with a creature/unit line, role, tier, faction roster segment, or upgrade family.</td></tr><tr><td><strong>Signature Doctrine</strong></td><td>Passive/conditional army-shaping identity.</td></tr><tr><td><strong>Core Minor Commands</strong></td><td>Repeated active tools that keep the Champion tactically present.</td></tr><tr><td><strong>Signature Major Operations</strong></td><td>High-impact prepared interventions.</td></tr><tr><td><strong>Strategic-map specialty</strong></td><td>Map movement, supply, scouting, site control, recruitment, recovery, political accounting, etc.</td></tr><tr><td><strong>Weakness / counterplay</strong></td><td>What opponents can exploit; what this Champion is bad at.</td></tr></tbody></table></div>
+<p>Design notes:</p>
+<ul>
+<li>The grammar is for internal consistency and future faction/Champion authoring, not a rigid player-facing template.</li>
+<li>Preferred army composition should create incentives, not invalid rosters.</li>
+<li>Unit specializations can give HoMM-like personality: e.g. stronger recon drones, better ranged militia, improved biotech brutes, cheaper Echo support units, better armored squads.</li>
+<li>Avoid making every Champion a narrow creature specialist; specialization should be one possible build texture.</li>
+<li>Weakness/counterplay notes are required so Champions do not become purely additive power bundles.</li>
+</ul>
+<h3 id="champion--unit-specialization-rules">Champion / Unit Specialization Rules<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion--unit-specialization-rules" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Champion unit specialization can be both role-based and specific-unit-line based.
+<ul>
+<li>Role-based specializations are common: ranged, melee, drone, infantry, armor, swarm, support, etc.</li>
+<li>Specific unit-line specializations are rarer and more characterful.</li>
+</ul>
+</li>
+<li>Specialization affects upgraded variants in the same unit family by default.</li>
+<li>Specialization bonuses should mix a small numeric baseline with one flavorful rule-changing effect.</li>
+<li>Some Champions can use specialization to make unusual or off-faction rosters viable.</li>
+<li>Numeric specialization bonuses may scale with Champion level; rule-changing effects are usually fixed.</li>
+</ol>
+<p>Design notes:</p>
+<ul>
+<li>Specialization should create army-building texture without hard-locking the player into a single roster.</li>
+<li>Specific unit-line specialization is useful for HoMM-like personality: a Champion known for one creature/unit family can make that line feel iconic.</li>
+<li>Role-based specialization is safer for balance and easier to reuse across factions.</li>
+<li>Off-faction specialization should be intentional and lore-supported, not a universal optimization exploit.</li>
+<li>If an upgraded variant radically changes role, the specialization may need an explicit exception.</li>
+</ul>
+<p>Example specialization shapes:</p>
+<ul>
+<li><strong>Ranged Specialist</strong> — ranged stacks gain small accuracy/damage reliability; once per round, one ranged stack may use a Minor Command to reposition before firing.</li>
+<li><strong>Recon Drone Specialist</strong> — recon drone family gains initiative/scouting value; upgraded variants also improve Sensor Lock or reveal radius.</li>
+<li><strong>Armored Infantry Specialist</strong> — armored infantry family gains small Defense scaling; once per battle, a specialized stack can ignore a suppression penalty.</li>
+<li><strong>Street Militia Organizer</strong> — low-tier militia/expendable units gain Cohesion resilience; off-faction irregulars suffer reduced mixing penalty.</li>
+<li><strong>Biotech Handler</strong> — one Bio unit family gains regeneration/recovery scaling; rule effect may interact with Growth Surge or Tissue Reclamation.</li>
+</ul>
+<h3 id="champion-recruitment-and-availability">Champion Recruitment and Availability<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-recruitment-and-availability" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Champion availability uses a hybrid pool: faction Champions plus neutral/mercenary Champions.</li>
+<li>Every faction should have both Marshal and Operator options, but faction proportions/skews differ.</li>
+<li>Some neutral Champions may be recruitable only from map sites/events.</li>
+<li>Champion availability strongly reinforces faction philosophy.</li>
+<li>Recruitment uses a hybrid model: curated roster with rotating availability.</li>
+</ol>
+<p>Design notes:</p>
+<ul>
+<li>Faction Champion pools should express the faction’s worldview, command culture, economy, legitimacy, and preferred army shapes.</li>
+<li>Every faction needs access to both Marshal and Operator play, but not in equal proportions.
+<ul>
+<li>A militarized faction may have many Marshals and fewer Operators.</li>
+<li>A Signal/corporate/intelligence faction may have many Operators and fewer pure Marshals.</li>
+<li>A logistics/industrial faction may blur Marshal/Operator through supply and infrastructure play.</li>
+</ul>
+</li>
+<li>Neutral/mercenary Champions can enable unusual rosters, off-faction synergies, or special map-site stories.</li>
+<li>Map-site/event Champions should be mostly neutral/special cases, not the default way to access core faction identity.</li>
+<li>Rotating availability preserves HoMM tavern-like texture, while curated rosters prevent random incoherence.</li>
+</ul>
+<p>Recruitment model sketch:</p>
+<ul>
+<li><strong>Faction roster</strong> — known pool of Champions associated with a faction/town.</li>
+<li><strong>Recruitment rotation</strong> — a limited subset available at a given time/location.</li>
+<li><strong>Neutral/mercenary roster</strong> — broader pool that may appear through taverns, contracts, event sites, or campaign state.</li>
+<li><strong>Site/event Champion</strong> — special neutral or narrative Champion unlocked by visiting, controlling, or resolving a map site.</li>
+</ul>
+<h3 id="champion-defeat-retreat-and-persistence">Champion Defeat, Retreat, and Persistence<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-defeat-retreat-and-persistence" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Use HoMM-like loss of Champion control rather than routine literal permanent death.</li>
+<li>If a Champion is defeated without successful retreat/extraction, they are removed from the player’s roster and enter a lost/random/capture-style pool.</li>
+<li>Permanent Champion death is rare and reserved for special conditions, scenarios, hardcore rules, executions, or faction/narrative mechanics.</li>
+<li>Champion retreat/extraction depends on Logistics, Supply State, Extraction tools, and battle conditions.</li>
+<li>Champion injury/cooldown occurs mainly if retreat/extraction fails.</li>
+<li>Capture, ransom, interrogation, or equivalent high-stakes recovery systems may exist as rare events.</li>
+<li>Echo/Bio-specific defeat interactions are deferred to faction design.</li>
+</ol>
+<p>Outcome model:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Outcome</th><th>Trigger</th><th>Consequence</th></tr></thead><tbody><tr><td><strong>Extracted / Retreated</strong></td><td>Player retreats, surrenders, or uses valid extraction before total defeat.</td><td>Champion returns to a valid recruitment/base point. Army/supplies/tempo may be lost, but Champion control is preserved.</td></tr><tr><td><strong>Defeated / Lost</strong></td><td>Army loses and Champion does not successfully extract.</td><td>Champion leaves player’s roster and enters a lost/missing/random/capture-style pool. They may later reappear through recruitment, events, ransom, or even enemy availability.</td></tr><tr><td><strong>Captured / Burned / Disavowed</strong></td><td>Special defeat condition, enemy ability, site rule, or campaign event.</td><td>Champion becomes a recovery objective, bargaining chip, intelligence risk, or temporarily unavailable asset.</td></tr><tr><td><strong>Permanently Dead / Gone</strong></td><td>Rare special condition.</td><td>Champion is permanently removed. Use sparingly to avoid save-scumming and narrative breakage.</td></tr></tbody></table></div>
+<p>Design notes:</p>
+<ul>
+<li>This preserves HoMM/Olden Era texture: losing a battle can cost access to a developed Champion, not merely wound them for free.</li>
+<li>Routine true permadeath is avoided because Champions may carry narrative identity, progression, faction philosophy, and unique Operations.</li>
+<li>Loss of control is still serious: the player may lose tempo, artifacts/assets, army, map position, and access to that build.</li>
+<li>High Logistics and prepared Extraction tools should make retreat/recovery more reliable.</li>
+<li>Being Cut Off, surrounded, jammed, deep in hostile territory, or under special enemy control should make extraction harder.</li>
+<li>The system should support rare stories where a lost Champion later appears as neutral, mercenary, coerced enemy, ransom target, or altered Echo/Bio case.</li>
+</ul>
+<h3 id="champion-assets">Champion Assets<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-assets" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Use <strong>Assets</strong> as the artifact-equivalent term.</li>
+<li>Champions have fixed equipment-style slots, plus general command-layer asset slots.</li>
+<li>Assets include both personal and command-layer assets.</li>
+<li>Assets can be lost or contested on Champion defeat, like HoMM artifacts.</li>
+<li>Assets may unlock Operations and Doctrines, not only stat bonuses.</li>
+</ol>
+<p>Asset slot model:</p>
+<ul>
+<li><strong>Personal slots</strong> — cyberware, implants, weapons, armor modules, sensory rigs, neural interfaces, bodyguards, signature gear, or other Champion-adjacent equipment.</li>
+<li><strong>Command-layer slots</strong> — drones, relay access, logistics packages, fire-support contracts, blackmail files, legal permissions, field labs, Echo archives, tactical AIs, transport assets, or faction credentials.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Fixed slots preserve the readable artifact/equipment game from HoMM while fitting cyberpunk asset fantasy.</li>
+<li>Personal slots can feel closer to Shadowrun-style cyberware/equipment constraints.</li>
+<li>Command-layer asset slots represent off-board power: what the Champion can call, access, threaten, deploy, or authorize.</li>
+<li>Asset loss on defeat makes Champion defeat strategically serious and gives opponents meaningful spoils.</li>
+<li>Not every asset should be lootable in the same way: some may be physical, some contractual, some faction-bound, some compromised, and some burned/disavowed.</li>
+</ul>
+<p>Example asset effects:</p>
+<ul>
+<li><strong>Targeting Relay</strong> — improves Signal Operations or unlocks Sensor Lock variant.</li>
+<li><strong>Fire-Support Contract</strong> — unlocks a limited Fire Support Operation.</li>
+<li><strong>Field Clinic Package</strong> — improves post-battle recovery or unlocks Field Repair for eligible units.</li>
+<li><strong>Black Ledger</strong> — strengthens Covert/False Flag strategic Operations.</li>
+<li><strong>Echo Archive Key</strong> — enables a rare Echo Operation or improves Continuity effects.</li>
+<li><strong>Combat Exoskeleton</strong> — personal asset that improves Marshal survivability/retreat odds or a Defense-scaling Minor Command.</li>
+</ul>
+<h3 id="asset-slot-structure-and-intel-upgrades">Asset Slot Structure and Intel Upgrades<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#asset-slot-structure-and-intel-upgrades" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Personal Asset slots are body/location based and also include generic personal slots.</li>
+<li>Command-layer Asset slots are generic in UI, but Assets may have typed requirements, tags, or exclusivity rules.</li>
+<li>Marshals and Operators use the same slot structure, but different Assets are more useful to different archetypes.</li>
+<li>Assets have rarity/tiers and can be upgraded.</li>
+<li>Asset upgrades use <strong>Intel</strong> as a strategic resource.</li>
+<li>Some Assets are faction-bound or non-transferable, mostly strategic/command-layer Assets.</li>
+</ol>
+<p>Reference note — Olden Era Alchemical Dust:</p>
+<ul>
+<li>Public references describe Alchemical Dust in HoMM: Olden Era as a limited progression resource used to upgrade artifacts and spells, with some building/unit uses.</li>
+<li>Reported sources include dismantling/destroying artifacts, map piles, labs/trading, sites/creature banks, faction laws/skills, and some passive generation.</li>
+<li>The relevant design lesson is: a scarce strategic resource can turn duplicate/unwanted loot into upgrade progress and make artifact/spell progression a map-economy decision.</li>
+</ul>
+<p>Neon adaptation — Intel:</p>
+<ul>
+<li><strong>Intel</strong> is Neon Champions’ analogue to Alchemical Dust for the asset/operation layer.</li>
+<li>Intel is a strategic resource used for scouting, Asset upgrades, Operation preparation, covert/signal actions, and selected strategic unlocks.</li>
+<li>Intel is not the same as Signal. Signal is an Operation channel; Intel is a strategic resource.</li>
+</ul>
+<p>Intel sources may include:</p>
+<ul>
+<li>Scouting and recon actions.</li>
+<li>Captured servers, archives, dossiers, blackmail files, targeting feeds, or field evidence.</li>
+<li>Dismantling/burning duplicate or unwanted Assets.</li>
+<li>Map sites: relay towers, data centers, clinics, archives, informant networks, abandoned labs, battlefield recorders.</li>
+<li>Covert missions, interrogation, post-battle exploitation, or successful False Flag/Feed Poisoning effects.</li>
+<li>Faction buildings or faction-specific laws/policies.</li>
+</ul>
+<p>Intel uses may include:</p>
+<ul>
+<li>Upgrading Assets by tier or mode.</li>
+<li>Improving Operation variants or prepared Operation packages.</li>
+<li>Enhancing scouting/pre-battle information.</li>
+<li>Unlocking or improving strategic Operations.</li>
+<li>Paying costs for covert, Signal, legal, or information-war effects.</li>
+<li>Converting obsolete Assets into progress rather than dead inventory.</li>
+</ul>
+<p>Slot model sketch:</p>
+<ul>
+<li><strong>Personal body/location slots</strong> — Head/Neural, Torso, Arms, Legs, Implant/Cyberware, etc.</li>
+<li><strong>Generic personal slots</strong> — sidearm, bodyguard, sensory rig, field kit, personal AI, or other Champion-adjacent gear.</li>
+<li><strong>Generic command-layer slots</strong> — command Assets with requirements/tags rather than hard slot categories.</li>
+</ul>
+<p>Command Asset requirement/tag examples:</p>
+<ul>
+<li>Requires Signal training.</li>
+<li>Requires Logistics stat threshold.</li>
+<li>Requires faction authorization.</li>
+<li>Requires map-site access.</li>
+<li>Counts as Fire Support.</li>
+<li>Counts as Heavy Support; cannot equip another Heavy Support Asset.</li>
+<li>Faction-bound; cannot be transferred or looted normally.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Avoid over-segmenting command slots into Signal/Logistics/Fire Support/Covert slot UI unless playtesting proves generic slots are too unclear.</li>
+<li>Intel should be scarce enough that upgrading every Asset is impossible.</li>
+<li>Asset upgrades should create strategic decisions: upgrade a signature Asset, prepare more Operations, or invest in scouting/covert leverage.</li>
+<li>Losing upgraded Assets on defeat should hurt, but not always erase faction-bound strategic infrastructure.</li>
+</ul>
+<h3 id="asset-upgrade-design">Asset Upgrade Design<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#asset-upgrade-design" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Asset upgrades use a hybrid model: simple linear tiers plus occasional branching choices.</li>
+<li>Upgrading Assets may unlock new Operations.</li>
+<li>Duplicate Assets can be dismantled for Intel, except unique/story Assets by default.</li>
+<li>Faction-bound strategic Assets use normal Intel plus faction building/site requirements.</li>
+<li>Intel is a global player resource for MVP.</li>
+</ol>
+<p>Design notes:</p>
+<ul>
+<li>MVP should avoid overcomplicating Intel locality. A global Intel pool is easier to understand and balance.</li>
+<li>Local or faction-specific Intel can be added later if map control and information logistics need more depth.</li>
+<li>Linear tiers keep upgrade UX readable: Mk I → Mk II → Mk III.</li>
+<li>Branches should be occasional and meaningful, not attached to every Asset.</li>
+<li>Branching is best for signature Assets, high-rarity Assets, faction Assets, and Operation-unlocking Assets.</li>
+<li>Dismantling duplicates prevents inventory clutter and creates an Olden Era-like conversion loop from unwanted loot into strategic progression.</li>
+<li>Unique/story Assets should not normally be dismantled unless the story explicitly supports burning, selling, leaking, or disavowing them.</li>
+</ul>
+<p>Example upgrade shapes:</p>
+<ul>
+<li><strong>Targeting Relay Mk I → Mk II → Mk III</strong>
+<ul>
+<li>Improves Sensor Lock reliability/range.</li>
+<li>High tier may unlock Jamming Screen or improve Counter-Intrusion.</li>
+</ul>
+</li>
+<li><strong>Fire-Support Contract</strong>
+<ul>
+<li>Tier improves number of uses or radius.</li>
+<li>Branch A: precision strike.</li>
+<li>Branch B: suppression barrage.</li>
+</ul>
+</li>
+<li><strong>Black Ledger</strong>
+<ul>
+<li>Tier improves Covert strategic leverage.</li>
+<li>Branch A: False Flag unlock/improvement.</li>
+<li>Branch B: ransom/interrogation/reputation leverage.</li>
+</ul>
+</li>
+<li><strong>Field Clinic Package</strong>
+<ul>
+<li>Tier improves recovery and post-battle casualty conversion.</li>
+<li>High tier may unlock Field Repair or emergency stabilization.</li>
+</ul>
+</li>
+</ul>
+<h3 id="champion-secondary-skills">Champion Secondary Skills<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-secondary-skills" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Champions have secondary skills in addition to primary stats, Operations, Doctrines, and Assets.</li>
+<li>Secondary skills are broad skills with ranks and rank-linked perks.</li>
+<li>Secondary skills include Operation channel skills.</li>
+<li>Secondary skills also include classic HoMM-like skills adapted to Neon.</li>
+<li>Skill slots are limited, forcing build identity.</li>
+</ol>
+<p>Skill model:</p>
+<ul>
+<li>A secondary skill represents a broad competency.</li>
+<li>Each skill has ranks, e.g. Basic / Advanced / Expert, or equivalent tiering.</li>
+<li>Rank increases may grant passive scaling plus one or more perk choices.</li>
+<li>Champions cannot learn everything; limited skill slots create identity and replayability.</li>
+</ul>
+<p>Operation channel skill examples:</p>
+<ul>
+<li><strong>Signal Training</strong> — improves Sensor Lock, Spoof Targeting, Jamming, Counter-Intrusion, and network contest reliability.</li>
+<li><strong>Logistics Operations</strong> — improves Emergency Resupply, Supply Corridor, Extraction Window, capacity recovery, and strategic supply manipulation.</li>
+<li><strong>Fire Support Coordination</strong> — improves barrages, drone strikes, suppression fire, delayed missiles, and pre-battle fire plans.</li>
+<li><strong>Covert Operations</strong> — improves Ambush Cell, Sabotage Kit, False Flag, Smoke Break, blackmail/leverage actions, and prepared-cell reliability.</li>
+<li><strong>Doctrine Mastery</strong> — improves Rally, Hold the Line, Coordinated Assault, Battle Rhythm, formation effects, and Marshal sustained value.</li>
+</ul>
+<p>Classic HoMM-like Neon skill examples:</p>
+<ul>
+<li><strong>Scouting</strong> — better map vision, enemy army estimation, site intelligence, and pre-battle Operation preparation.</li>
+<li><strong>Recruitment</strong> — improved access to units, mercenaries, specialists, neutral stacks, or faction roster refreshes.</li>
+<li><strong>Tactics</strong> — better deployment, opening formation, first-round positioning, and battle-start options.</li>
+<li><strong>Leadership / Cohesion</strong> — improves morale-equivalent reliability, Cohesion recovery, panic/suppression resistance, and mixed-roster stability.</li>
+<li><strong>Pathfinding / Mobility</strong> — improves strategic movement, terrain penalties, convoy handling, and potentially retreat routes.</li>
+<li><strong>Intelligence</strong> — improves Intel gain, Intel efficiency, asset dismantling returns, scouting interpretation, and information-war actions.</li>
+<li><strong>Economics / Influence</strong> — improves contracts, upkeep, recruitment cost, faction relations, ransom, and political-accounting effects.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Avoid duplicating primary stats too directly. Skills should modify rules, unlock options, or specialize channels rather than simply add +Attack/+Control.</li>
+<li>Operation channel skills should make channels deeper without making every Operator identical.</li>
+<li>Classic adapted skills help preserve HoMM readability.</li>
+<li>Limited skill slots are important because Assets, Operations, and unit specialization already add many build axes.</li>
+</ul>
+<h3 id="secondary-skill-list-direction">Secondary Skill List Direction<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#secondary-skill-list-direction" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>MVP may support a broader secondary skill list, around 16 skills, rather than an ultra-lean 8-12 list.</li>
+<li><strong>Logistics Operations</strong> and <strong>Pathfinding / Mobility</strong> remain separate.
+<ul>
+<li>Logistics Operations governs supply, extraction, reload/recovery, and logistics-flavored Operations.</li>
+<li>Pathfinding / Mobility governs strategic movement, terrain, convoy handling, and route access.</li>
+</ul>
+</li>
+<li><strong>Intelligence</strong> remains separate from Signal Training.
+<ul>
+<li>Intel is a strategic resource/economy and interpretation layer.</li>
+<li>Signal is an Operation channel for tactical/network contest, jamming, spoofing, targeting, and counter-intrusion.</li>
+</ul>
+</li>
+<li><strong>Economics</strong> and <strong>Influence</strong> are split into separate secondary skills.</li>
+<li>Bio/Echo secondary skills are special/factional and appear only when relevant factions or Champion lines exist.</li>
+</ol>
+<p>Economics scope:</p>
+<ul>
+<li>Credits/income efficiency.</li>
+<li>Upkeep and maintenance pressure.</li>
+<li>Recruitment, construction, or Asset upgrade discounts where appropriate.</li>
+<li>Market/trade/exchange rates.</li>
+<li>Contract affordability.</li>
+<li>Strategic infrastructure and faction economy hooks.</li>
+</ul>
+<p>Influence scope:</p>
+<ul>
+<li>Mercenary and neutral recruitment access.</li>
+<li>Diplomacy-like effects.</li>
+<li>Ransom, capture, and negotiation leverage.</li>
+<li>Reputation, legitimacy, and public-accounting manipulation.</li>
+<li>Contract quality and political permissions.</li>
+<li>Hearts-and-minds, legal cover, deniability, and faction relations.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Splitting Economics and Influence creates room for both hard-resource optimization and social/political leverage.</li>
+<li>Economics must avoid becoming a mandatory boring income tax skill; it needs situational hooks and opportunity costs.</li>
+<li>Influence should be more than “cheaper units”: it is the skill for legitimacy, contracts, public narrative, neutral access, and prisoner/ransom systems.</li>
+<li>Around 16 skills is an upper-bound target for MVP vocabulary, not permission to create filler skills.</li>
+<li>Bio/Echo skills should not be generic until the relevant faction identities are designed.</li>
+</ul>
+<h3 id="candidate-secondary-skill-list">Candidate Secondary Skill List<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#candidate-secondary-skill-list" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>The initial 16-skill list works as design vocabulary, with names expected to change later.</li>
+<li><strong>Ranged Warfare</strong> and <strong>Shock Warfare</strong> exist separately.</li>
+<li><strong>Armor / Fortification</strong> is renamed toward <strong>Defensive Engineering</strong>.</li>
+<li>Drone Command and Urban Warfare need further decision before being core skills.</li>
+</ol>
+<p>Initial 16-skill vocabulary:</p>
+<p>Operation/channel skills:</p>
+<ol>
+<li><strong>Signal Training</strong>.</li>
+<li><strong>Logistics Operations</strong>.</li>
+<li><strong>Fire Support Coordination</strong>.</li>
+<li><strong>Covert Operations</strong>.</li>
+<li><strong>Doctrine Mastery</strong>.</li>
+</ol>
+<p>Strategic/classic skills:</p>
+<ol start="6">
+<li><strong>Scouting</strong>.</li>
+<li><strong>Recruitment</strong>.</li>
+<li><strong>Tactics</strong>.</li>
+<li><strong>Leadership / Cohesion</strong>.</li>
+<li><strong>Pathfinding / Mobility</strong>.</li>
+<li><strong>Intelligence</strong>.</li>
+<li><strong>Economics</strong>.</li>
+<li><strong>Influence</strong>.</li>
+</ol>
+<p>Combat/army skills:</p>
+<ol start="14">
+<li><strong>Ranged Warfare</strong>.</li>
+<li><strong>Shock Warfare</strong>.</li>
+<li><strong>Defensive Engineering</strong>.</li>
+</ol>
+<p>Optional / later / factional candidates:</p>
+<ul>
+<li><strong>Bio Systems</strong>.</li>
+<li><strong>Echo Continuity</strong>.</li>
+<li><strong>Drone Command</strong>.</li>
+<li><strong>Urban Warfare</strong>.</li>
+<li><strong>Naval / Air Mobility</strong>.</li>
+<li><strong>Legal Warfare</strong>.</li>
+<li><strong>Media Operations</strong>.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Skill names are provisional. The list is a mechanical vocabulary, not final UI naming.</li>
+<li>Ranged Warfare and Shock Warfare should remain distinct because ranged capacity/ammo/lanes and assault/melee/breach tempo create different army identities.</li>
+<li>Defensive Engineering covers armor, fortification, hardpoints, fieldworks, defensive preparation, and protection systems better than a narrow Armor/Fortification label.</li>
+<li>Drone Command is not a core MVP secondary skill; model drones through units, Assets, Operations, unit specialization, and optional/factional skills later.</li>
+<li>Urban Warfare is folded into Tactics for MVP; it can reappear as Tactics perks, Covert/Pathfinding/Defensive Engineering perks, Assets, sites, faction skills, or Champion specializations.</li>
+</ul>
+<h3 id="skill-ranks-and-perks">Skill Ranks and Perks<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skill-ranks-and-perks" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Secondary skills use 3 ranks: <strong>Basic / Advanced / Expert</strong>.</li>
+<li>Each skill rank grants a fixed baseline effect so skill value remains predictable.</li>
+<li>Some skills also offer subperks/subskills; others remain direct rank upgrades.</li>
+<li>When a skill has subperks, they are chosen at <strong>Advanced</strong> and <strong>Expert</strong>, not at Basic.</li>
+<li>Level-up offers new skills and rank-ups together, HoMM-like.</li>
+<li>Every Champion has the same maximum number of secondary skill slots.</li>
+<li>The working cap is <strong>8 secondary skills per Champion</strong>.</li>
+<li>Because Champions can learn up to 8 skills, the total skill list should be broad enough to preserve build exclusion.</li>
+</ol>
+<p>Design notes:</p>
+<ul>
+<li>Basic / Advanced / Expert is locked because it is readable, preserves HoMM familiarity, and is already established by reference-game analysis.</li>
+<li>Fixed baselines prevent subperk choice from making skill value opaque.</li>
+<li>Selective subperks add build texture without forcing all 24 skills to become full trees.</li>
+<li>Subperks are best reserved for skills where branching creates real identity, e.g. Edge, Signal Training, Covert Operations, Media Operations, Tactics, Leadership / Cohesion, or faction-flavored special skills.</li>
+<li>Skills with narrower utility can remain clean direct upgrades.</li>
+<li>New-skill and rank-up choices should appear together so level-up decisions feel close to HoMM.</li>
+<li>An 8-skill cap works well only if the total available skill pool is large enough that Champions cannot cover everything important.</li>
+<li>If the available pool remains near 16, an 8-skill cap may allow too much coverage; expand the candidate list or enforce archetype/faction offer weighting.</li>
+</ul>
+<h3 id="expanded-secondary-skill-pool">Expanded Secondary Skill Pool<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#expanded-secondary-skill-pool" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Target total secondary skill pool size is roughly 24-26 skills.</li>
+<li>Add <strong>Medical / Recovery</strong>.</li>
+<li>Add <strong>Asset Management</strong>.</li>
+<li>Add <strong>Siege / Breachcraft</strong>.</li>
+<li>Add <strong>Psychological Warfare</strong>.</li>
+<li>Add <strong>Counterintelligence</strong>.</li>
+</ol>
+<p>Expanded core candidate list:</p>
+<ol>
+<li><strong>Signal Training</strong>.</li>
+<li><strong>Logistics Operations</strong>.</li>
+<li><strong>Fire Support Coordination</strong>.</li>
+<li><strong>Covert Operations</strong>.</li>
+<li><strong>Doctrine Mastery</strong>.</li>
+<li><strong>Scouting</strong>.</li>
+<li><strong>Recruitment</strong>.</li>
+<li><strong>Tactics</strong>.</li>
+<li><strong>Leadership / Cohesion</strong>.</li>
+<li><strong>Pathfinding / Mobility</strong>.</li>
+<li><strong>Intelligence</strong>.</li>
+<li><strong>Economics</strong>.</li>
+<li><strong>Influence</strong>.</li>
+<li><strong>Ranged Warfare</strong>.</li>
+<li><strong>Shock Warfare</strong>.</li>
+<li><strong>Defensive Engineering</strong>.</li>
+<li><strong>Medical / Recovery</strong>.</li>
+<li><strong>Asset Management</strong>.</li>
+<li><strong>Siege / Breachcraft</strong>.</li>
+<li><strong>Psychological Warfare</strong>.</li>
+<li><strong>Counterintelligence</strong>.</li>
+</ol>
+<p>Candidate skills still available to reach 24-26 if needed:</p>
+<ol start="22">
+<li><strong>Training / Drilling</strong> — improves unit XP, readiness, specialization depth, and roster reliability.</li>
+<li><strong>Engineering / Infrastructure</strong> — map-site repair, infrastructure control, fieldworks, roads, relays, production hooks.</li>
+<li><strong>Legal Warfare</strong> — permissions, sanctions, warrants, legitimacy, corporate personhood leverage.</li>
+<li><strong>Media Operations</strong> — public narrative, reputation, propaganda, attention, hearts-and-minds effects.</li>
+<li><strong>Black Market</strong> — illicit assets, smuggling, forbidden units, deniable contracts, contraband Intel conversion.</li>
+<li><strong>Air / Drone Mobility</strong> — optional/factional mobility and remote-platform support if needed later.</li>
+</ol>
+<p>New skill scopes:</p>
+<ul>
+<li><strong>Medical / Recovery</strong> — casualty conversion, wounded recovery, field stabilization, biological repair, trauma systems, post-battle readiness.</li>
+<li><strong>Asset Management</strong> — Asset slot efficiency, Intel upgrade discounts, dismantling returns, maintenance, transfer/recovery odds, signature Asset depth.</li>
+<li><strong>Siege / Breachcraft</strong> — attacking towns, bunkers, arcologies, gates, hardpoints, shielded sites, and fortified map objectives.</li>
+<li><strong>Psychological Warfare</strong> — Cohesion attacks, fear/confusion, propaganda shocks, surrender pressure, morale-equivalent manipulation, intimidation.</li>
+<li><strong>Counterintelligence</strong> — resistance against Covert/Signal/Intel attacks, detection of sabotage, protection from False Flag/Feed Poisoning, safer operations.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>24-26 skills plus an 8-skill Champion cap should create meaningful build exclusion.</li>
+<li>Added skills must earn their place with real mechanics; do not add filler just to hit a number.</li>
+<li>Some optional candidates may become factional instead of universal.</li>
+<li>Counterintelligence should not invalidate Covert/Signal; it should create preparation/counterplay.</li>
+</ul>
+<h3 id="homm-skill-reference-lessons">HoMM Skill Reference Lessons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#homm-skill-reference-lessons" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Research summary:</p>
+<ul>
+<li>HoMM3 secondary skills include combat skills such as Offense, Armorer, Archery, Tactics, Artillery, Ballistics, and First Aid; magic skills such as Wisdom, Sorcery, Intelligence, Mysticism, Air/Earth/Fire/Water Magic, and Resistance; and adventure/economy skills such as Logistics, Pathfinding, Scouting, Navigation, Estates, Diplomacy, Scholar, Learning, Eagle Eye, Luck, Leadership, and Necromancy.</li>
+<li>HoMM4 uses primary skill families with subskills, e.g. Tactics contains Offense/Defense/Leadership, Combat contains Melee/Archery/Magic Resistance, Nobility contains Estates/Mining/Diplomacy, and Scouting contains Pathfinding/Seamanship/Stealth.</li>
+<li>HoMM5/Olden Era keep Basic/Advanced/Expert readability, 8 skill cap, faction skills, sub-skills/perks, and synergies between skills.</li>
+</ul>
+<p>Coverage notes:</p>
+<ul>
+<li>Offense/Archery are covered by Ranged Warfare, Shock Warfare, and Fire Support.</li>
+<li>Armorer/Defense are covered by Defensive Engineering.</li>
+<li>Tactics and Leadership are already represented.</li>
+<li>Logistics/Pathfinding are intentionally split into Logistics Operations and Pathfinding / Mobility.</li>
+<li>Estates/Economy and Diplomacy are represented by Economics and Influence.</li>
+<li>Scouting, Intelligence, Ballistics/Siege, and First Aid are represented.</li>
+<li>Magic schools are represented by Operation channel skills.</li>
+<li>Necromancy-like design is represented by Bio/Echo factional skills later.</li>
+<li>Resistance/Interference is partially represented by Counterintelligence, Defensive Engineering, and Leadership/Cohesion.</li>
+</ul>
+<p>Additional ideas identified, not locked:</p>
+<ul>
+<li><strong>Edge</strong> — Luck-equivalent skill. Represents engineered luck, nerve, opportunism, favorable breaks, backup plans, and high-risk success windows.</li>
+<li><strong>Contingency</strong> — related but more planned/redundancy-focused than Edge; could become a perk, Asset tag, or separate skill later.</li>
+<li><strong>Operational Security / Hardening</strong> — broader Resistance analogue against hostile Operations, jamming, spoofing, disruption, and Command attacks.</li>
+<li><strong>Support Systems / Battlecraft</strong> — War Machines analogue for turrets, med-drones, relays, mines, decoys, and other deployed support platforms.</li>
+<li><strong>Insight / Operational Analysis</strong> — Scholar/Wisdom/Eagle Eye analogue for learning Operations, interpreting sites, previewing enemy capabilities, and deriving knowledge from encounters.</li>
+<li><strong>Stealth / Infiltration</strong> — HoMM4 Stealth analogue; currently folded into Covert Operations for MVP.</li>
+<li><strong>Navigation / Seamanship analogue</strong> — only relevant if sea, air, orbital, undercity, or other special movement layers become prominent.</li>
+</ul>
+<p>Current preference:</p>
+<ul>
+<li>Add <strong>Edge</strong> as the Luck-type skill candidate.</li>
+<li>Keep Contingency and the other identified ideas as design options, not locked core systems yet.</li>
+</ul>
+<h3 id="current-core-secondary-skill-pool">Current Core Secondary Skill Pool<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#current-core-secondary-skill-pool" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Lock the following 24-skill pool as the current working core.</li>
+<li><strong>Edge</strong> is a universal core skill.</li>
+<li><strong>Counterintelligence</strong> remains core.</li>
+<li><strong>Media Operations</strong> remains core.</li>
+<li><strong>Engineering / Infrastructure</strong> remains separate from <strong>Defensive Engineering</strong>.</li>
+</ol>
+<p>Current working core skills:</p>
+<ol>
+<li><strong>Signal Training</strong>.</li>
+<li><strong>Logistics Operations</strong>.</li>
+<li><strong>Fire Support Coordination</strong>.</li>
+<li><strong>Covert Operations</strong>.</li>
+<li><strong>Doctrine Mastery</strong>.</li>
+<li><strong>Scouting</strong>.</li>
+<li><strong>Recruitment</strong>.</li>
+<li><strong>Tactics</strong>.</li>
+<li><strong>Leadership / Cohesion</strong>.</li>
+<li><strong>Pathfinding / Mobility</strong>.</li>
+<li><strong>Intelligence</strong>.</li>
+<li><strong>Economics</strong>.</li>
+<li><strong>Influence</strong>.</li>
+<li><strong>Ranged Warfare</strong>.</li>
+<li><strong>Shock Warfare</strong>.</li>
+<li><strong>Defensive Engineering</strong>.</li>
+<li><strong>Medical / Recovery</strong>.</li>
+<li><strong>Asset Management</strong>.</li>
+<li><strong>Siege / Breachcraft</strong>.</li>
+<li><strong>Psychological Warfare</strong>.</li>
+<li><strong>Counterintelligence</strong>.</li>
+<li><strong>Engineering / Infrastructure</strong>.</li>
+<li><strong>Media Operations</strong>.</li>
+<li><strong>Edge</strong>.</li>
+</ol>
+<p>Deferred / factional / idea-space skills:</p>
+<ul>
+<li><strong>Training / Drilling</strong>.</li>
+<li><strong>Legal Warfare</strong>.</li>
+<li><strong>Black Market</strong>.</li>
+<li><strong>Air / Drone Mobility</strong>.</li>
+<li><strong>Drone Command</strong>.</li>
+<li><strong>Bio Systems</strong>.</li>
+<li><strong>Echo Continuity</strong>.</li>
+<li><strong>Contingency</strong>.</li>
+<li><strong>Operational Security / Hardening</strong>.</li>
+<li><strong>Support Systems / Battlecraft</strong>.</li>
+<li><strong>Insight / Operational Analysis</strong>.</li>
+<li><strong>Stealth / Infiltration</strong>.</li>
+<li><strong>Navigation / Seamanship analogue</strong>.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Edge being universal preserves the HoMM Luck role while translating it into cyberpunk terms: nerve, favors, opportunism, backup plans, lucky breaks, and engineered uncertainty.</li>
+<li>Counterintelligence remains core because hostile Covert/Signal/Intel play needs readable counterplay.</li>
+<li>Media Operations remains core because control of narrative, reputation, and attention is central to Neon Champions.</li>
+<li>Engineering / Infrastructure is map-site and infrastructure control; Defensive Engineering is battlefield protection, fortification, armor, and hardpoint defense.</li>
+</ul>
+<h3 id="skill-offer-rules">Skill Offer Rules<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skill-offer-rules" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Champions receive <strong>3 skill choices</strong> on level-up.</li>
+<li>Level-up offers use structured slots: <strong>one existing-skill upgrade</strong>, <strong>one new skill</strong>, and <strong>one wildcard</strong>.</li>
+<li>Champion archetype and faction both weight skill offers.</li>
+<li>Map sites/buildings can teach skills outside normal level-up.</li>
+<li>Core skills are generally not hard-banned by Champion class/archetype; they are weighted by rarity. Hard restrictions are reserved for faction/special skills or explicitly exceptional skills.</li>
+</ol>
+<p>Baseline level-up offer model:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>On level-up, offer up to three choices:</span></span>
+<span data-line><span>1. Upgrade Slot — improve one already-known skill that is not at maximum rank.</span></span>
+<span data-line><span>2. New Skill Slot — learn one skill not currently known, selected from the weighted eligible pool.</span></span>
+<span data-line><span>3. Wildcard Slot — can be an upgrade, a new skill, a rare off-archetype skill, faction-flavored offer, or special event/context offer.</span></span></code></pre></figure>
+<p>Reference-game rationale:</p>
+<ul>
+<li><strong>HoMM3</strong> uses two choices with a strong hidden structure: usually one existing-skill upgrade and one new class-weighted skill. It also supports outside-level skill learning through adventure-map sites such as Witch Huts, Universities, Scholars, and events.</li>
+<li><strong>Olden Era</strong> publicly confirms heroes can improve an existing skill or choose a new one, keeps the 8-skill cap, uses faction iconic/starting skills, and adds subskill/subclass agency. Public information does not yet clearly confirm its exact offer-weighting algorithm.</li>
+<li><strong>Songs of Conquest</strong> leans harder into faction/class-constrained Wielder development, with random level-up offers shaped by class/faction pools rather than a fully universal pool.</li>
+<li><strong>Age of Wonders 4</strong> uses deterministic skill trees instead of random offers; this gives high planning clarity but loses some HoMM-style discovery and adventure-map spice.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>The 3-slot structure is the recommended Neon Champions compromise: more agency than HoMM3’s two choices, less deterministic than a pure skill tree.</li>
+<li>The Upgrade/New/Wildcard pattern preserves the HoMM3 upgrade-vs-new rhythm while giving room for Neon-specific faction, site, sponsor, cybernetic, Echo, or narrative surprises.</li>
+<li>Weighting by both archetype and faction should create recognizable Champion identities without making every Champion build deterministic.</li>
+<li>Off-archetype core skills should be rare, not forbidden, unless a specific design reason exists. This keeps surprising builds possible.</li>
+<li>Map-taught skills are strategically valuable and very HoMM-compatible, but should be controlled: use them as memorable site rewards, faction infrastructure, black-market clinics, academies, trainers, datavaults, Echo shrines, or corporate certification programs rather than as common filler rewards.</li>
+</ul>
+<p>Open tuning questions / prior-decision check:</p>
+<ul>
+<li><strong>Skill cap:</strong> earlier design notes already use an <strong>8-skill Champion cap</strong> as the working assumption. Do not re-open unless deliberately overriding it.</li>
+<li><strong>Rank ladder:</strong> <strong>Basic / Advanced / Expert</strong> is now locked as the Neon Champions secondary-skill rank ladder.</li>
+<li><strong>Subperks:</strong> some skills have subperk/subskill choices at Advanced and Expert; others remain direct rank upgrades.</li>
+<li><strong>Wildcard slot:</strong> can rarely offer skills outside normal faction/archetype weighting.</li>
+<li><strong>Faction/special skills:</strong> are not offered by ordinary wildcard rolls; they require explicit events, sites, story context, or other authored triggers.</li>
+<li><strong>Map-taught skills:</strong> use a site-specific whitelist rather than a broad random/global pool.</li>
+<li><strong>8-skill cap:</strong> map sites do not bypass the cap directly. If a Champion is full, the site may create a replacement choice instead.</li>
+<li><strong>Map-site upgrades:</strong> only special academy/university-type sites can upgrade existing skills; ordinary teaching sites mostly teach new skills from their whitelist.</li>
+</ul>
+<h3 id="champion-starting-skills">Champion Starting Skills<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-starting-skills" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Champions usually start with <strong>2 secondary skills</strong>.</li>
+<li>One starting skill expresses faction identity.</li>
+<li>One starting skill expresses Champion archetype, role, or personal identity.</li>
+<li>Faction/iconic starting skills are generally fixed, but the fixed skill can depend on whether the Champion is a <strong>Marshal</strong> or <strong>Operator</strong>.</li>
+<li>Rare signature Champions may break the normal faction/archetype starting-skill pattern if their concept justifies it.</li>
+</ol>
+<p>Baseline model:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Starting Skill 1 — Faction / Role Iconic</span></span>
+<span data-line><span>- Usually fixed by faction + Champion role family.</span></span>
+<span data-line><span>- A faction may have one Marshal iconic skill and one Operator iconic skill.</span></span>
+<span data-line> </span>
+<span data-line><span>Starting Skill 2 — Archetype / Personal</span></span>
+<span data-line><span>- Chosen from the Champion's archetype, specialization, biography, or signature playstyle.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>This preserves faction philosophy without making all Champions from the same faction feel identical.</li>
+<li>Marshal/Operator split matters because a faction’s military doctrine and operational doctrine may express the same ideology through different systems.</li>
+<li>Example pattern: a faction might push Marshals toward Leadership / Cohesion, Ranged Warfare, Shock Warfare, or Defensive Engineering, while Operators from the same faction lean toward Signal Training, Covert Operations, Media Operations, Intelligence, or Logistics Operations.</li>
+<li>The second starting skill is where named Champions can become specific: a propaganda officer, siege architect, smuggler-prince, trauma surgeon, Echo cultist, or fire-control savant should not all collapse into the same faction template.</li>
+<li>Exceptions should be rare and intentional, not random noise.</li>
+</ul>
+<h2 id="ap-abilities-group">AP Abilities Group<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ap-abilities-group" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote>
+<p>Current working label: <strong>AP abilities group</strong>.</p>
+</blockquote>
+<p>This group contains Champion/faction/rare elite abilities that temporarily alter the simple 2 AP combat economy. These should be premium command-layer or signature identity moments, not ordinary unit spam.</p>
+<p>Approved direction:</p>
+<ol>
+<li>MVP +AP sources may come from <strong>Champions, faction mechanics, and rare elite unit abilities</strong>.</li>
+<li>+AP effects should be <strong>rare but build-defining</strong>, with several possible sources constrained by cooldowns, charges, Command/resource costs, or opportunity costs.</li>
+<li>Normal tactical cases use a hard cap of <strong>3 total AP on a stack in one turn</strong>.</li>
+<li>+AP effects usually cost cooldowns/charges plus Command/resource/opportunity cost. Risk tradeoffs such as self-damage, exposure, Jammed/Hacked vulnerability, heat, or morale stress are reserved for faction flavor and special abilities.</li>
+<li>AP refund effects, such as kill-refunds, may exist only as Champion/faction signature effects and should be capped at <strong>once per stack per turn</strong>.</li>
+</ol>
+<p>Design law:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>AP is stable by default. Breaking AP rules is a Champion, faction, or rare elite identity moment. A normal stack should not exceed 3 AP in one turn.</span></span></code></pre></figure>
+<h3 id="candidate-abilities">Candidate Abilities<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#candidate-abilities" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Ability</th><th>Source</th><th>Draft Effect</th><th>Design Notes</th></tr></thead><tbody><tr><td>Command Burst</td><td>Champion</td><td>Target allied stack gains +1 AP this turn.</td><td>Clean, readable, very strong. Needs cooldown/charge limit.</td></tr><tr><td>Tactical Uplink</td><td>Champion / network faction</td><td>Networked allied stacks in radius gain +1 AP; affected stacks become more vulnerable to EMP/hacking.</td><td>Strong cyberpunk tradeoff: tempo for network exposure.</td></tr><tr><td>Overclock</td><td>Champion / cybernetic or biotech faction</td><td>Target gains +1 AP and possibly damage; suffers heat, stress, self-damage, or vulnerability afterward.</td><td>Good for body-subscription/cybernetic themes.</td></tr><tr><td>Emergency Protocol</td><td>Champion / doctrine trait</td><td>A stack that kills an enemy refunds 1 AP once per turn.</td><td>Snowball-prone; use carefully.</td></tr><tr><td>Drone Relay</td><td>Champion / drone faction</td><td>Champion spends command resource or AP to let a drone stack act immediately or gain +1 AP.</td><td>Makes command infrastructure tactically meaningful.</td></tr><tr><td>Echo Possession / Continuity Override</td><td>Champion / Echo faction</td><td>Temporarily grants AP to a wounded, disabled, or collapsing stack so it can act before destruction.</td><td>Strong Neon Champions identity; links combat to death/Echo themes.</td></tr></tbody></table></div>
+<h3 id="balance-constraints">Balance Constraints<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#balance-constraints" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Extra AP should usually come from the Champion, faction identity, or rare elite unit identity, not ordinary stack abilities.</li>
+<li>+1 AP to a stack is a major effect because it can enable move + attack + defend, triple attack if ammo allows, or attack + reload + attack.</li>
+<li>AP grants need visible UI/FX so players understand why a stack acted more than expected.</li>
+<li>AP manipulation must be constrained by cooldown, charges, command resource, risk, positioning, or faction weakness.</li>
+<li>Avoid permanent AP inflation in MVP.</li>
+<li>Normal tactical cases cap a stack at 3 total AP in one turn.</li>
+<li>AP refunds are especially snowball-prone; keep them signature and cap them at once per stack per turn.</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-15" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#tactical-combat--champion-operations-and-progression" data-for="tactical-combat--champion-operations-and-progression">Tactical Combat — Champion Operations and Progression</a></li><li class="depth-1"><a href="#article-contents" data-for="article-contents">Article Contents</a></li><li class="depth-1"><a href="#champion-operations-and-doctrine" data-for="champion-operations-and-doctrine">Champion Operations and Doctrine</a></li><li class="depth-2"><a href="#champion-archetype-poles" data-for="champion-archetype-poles">Champion Archetype Poles</a></li><li class="depth-2"><a href="#command-operations-and-doctrine" data-for="command-operations-and-doctrine">Command, Operations, and Doctrine</a></li><li class="depth-2"><a href="#command-economy" data-for="command-economy">Command Economy</a></li><li class="depth-2"><a href="#operation-cadence-and-action-types" data-for="operation-cadence-and-action-types">Operation Cadence and Action Types</a></li><li class="depth-2"><a href="#operation-channels" data-for="operation-channels">Operation Channels</a></li><li class="depth-2"><a href="#operation-example-vocabulary" data-for="operation-example-vocabulary">Operation Example Vocabulary</a></li><li class="depth-1"><a href="#champion-progression-stats" data-for="champion-progression-stats">Champion Progression Stats</a></li><li class="depth-2"><a href="#primary-champion-stats" data-for="primary-champion-stats">Primary Champion Stats</a></li><li class="depth-2"><a href="#primary-stat-scopes" data-for="primary-stat-scopes">Primary Stat Scopes</a></li><li class="depth-2"><a href="#champion-leveling-and-progression-structure" data-for="champion-leveling-and-progression-structure">Champion Leveling and Progression Structure</a></li><li class="depth-2"><a href="#operation-preparation-and-loadout" data-for="operation-preparation-and-loadout">Operation Preparation and Loadout</a></li><li class="depth-2"><a href="#operation-resistance-and-counterplay" data-for="operation-resistance-and-counterplay">Operation Resistance and Counterplay</a></li><li class="depth-2"><a href="#marshal--operator-balance-guardrails" data-for="marshal--operator-balance-guardrails">Marshal / Operator Balance Guardrails</a></li><li class="depth-2"><a href="#example-champion-builds" data-for="example-champion-builds">Example Champion Builds</a></li><li class="depth-2"><a href="#champion-build-grammar" data-for="champion-build-grammar">Champion Build Grammar</a></li><li class="depth-2"><a href="#champion--unit-specialization-rules" data-for="champion--unit-specialization-rules">Champion / Unit Specialization Rules</a></li><li class="depth-2"><a href="#champion-recruitment-and-availability" data-for="champion-recruitment-and-availability">Champion Recruitment and Availability</a></li><li class="depth-2"><a href="#champion-defeat-retreat-and-persistence" data-for="champion-defeat-retreat-and-persistence">Champion Defeat, Retreat, and Persistence</a></li><li class="depth-2"><a href="#champion-assets" data-for="champion-assets">Champion Assets</a></li><li class="depth-2"><a href="#asset-slot-structure-and-intel-upgrades" data-for="asset-slot-structure-and-intel-upgrades">Asset Slot Structure and Intel Upgrades</a></li><li class="depth-2"><a href="#asset-upgrade-design" data-for="asset-upgrade-design">Asset Upgrade Design</a></li><li class="depth-2"><a href="#champion-secondary-skills" data-for="champion-secondary-skills">Champion Secondary Skills</a></li><li class="depth-2"><a href="#secondary-skill-list-direction" data-for="secondary-skill-list-direction">Secondary Skill List Direction</a></li><li class="depth-2"><a href="#candidate-secondary-skill-list" data-for="candidate-secondary-skill-list">Candidate Secondary Skill List</a></li><li class="depth-2"><a href="#skill-ranks-and-perks" data-for="skill-ranks-and-perks">Skill Ranks and Perks</a></li><li class="depth-2"><a href="#expanded-secondary-skill-pool" data-for="expanded-secondary-skill-pool">Expanded Secondary Skill Pool</a></li><li class="depth-2"><a href="#homm-skill-reference-lessons" data-for="homm-skill-reference-lessons">HoMM Skill Reference Lessons</a></li><li class="depth-2"><a href="#current-core-secondary-skill-pool" data-for="current-core-secondary-skill-pool">Current Core Secondary Skill Pool</a></li><li class="depth-2"><a href="#skill-offer-rules" data-for="skill-offer-rules">Skill Offer Rules</a></li><li class="depth-2"><a href="#champion-starting-skills" data-for="champion-starting-skills">Champion Starting Skills</a></li><li class="depth-1"><a href="#ap-abilities-group" data-for="ap-abilities-group">AP Abilities Group</a></li><li class="depth-2"><a href="#candidate-abilities" data-for="candidate-abilities">Candidate Abilities</a></li><li class="depth-2"><a href="#balance-constraints" data-for="balance-constraints">Balance Constraints</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../design/gdd/tactical-combat" class="internal">Tactical Combat</a></li><li><a href="../../../design/gdd/tactical-combat/section-map" class="internal">Tactical Combat Section Map</a></li><li><a href="../../../" class="internal">index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../../postscript.js" type="module" data-persist="true"></script></html>

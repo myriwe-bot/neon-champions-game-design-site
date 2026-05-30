@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Tactical Combat · Neon Champions</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Neon Champions Game Design"/><meta property="og:title" content="Tactical Combat · Neon Champions"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Tactical Combat · Neon Champions"/><meta name="twitter:description" content="Tactical Combat Status: Draft. Use this as the active first-read GDD for design and AI implementation planning."/><meta property="og:description" content="Tactical Combat Status: Draft. Use this as the active first-read GDD for design and AI implementation planning."/><meta property="og:image:alt" content="Tactical Combat Status: Draft. Use this as the active first-read GDD for design and AI implementation planning."/><meta property="twitter:domain" content="myriwe-bot.github.io/neon-champions-game-design-site"/><meta property="og:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat"/><meta property="twitter:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Tactical Combat Status: Draft. Use this as the active first-read GDD for design and AI implementation planning."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ24vbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ24vcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://myriwe-bot.github.io/neon-champions-game-design-site/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat-og-image.webp"/><meta property="og:image:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat-og-image.webp"/><meta name="twitter:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="design/gdd/tactical-combat"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">Neon Champions Game Design</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-24"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-24" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../design/">design</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../design/gdd/">gdd</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Tactical Combat</a></div></nav><h1 class="article-title">Tactical Combat</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-30T00:00:00.000Z">May 30, 2026</time><span>12 min read</span></p></div></div><article class="popover-hint"><h1 id="tactical-combat">Tactical Combat<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tactical-combat" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote>
+<p>Status: Draft. Use this as the active first-read GDD for design and AI implementation planning. The older long-form packet notes are preserved in <a href="../../design/research/tactical-combat-deep-reference" class="internal" data-slug="design/research/tactical-combat-deep-reference">tactical-combat-deep-reference</a>.</p>
+</blockquote>
+<h2 id="1-summary">1. Summary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-summary" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Neon Champions tactical combat is a HoMM-readable stack battle system with cyberpunk, XCOM-lite positioning and operations. The MVP should feel fast, readable, and repeatable: active army stacks deploy onto a flat grid, spend simple AP, attack, reposition, contest objectives, suffer morale pressure, and receive limited off-board Champion support.</p>
+<p>The design goal is not to simulate every firefight. Tactical combat exists to make faction rosters, Champion doctrine, army composition, Intel, infrastructure, and strategic preparation matter in a way that can later be implemented and tested by AI agents.</p>
+<p>Quick reference:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Layer</td><td>Core</td></tr><tr><td>Priority</td><td>MVP</td></tr><tr><td>Player fantasy</td><td>Command a politically loaded cyberpunk army through clear tactical battles, not squad micro-simulation.</td></tr><tr><td>Main references</td><td>HoMM active stacks + Shadowrun Returns tactical simplicity + limited non-magic commander operations.</td></tr><tr><td>Key dependencies</td><td>Champions, faction rosters, strategic map, resources, Intel, objectives, UI/HUD, save/load.</td></tr><tr><td>Main risk</td><td>Scope explosion from too many tactical subsystems.</td></tr></tbody></table></div>
+<h2 id="2-readability-rules-for-this-gdd">2. Readability Rules for This GDD<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-readability-rules-for-this-gdd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>For humans:</p>
+<ol>
+<li>Read Sections 1-6 first. They define the playable combat loop.</li>
+<li>Read Sections 7-10 when designing implementation stories.</li>
+<li>Use the deep reference only for rationale, not as the normal design surface.</li>
+</ol>
+<p>For LLM/agent work:</p>
+<ol>
+<li>Treat numbered rules and tables in this file as stronger than prose in older notes.</li>
+<li>If a rule is missing here, do not infer it from memory. Ask for a design packet or consult the linked reference and propose a distilled rule.</li>
+<li>Do not add Full Vision mechanics to MVP stories unless the user explicitly accepts the scope.</li>
+<li>Stories must cite exact section names and acceptance criteria from this GDD.</li>
+</ol>
+<h2 id="3-design-principles">3. Design Principles<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-design-principles" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Principle</th><th>Meaning</th><th>Implementation consequence</th></tr></thead><tbody><tr><td>Fast repeated battles</td><td>The strategy layer can generate many fights.</td><td>Avoid long setup, deep per-unit menus, heavy simulation, and universal interrupt rules.</td></tr><tr><td>Stacks first</td><td>Board entities are unit stacks, not individual soldiers.</td><td>Stack count affects damage/survivability, not AP or number of actions.</td></tr><tr><td>Champions command, not duel</td><td>Champions are normally off-board commanders.</td><td>Champion impact comes through Command, Operations, Doctrine, Assets, and skills.</td></tr><tr><td>Simple AP, rare exceptions</td><td>The baseline economy must be predictable.</td><td>AP-breaking effects are signature abilities, not default speed scaling.</td></tr><tr><td>Cyberpunk clarity</td><td>Hacking, Signal, drones, bodies, morale, and propaganda matter, but must stay readable.</td><td>Use explicit statuses and UI explanations instead of hidden simulation.</td></tr><tr><td>MVP flatness</td><td>Tactical depth comes from roles/objectives, not verticality.</td><td>No elevation/high-ground rules in MVP.</td></tr><tr><td>Data-driven implementation</td><td>AI agents need stable contracts.</td><td>Tunables, statuses, effects, and objectives must be represented as data, not hardcoded one-offs.</td></tr></tbody></table></div>
+<h2 id="4-mvp-scope">4. MVP Scope<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-mvp-scope" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="in-scope">In Scope<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#in-scope" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Flat square or hex grid battlefield; final grid type remains a technical/design decision.</li>
+<li>HoMM-style active army stacks as tactical entities.</li>
+<li>7 active army slots as the working baseline.</li>
+<li>All surviving active-army stacks deploy by default.</li>
+<li>Simple AP turn model.</li>
+<li>Movement, melee attack, ranged attack, ability use, defend/brace, wait, and objective interaction.</li>
+<li>Unit movement values and role differences.</li>
+<li>Ammo, charge, heat, cooldown, or capacity only where a unit role needs it.</li>
+<li>Basic line of sight and range bands.</li>
+<li>Simple cover/defense if it improves readability without XCOM-level complexity.</li>
+<li>Basic morale/rout/Rally.</li>
+<li>Limited Champion operations/commands from off-board.</li>
+<li>Post-battle summary: result, losses, rewards, secured objectives, missed major rewards, and asset consequences if assets exist.</li>
+<li>Data contracts for abilities, statuses, objectives, battle setup, save/load, and replay/debug.</li>
+</ul>
+<h3 id="out-of-scope-for-mvp">Out of Scope for MVP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#out-of-scope-for-mvp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Height/elevation/high ground.</li>
+<li>Multi-floor maps.</li>
+<li>Full XCOM simulation stack.</li>
+<li>Universal overwatch for all ranged units.</li>
+<li>Hacking minigames inside every battle.</li>
+<li>General prisoner/capture economy.</li>
+<li>General resurrection/recovery economy.</li>
+<li>Tactical reserve bench before every ordinary fight.</li>
+<li>Champions as normal battlefield units.</li>
+<li>Broad weapon-tag taxonomies unless they clearly improve player/design readability.</li>
+</ul>
+<h2 id="5-core-combat-loop">5. Core Combat Loop<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-core-combat-loop" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Strategic layer determines the battle context: attacker, defender, site/objective, scouting information, terrain family, and active armies.</li>
+<li>Player reviews estimated enemy information if scouting/intel supports it.</li>
+<li>Active army is locked when the player commits to the battle-triggering action.</li>
+<li>Deployment uses map/battle-type rules. Prepared battles may allow quick reorder/formation choices; ambushes may restrict or disrupt deployment.</li>
+<li>Stacks take turns or activations according to the initiative/turn model.</li>
+<li>On activation, a stack spends AP on movement, attacks, abilities, defend/brace, wait, or objective interaction.</li>
+<li>Champion commands/operations may affect the battle through a limited cadence/resource model.</li>
+<li>Morale, statuses, damage, deaths, objectives, and routing update after actions.</li>
+<li>Battle ends when victory/defeat/objective conditions are met.</li>
+<li>Post-battle resolution updates losses, rewards, assets, morale consequences, and strategic map state.</li>
+</ol>
+<h2 id="6-core-rules">6. Core Rules<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-core-rules" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="61-tactical-entities">6.1 Tactical Entities<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#61-tactical-entities" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Rule</th><th>Contract</th></tr></thead><tbody><tr><td>Default entity</td><td>A tactical entity is a stack: multiple units of one unit type acting together.</td></tr><tr><td>Champion presence</td><td>Champions are not normal board units in the baseline design.</td></tr><tr><td>Stack size</td><td>Larger stacks gain durability and output, not extra AP/actions.</td></tr><tr><td>Stack composition</td><td>Composition normally locks at battle start.</td></tr><tr><td>Exceptions</td><td>Summons, drones, decoys, split-offs, Echo effects, or faction-specific fragments may exist as explicit abilities.</td></tr></tbody></table></div>
+<h3 id="62-active-army-and-deployment">6.2 Active Army and Deployment<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#62-active-army-and-deployment" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Rule</th><th>Contract</th></tr></thead><tbody><tr><td>Active slots</td><td>The working default active army size is 7 stack slots.</td></tr><tr><td>Participation</td><td>All surviving active-army stacks normally deploy.</td></tr><tr><td>No bench</td><td>MVP has no ordinary tactical reserve bench.</td></tr><tr><td>Stack splitting</td><td>Legal in army management; each split stack consumes a real active slot.</td></tr><tr><td>Tiny stacks</td><td>1-unit stacks are legal but flagged for playtest abuse.</td></tr><tr><td>Deployment</td><td>Fast formation/reorder choices are allowed in prepared battles; battle type owns exceptions.</td></tr><tr><td>Scouting</td><td>UI must distinguish confirmed enemy information from estimates.</td></tr></tbody></table></div>
+<h3 id="63-ap-and-actions">6.3 AP and Actions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#63-ap-and-actions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Rule</th><th>Contract</th></tr></thead><tbody><tr><td>Baseline AP</td><td>Most stacks use a simple fixed AP budget. Working assumption: 2 AP baseline until prototyped.</td></tr><tr><td>Movement</td><td>Movement costs AP and uses unit-specific movement range.</td></tr><tr><td>Attacks</td><td>Standard attacks usually cost 1 AP unless tagged as heavy/signature.</td></tr><tr><td>Heavy/signature actions</td><td>Powerful attacks or operations may cost 2 AP, consume capacity, or use cooldowns.</td></tr><tr><td>No AP spam</td><td>Faster units should usually gain movement/initiative advantages, not extra baseline AP.</td></tr><tr><td>AP carryover</td><td>No default AP carryover. Exceptions must be explicit.</td></tr><tr><td>Wait</td><td>Wait delays activation according to the final initiative model; it must not create hidden extra actions.</td></tr><tr><td>Defend/Brace</td><td>Defensive fallback action for stacks without good attacks or movement.</td></tr></tbody></table></div>
+<h3 id="64-movement-zoc-retaliation-and-overwatch">6.4 Movement, ZOC, Retaliation, and Overwatch<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#64-movement-zoc-retaliation-and-overwatch" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Topic</th><th>MVP direction</th></tr></thead><tbody><tr><td>Zone of Control</td><td>Use simple, readable engagement rules. Tiny stacks exert ZOC by default but this is a playtest flag.</td></tr><tr><td>Retaliation</td><td>HoMM-like retaliation/counterattack texture is allowed; retaliation-baiting with tiny stacks is intentionally testable.</td></tr><tr><td>Overwatch</td><td>Not universal. Use only for specific units/abilities if it earns the complexity.</td></tr><tr><td>Forced movement</td><td>Allowed as explicit ability text with clear collision, edge, and objective rules.</td></tr></tbody></table></div>
+<h3 id="65-attacks-damage-and-defense">6.5 Attacks, Damage, and Defense<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#65-attacks-damage-and-defense" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Keep taxonomy orthogonal:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Concept</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td>Damage type</td><td>What kind of harm/disruption is caused.</td><td>Kinetic, thermal, chemical, bio, signal, morale/cohesion.</td></tr><tr><td>Delivery</td><td>How the effect reaches the target.</td><td>Melee, direct ranged, indirect, area, line, cone, network.</td></tr><tr><td>Rule text</td><td>Special behavior written directly on the ability.</td><td>Ignores shield, cannot retaliate, bonus vs drones.</td></tr></tbody></table></div>
+<p>Design guardrail: do not create a formal <code>Piercing</code> damage type or broad weapon-tag layer unless the user reopens that decision. Use explicit rule text for armor/shield bypass and special counters.</p>
+<h3 id="66-information-los-range-and-cover">6.6 Information, LOS, Range, and Cover<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#66-information-los-range-and-cover" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Topic</th><th>MVP direction</th></tr></thead><tbody><tr><td>LOS</td><td>Use simple line-of-sight checks sufficient for clear ranged play.</td></tr><tr><td>Range bands</td><td>Prefer readable bands such as melee / short / medium / long over highly granular ballistics.</td></tr><tr><td>Minimum range</td><td>Optional per-unit weakness for specific heavy/indirect units.</td></tr><tr><td>Cover</td><td>Keep cover shallow if used. It should improve positioning without forcing full XCOM cover math.</td></tr><tr><td>Smoke/vision blocking</td><td>Allowed as explicit status/terrain effect. UI must show blocked/uncertain targeting.</td></tr></tbody></table></div>
+<h3 id="67-status-effects">6.7 Status Effects<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#67-status-effects" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>MVP statuses should be few, visible, and data-driven.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Status family</th><th>Purpose</th><th>MVP posture</th></tr></thead><tbody><tr><td>Suppressed</td><td>Reduce offensive freedom / punish exposed movement.</td><td>Good MVP candidate if UI is clear.</td></tr><tr><td>Jammed</td><td>Disable or tax Signal/network abilities.</td><td>Use for Signal-counterplay units.</td></tr><tr><td>Hacked</td><td>Temporary hostile control, debuff, or system disruption.</td><td>Keep rare and bounded. No hacking minigame.</td></tr><tr><td>Marked / Sensor Lock</td><td>Improve focus fire, reveal, or operation targeting.</td><td>Strong MVP candidate.</td></tr><tr><td>Stealth / Reveal</td><td>Hidden or obscured units and their counters.</td><td>Use sparingly; avoid hidden-information overload.</td></tr><tr><td>Smoke / Vision Block</td><td>Block or degrade targeting.</td><td>Good if map readability survives.</td></tr><tr><td>Morale state</td><td>Confident, shaken, routing, etc.</td><td>MVP includes basic morale/rout/Rally.</td></tr></tbody></table></div>
+<h3 id="68-morale-and-rout">6.8 Morale and Rout<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#68-morale-and-rout" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Rule</th><th>Contract</th></tr></thead><tbody><tr><td>Purpose</td><td>Morale makes losses, isolation, leadership, intimidation, and faction identity matter.</td></tr><tr><td>MVP model</td><td>Use visible morale bands and major event triggers, not a deep hidden psychology sim.</td></tr><tr><td>Rout</td><td>A routing stack loses normal player control and attempts to flee or collapse according to clear rules.</td></tr><tr><td>Rally</td><td>Champion or unit abilities may restore control or morale through a limited action/resource.</td></tr><tr><td>UI</td><td>Player must be able to predict major morale risks before committing obvious morale-impacting actions.</td></tr></tbody></table></div>
+<h3 id="69-champion-commands-and-operations">6.9 Champion Commands and Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#69-champion-commands-and-operations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Rule</th><th>Contract</th></tr></thead><tbody><tr><td>Off-board role</td><td>Champions influence combat through command-layer actions, not tile presence.</td></tr><tr><td>Cadence</td><td>Operation use must be limited by turn/round cadence, Command resource, cooldown, prepared loadout, Intel, or channel rules.</td></tr><tr><td>Channels</td><td>Current vocabulary: Signal, Logistics, Fire Support, Doctrine, Covert, Bio, Echo. Bio/Echo are special/factional.</td></tr><tr><td>Build poles</td><td>Marshal leans direct combat command and army performance; Operator leans operations, Signal, covert, assets, and infrastructure.</td></tr><tr><td>Guardrail</td><td>Champion powers should not make unit roster tactics irrelevant.</td></tr></tbody></table></div>
+<h3 id="610-post-battle-resolution">6.10 Post-Battle Resolution<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#610-post-battle-resolution" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Output</th><th>Requirement</th></tr></thead><tbody><tr><td>Outcome category</td><td>Win/loss/retreat/surrender/rout/objective result.</td></tr><tr><td>Losses</td><td>Show destroyed, damaged, routed, preserved, or recovered stacks as applicable.</td></tr><tr><td>Rewards</td><td>Show gained resources, Intel, assets, recruitment access, site control, and missed major rewards.</td></tr><tr><td>Consequences</td><td>Show morale, asset, Champion, faction, and strategic map consequences.</td></tr><tr><td>MVP cut</td><td>Keep resurrection, capture, and rare recovery as faction/authored exceptions unless explicitly designed.</td></tr></tbody></table></div>
+<h2 id="7-mvp-content-slice">7. MVP Content Slice<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-mvp-content-slice" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The first playable combat slice should be intentionally small.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Content</th><th>Target</th></tr></thead><tbody><tr><td>Factions</td><td>2 factions for contrast. Current candidate direction: Barents-aligned force vs Janus-Kestrel/corporate-security style force.</td></tr><tr><td>Units per faction</td><td>4-6 unit lines for prototype; not full roster.</td></tr><tr><td>Abilities per unit</td><td>1 standard attack + 0-2 defining abilities.</td></tr><tr><td>Champions</td><td>1 Marshal-like and 1 Operator-like test profile if needed.</td></tr><tr><td>Battle types</td><td>Prepared field battle + one objective battle.</td></tr><tr><td>Objectives</td><td>Kill/route enemy, control point/upload, extraction/raid, or site defense. Pick one non-kill objective first.</td></tr><tr><td>Terrain</td><td>Flat grid with blockers, lanes, soft/hard cover if used, and simple hazards.</td></tr><tr><td>Statuses</td><td>Marked/Sensor Lock, Suppressed, Jammed or Hacked, Morale state. Do not include every status family at once.</td></tr></tbody></table></div>
+<h2 id="8-data-and-implementation-contracts">8. Data and Implementation Contracts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-data-and-implementation-contracts" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="81-ability-contract">8.1 Ability Contract<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#81-ability-contract" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Every tactical ability should be representable as data with:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody><tr><td>id/name</td><td>Stable key and display name.</td></tr><tr><td>owner</td><td>Unit, Champion operation, asset, objective, or scenario rule.</td></tr><tr><td>cost</td><td>AP, cooldown, ammo/charge/heat, Command, Intel, or other resource.</td></tr><tr><td>targeting</td><td>Self, ally, enemy, tile, area, line, cone, objective, off-board.</td></tr><tr><td>delivery</td><td>Melee/direct/indirect/area/network/etc.</td></tr><tr><td>effects</td><td>Damage, status, movement, morale, objective progress, resource change.</td></tr><tr><td>restrictions</td><td>LOS, range, unit tags, terrain, status requirements, once-per-battle, etc.</td></tr><tr><td>UI preview</td><td>What the player sees before confirming.</td></tr><tr><td>AI hint</td><td>Role weight: damage, control, objective, rescue, setup, finisher, denial.</td></tr></tbody></table></div>
+<h3 id="82-status-contract">8.2 Status Contract<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#82-status-contract" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Every status needs:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody><tr><td>id/name</td><td>Stable key and display name.</td></tr><tr><td>visible_to_player</td><td>Whether and how it is shown.</td></tr><tr><td>duration</td><td>Turns, rounds, until condition, battle-long, or permanent.</td></tr><tr><td>stacking</td><td>None, refresh, intensity, independent instances.</td></tr><tr><td>timing</td><td>When it applies and expires.</td></tr><tr><td>effects</td><td>Exact stat/action/AI/objective modifications.</td></tr><tr><td>counters</td><td>Cleanse, reveal, repair, rally, wait, operation, terrain, etc.</td></tr><tr><td>save/replay data</td><td>Minimum state required for deterministic restore.</td></tr></tbody></table></div>
+<h3 id="83-objective-contract">8.3 Objective Contract<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#83-objective-contract" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Every tactical objective needs:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody><tr><td>id/name</td><td>Stable key and display name.</td></tr><tr><td>win/loss relation</td><td>Primary victory, optional reward, escape, denial, fail state.</td></tr><tr><td>eligible actors</td><td>Which stacks/units/statuses can interact.</td></tr><tr><td>interaction cost</td><td>AP, turns, channeling, item, Signal, Intel, or none.</td></tr><tr><td>progress model</td><td>Instant, counter, contested control, timed hold, extraction.</td></tr><tr><td>interruption rules</td><td>Damage, ZOC, suppression, jam, death, movement, end of round.</td></tr><tr><td>UI preview</td><td>Clear state, remaining work, risks, and reward/consequence.</td></tr><tr><td>AI priority</td><td>How enemies value contesting, defending, rushing, or ignoring it.</td></tr></tbody></table></div>
+<h3 id="84-save--replay--debug-contract">8.4 Save / Replay / Debug Contract<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#84-save--replay--debug-contract" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Implementation should support:</p>
+<ul>
+<li>deterministic battle setup from seed + authored battle data;</li>
+<li>serializable stack state, AP, position, statuses, cooldowns, ammo/charge, morale, objective progress, and Champion resource state;</li>
+<li>debug logs for action chosen, target, RNG roll if any, result, and triggered statuses;</li>
+<li>no hidden mutable state that cannot be inspected in tests.</li>
+</ul>
+<h2 id="9-tuning-knobs">9. Tuning Knobs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9-tuning-knobs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Parameter</th><th>Current posture</th><th>Safe MVP range / note</th></tr></thead><tbody><tr><td>active_army_slots</td><td>7 working baseline</td><td>5-7 likely readable; prototype before changing.</td></tr><tr><td>base_ap</td><td>2 working baseline</td><td>Keep fixed for most stacks.</td></tr><tr><td>movement_range</td><td>Unit-specific</td><td>Faster units gain movement/initiative, not more AP by default.</td></tr><tr><td>standard_attack_cost</td><td>1 AP</td><td>Heavy/signature actions may cost 2 AP.</td></tr><tr><td>morale_bands</td><td>Few visible bands</td><td>Avoid fine-grained hidden morale.</td></tr><tr><td>operation_cadence</td><td>Limited</td><td>Once/round, cooldown, loadout, Command, or channel limit.</td></tr><tr><td>status_count</td><td>Small</td><td>Prefer 3-5 MVP statuses over full taxonomy.</td></tr><tr><td>objective_complexity</td><td>Low</td><td>One non-kill objective type first.</td></tr></tbody></table></div>
+<h2 id="10-ux-and-readability-requirements">10. UX and Readability Requirements<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#10-ux-and-readability-requirements" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Need</th><th>Requirement</th></tr></thead><tbody><tr><td>Action preview</td><td>Before confirmation, show AP cost, target validity, expected damage/effects, and major morale/objective consequences.</td></tr><tr><td>Enemy information</td><td>Label confirmed vs estimated scouting information.</td></tr><tr><td>Stack readability</td><td>Show unit type, count/strength, health, AP, morale, key statuses, and role.</td></tr><tr><td>Champion operations</td><td>Show cadence/resource limits and why an operation is unavailable.</td></tr><tr><td>Objective state</td><td>Show who controls/contests it, progress remaining, eligible actors, and reward/fail consequence.</td></tr><tr><td>Status explanations</td><td>Tooltip/status panel must state what the status does and when it expires.</td></tr><tr><td>Post-battle clarity</td><td>Result screen must explain what happened and what changed on the strategic map.</td></tr></tbody></table></div>
+<h2 id="11-acceptance-criteria-for-first-implementation-slice">11. Acceptance Criteria for First Implementation Slice<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-acceptance-criteria-for-first-implementation-slice" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A first tactical prototype is useful only if all of these can be demonstrated:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> A battle can be launched from deterministic test data with two small armies.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> All active stacks deploy; no unplanned reserve bench appears.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> A stack can move, attack, wait, defend/brace, and use one data-defined ability.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Larger stack size affects output/survivability but does not create extra AP/actions.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> At least one ranged unit uses LOS/range validation.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> At least one objective can be progressed, contested, completed, and displayed in UI/debug output.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> At least one visible status can be applied, expire, save/load, and affect action logic.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Basic morale/rout/Rally can be simulated or explicitly stubbed with testable hooks.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> One Champion command/operation can affect combat through a limited cadence/resource rule.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Post-battle resolution produces losses, winner, rewards/consequences, and strategic-state deltas.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> All tunable values used by combat are data-defined or intentionally marked as prototype constants.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Automated tests can validate core rules without relying on Unity scene visuals.</li>
+</ul>
+<h2 id="12-open-questions">12. Open Questions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-open-questions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>These are real design gaps, not permission for agents to guess.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Question</th><th>Why it matters</th><th>Suggested packet</th></tr></thead><tbody><tr><td>Square vs hex grid</td><td>Affects movement, targeting, UI, and map authoring.</td><td>Tactical Grid Packet.</td></tr><tr><td>Initiative model</td><td>Determines Wait, morale events, Champion cadence, and AI planning.</td><td>Initiative/Turn Packet.</td></tr><tr><td>Exact defense formula</td><td>Needed for damage tuning and data schema.</td><td>Damage/Defense Formula Packet.</td></tr><tr><td>Cover depth</td><td>Can improve positioning or create XCOM scope creep.</td><td>Cover MVP Packet.</td></tr><tr><td>First non-kill objective</td><td>Determines UI and AI priority model.</td><td>Objective MVP Packet.</td></tr><tr><td>First faction pair</td><td>Needed for playable content slice.</td><td>Faction Pair Lock Packet.</td></tr><tr><td>Morale numeric model</td><td>Needed after the prototype proves morale is worth keeping.</td><td>Morale Tuning Packet.</td></tr></tbody></table></div>
+<h2 id="13-detailed-split-articles">13. Detailed Split Articles<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-detailed-split-articles" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The original design-session work is preserved in smaller readable articles. Use these when a story, packet, or implementation prompt needs more detail than this overview.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Need</th><th>Read</th></tr></thead><tbody><tr><td>Preservation map for all original top-level sections</td><td><a href="../../design/gdd/tactical-combat/section-map" class="internal" data-slug="design/gdd/tactical-combat/section-map">section-map</a></td></tr><tr><td>Overview, MVP scope, tactical entity model</td><td><a href="../../design/gdd/tactical-combat/overview-and-scope" class="internal" data-slug="design/gdd/tactical-combat/overview-and-scope">overview-and-scope</a></td></tr><tr><td>Active army slots, stack splitting, deployment, scouting, AI valuation</td><td><a href="../../design/gdd/tactical-combat/army-deployment-and-stacks" class="internal" data-slug="design/gdd/tactical-combat/army-deployment-and-stacks">army-deployment-and-stacks</a></td></tr><tr><td>AP, initiative, wait, defend, base actions, counterattacks, ZOC, overwatch</td><td><a href="../../design/gdd/tactical-combat/ap-actions-and-reactions" class="internal" data-slug="design/gdd/tactical-combat/ap-actions-and-reactions">ap-actions-and-reactions</a></td></tr><tr><td>LOS, cover, range, damage types, attack model, defenses</td><td><a href="../../design/gdd/tactical-combat/targeting-damage-and-defense" class="internal" data-slug="design/gdd/tactical-combat/targeting-damage-and-defense">targeting-damage-and-defense</a></td></tr><tr><td>Status taxonomy, suppression, jammed, hacked, marked, stealth, smoke, terrain, forced movement, objectives</td><td><a href="../../design/gdd/tactical-combat/statuses-terrain-and-objectives" class="internal" data-slug="design/gdd/tactical-combat/statuses-terrain-and-objectives">statuses-terrain-and-objectives</a></td></tr><tr><td>Retreat, surrender, morale, rout, rally, cohesion, morale UI</td><td><a href="../../design/gdd/tactical-combat/morale-rout-and-cohesion" class="internal" data-slug="design/gdd/tactical-combat/morale-rout-and-cohesion">morale-rout-and-cohesion</a></td></tr><tr><td>Battle outcomes, losses, rewards, capture/recovery exceptions, result UI</td><td><a href="../../design/gdd/tactical-combat/post-battle-resolution" class="internal" data-slug="design/gdd/tactical-combat/post-battle-resolution">post-battle-resolution</a></td></tr><tr><td>Ammo, charges, cooldowns, logistics, reload/recharge, indirect/area attacks</td><td><a href="../../design/gdd/tactical-combat/ammo-capacity-and-logistics" class="internal" data-slug="design/gdd/tactical-combat/ammo-capacity-and-logistics">ammo-capacity-and-logistics</a></td></tr><tr><td>Champion operations, doctrine, progression, builds, assets, secondary skills, AP abilities</td><td><a href="../../design/gdd/tactical-combat/champion-operations-and-progression" class="internal" data-slug="design/gdd/tactical-combat/champion-operations-and-progression">champion-operations-and-progression</a></td></tr><tr><td>MVP cut, implementation contracts, ability/effect schema, status/objective/info/save/replay contracts</td><td><a href="../../design/gdd/tactical-combat/implementation-contracts" class="internal" data-slug="design/gdd/tactical-combat/implementation-contracts">implementation-contracts</a></td></tr><tr><td>MVP content matrix, faction-pair candidates, Barents role/stat/ability skeletons</td><td><a href="../../design/gdd/tactical-combat/mvp-content-and-faction-rosters" class="internal" data-slug="design/gdd/tactical-combat/mvp-content-and-faction-rosters">mvp-content-and-faction-rosters</a></td></tr><tr><td>Stack action principle, deferred elevation, open questions</td><td><a href="../../design/gdd/tactical-combat/deferred-and-open-questions" class="internal" data-slug="design/gdd/tactical-combat/deferred-and-open-questions">deferred-and-open-questions</a></td></tr></tbody></table></div>
+<h2 id="14-other-cross-references">14. Other Cross-References<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#14-other-cross-references" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Need</th><th>Read</th></tr></thead><tbody><tr><td>Raw historical packet backup</td><td><a href="../../design/research/tactical-combat-deep-reference" class="internal" data-slug="design/research/tactical-combat-deep-reference">tactical-combat-deep-reference</a></td></tr><tr><td>Commander/operation reference research</td><td><a href="../../design/research/commander-spellbook-reference" class="internal" data-slug="design/research/commander-spellbook-reference">commander-spellbook-reference</a></td></tr><tr><td>Faction roster concepts</td><td><a href="../../design/gdd/faction-unit-rosters" class="internal" data-slug="design/gdd/faction-unit-rosters">faction-unit-rosters</a></td></tr><tr><td>Intel resource</td><td><a href="../../design/gdd/intel-resource" class="internal" data-slug="design/gdd/intel-resource">intel-resource</a></td></tr><tr><td>Systems map</td><td><a href="../../design/gdd/systems-index" class="internal" data-slug="design/gdd/systems-index">systems-index</a></td></tr><tr><td>Pillars and anti-pillars</td><td><a href="../../design/gdd/game-pillars" class="internal" data-slug="design/gdd/game-pillars">game-pillars</a></td></tr></tbody></table></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-11" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#tactical-combat" data-for="tactical-combat">Tactical Combat</a></li><li class="depth-1"><a href="#1-summary" data-for="1-summary">1. Summary</a></li><li class="depth-1"><a href="#2-readability-rules-for-this-gdd" data-for="2-readability-rules-for-this-gdd">2. Readability Rules for This GDD</a></li><li class="depth-1"><a href="#3-design-principles" data-for="3-design-principles">3. Design Principles</a></li><li class="depth-1"><a href="#4-mvp-scope" data-for="4-mvp-scope">4. MVP Scope</a></li><li class="depth-2"><a href="#in-scope" data-for="in-scope">In Scope</a></li><li class="depth-2"><a href="#out-of-scope-for-mvp" data-for="out-of-scope-for-mvp">Out of Scope for MVP</a></li><li class="depth-1"><a href="#5-core-combat-loop" data-for="5-core-combat-loop">5. Core Combat Loop</a></li><li class="depth-1"><a href="#6-core-rules" data-for="6-core-rules">6. Core Rules</a></li><li class="depth-2"><a href="#61-tactical-entities" data-for="61-tactical-entities">6.1 Tactical Entities</a></li><li class="depth-2"><a href="#62-active-army-and-deployment" data-for="62-active-army-and-deployment">6.2 Active Army and Deployment</a></li><li class="depth-2"><a href="#63-ap-and-actions" data-for="63-ap-and-actions">6.3 AP and Actions</a></li><li class="depth-2"><a href="#64-movement-zoc-retaliation-and-overwatch" data-for="64-movement-zoc-retaliation-and-overwatch">6.4 Movement, ZOC, Retaliation, and Overwatch</a></li><li class="depth-2"><a href="#65-attacks-damage-and-defense" data-for="65-attacks-damage-and-defense">6.5 Attacks, Damage, and Defense</a></li><li class="depth-2"><a href="#66-information-los-range-and-cover" data-for="66-information-los-range-and-cover">6.6 Information, LOS, Range, and Cover</a></li><li class="depth-2"><a href="#67-status-effects" data-for="67-status-effects">6.7 Status Effects</a></li><li class="depth-2"><a href="#68-morale-and-rout" data-for="68-morale-and-rout">6.8 Morale and Rout</a></li><li class="depth-2"><a href="#69-champion-commands-and-operations" data-for="69-champion-commands-and-operations">6.9 Champion Commands and Operations</a></li><li class="depth-2"><a href="#610-post-battle-resolution" data-for="610-post-battle-resolution">6.10 Post-Battle Resolution</a></li><li class="depth-1"><a href="#7-mvp-content-slice" data-for="7-mvp-content-slice">7. MVP Content Slice</a></li><li class="depth-1"><a href="#8-data-and-implementation-contracts" data-for="8-data-and-implementation-contracts">8. Data and Implementation Contracts</a></li><li class="depth-2"><a href="#81-ability-contract" data-for="81-ability-contract">8.1 Ability Contract</a></li><li class="depth-2"><a href="#82-status-contract" data-for="82-status-contract">8.2 Status Contract</a></li><li class="depth-2"><a href="#83-objective-contract" data-for="83-objective-contract">8.3 Objective Contract</a></li><li class="depth-2"><a href="#84-save--replay--debug-contract" data-for="84-save--replay--debug-contract">8.4 Save / Replay / Debug Contract</a></li><li class="depth-1"><a href="#9-tuning-knobs" data-for="9-tuning-knobs">9. Tuning Knobs</a></li><li class="depth-1"><a href="#10-ux-and-readability-requirements" data-for="10-ux-and-readability-requirements">10. UX and Readability Requirements</a></li><li class="depth-1"><a href="#11-acceptance-criteria-for-first-implementation-slice" data-for="11-acceptance-criteria-for-first-implementation-slice">11. Acceptance Criteria for First Implementation Slice</a></li><li class="depth-1"><a href="#12-open-questions" data-for="12-open-questions">12. Open Questions</a></li><li class="depth-1"><a href="#13-detailed-split-articles" data-for="13-detailed-split-articles">13. Detailed Split Articles</a></li><li class="depth-1"><a href="#14-other-cross-references" data-for="14-other-cross-references">14. Other Cross-References</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../design/gdd/README" class="internal">GDD Reading Guide</a></li><li><a href="../../design/gdd/tactical-combat/ammo-capacity-and-logistics" class="internal">Tactical Combat — Ammo, Capacity, and Logistics</a></li><li><a href="../../design/gdd/tactical-combat/ap-actions-and-reactions" class="internal">Tactical Combat — AP, Actions, and Reactions</a></li><li><a href="../../design/gdd/tactical-combat/army-deployment-and-stacks" class="internal">Tactical Combat — Army, Deployment, and Stacks</a></li><li><a href="../../design/gdd/tactical-combat/champion-operations-and-progression" class="internal">Tactical Combat — Champion Operations and Progression</a></li><li><a href="../../design/gdd/tactical-combat/deferred-and-open-questions" class="internal">Tactical Combat — Deferred Items and Open Questions</a></li><li><a href="../../design/gdd/tactical-combat/implementation-contracts" class="internal">Tactical Combat — Implementation Contracts</a></li><li><a href="../../design/gdd/tactical-combat/morale-rout-and-cohesion" class="internal">Tactical Combat — Morale, Rout, and Cohesion</a></li><li><a href="../../design/gdd/tactical-combat/mvp-content-and-faction-rosters" class="internal">Tactical Combat — MVP Content and Faction Rosters</a></li><li><a href="../../design/gdd/tactical-combat/overview-and-scope" class="internal">Tactical Combat — Overview and Scope</a></li><li><a href="../../design/gdd/tactical-combat/post-battle-resolution" class="internal">Tactical Combat — Post-Battle Resolution</a></li><li><a href="../../design/gdd/tactical-combat/section-map" class="internal">Tactical Combat Section Map</a></li><li><a href="../../design/gdd/tactical-combat/statuses-terrain-and-objectives" class="internal">Tactical Combat — Statuses, Terrain, and Objectives</a></li><li><a href="../../design/gdd/tactical-combat/targeting-damage-and-defense" class="internal">Tactical Combat — Targeting, Damage, and Defense</a></li><li><a href="../../" class="internal">index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>
