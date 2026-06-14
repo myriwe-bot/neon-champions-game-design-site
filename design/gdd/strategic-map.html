@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Strategic Map · Neon Champions</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Neon Champions Game Design"/><meta property="og:title" content="Strategic Map · Neon Champions"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Strategic Map · Neon Champions"/><meta name="twitter:description" content="Strategic Map Status: Approved."/><meta property="og:description" content="Strategic Map Status: Approved."/><meta property="og:image:alt" content="Strategic Map Status: Approved."/><meta property="twitter:domain" content="myriwe-bot.github.io/neon-champions-game-design-site"/><meta property="og:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/strategic-map"/><meta property="twitter:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/strategic-map"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Strategic Map Status: Approved."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxOb3JkaWNHYW1lclxcYWN0aW9ucy1ydW5uZXJcXG5lb25jaGFtcC1kZXNpZ25cXF93b3JrXFxuZW9uLWNoYW1waW9ucy1nYW1lLWRlc2lnblxcbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ25cXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgcGFkZGluZzogMC40cmVtO1xyXG4gIG1hcmdpbjogMC4zcmVtO1xyXG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xyXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcclxuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcclxuICBib3JkZXI6IDFweCBzb2xpZDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgb3BhY2l0eTogMDtcclxuICB0cmFuc2l0aW9uOiAwLjJzO1xyXG5cclxuICAmID4gc3ZnIHtcclxuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcclxuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcclxuICB9XHJcblxyXG4gICY6aG92ZXIge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG4gIH1cclxuXHJcbiAgJjpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiAwO1xyXG4gIH1cclxufVxyXG5cclxucHJlIHtcclxuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICAgIHRyYW5zaXRpb246IDAuMnM7XHJcbiAgfVxyXG59XHJcblxyXG4jbWVybWFpZC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICBjb250YWluOiBsYXlvdXQ7XHJcbiAgei1pbmRleDogOTk5O1xyXG4gIGxlZnQ6IDA7XHJcbiAgdG9wOiAwO1xyXG4gIHdpZHRoOiAxMDB2dztcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XHJcblxyXG4gICYuYWN0aXZlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB9XHJcblxyXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgdG9wOiA1MCU7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICAgIGhlaWdodDogODB2aDtcclxuICAgIHdpZHRoOiA4MHZ3O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuXHJcbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XHJcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xyXG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xyXG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICAgICAgbWluLWhlaWdodDogMjAwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XHJcblxyXG4gICAgICBwcmUge1xyXG4gICAgICAgIG1hcmdpbjogMDtcclxuICAgICAgICBib3JkZXI6IG5vbmU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIHN2ZyB7XHJcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xyXG4gICAgICAgIGhlaWdodDogYXV0bztcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XHJcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgYm90dG9tOiAyMHB4O1xyXG4gICAgICByaWdodDogMjBweDtcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgZ2FwOiA4cHg7XHJcbiAgICAgIHBhZGRpbmc6IDhweDtcclxuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XHJcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICAgIHotaW5kZXg6IDI7XHJcblxyXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XHJcbiAgICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgICAgIHdpZHRoOiAzMnB4O1xyXG4gICAgICAgIGhlaWdodDogMzJweDtcclxuICAgICAgICBwYWRkaW5nOiAwO1xyXG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XHJcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xyXG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XHJcblxyXG4gICAgICAgICY6aG92ZXIge1xyXG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgICY6YWN0aXZlIHtcclxuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxyXG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcclxuICAgICAgICAgIHdpZHRoOiBhdXRvO1xyXG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xyXG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxufVxyXG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://myriwe-bot.github.io/neon-champions-game-design-site/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/strategic-map-og-image.webp"/><meta property="og:image:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/strategic-map-og-image.webp"/><meta name="twitter:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/strategic-map-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="design/gdd/strategic-map"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">Neon Champions Game Design</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-21"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-21" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../design/">design</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../design/gdd/">gdd</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Strategic Map</a></div></nav><h1 class="article-title">Strategic Map</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-31T21:00:00.000Z">Jun 01, 2026</time><span>25 min read</span></p></div></div><article class="popover-hint"><h1 id="strategic-map">Strategic Map<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#strategic-map" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote>
+<p>Status: Approved. Packet A/B direction is approved as the current MVP target: <strong>C3-H two-faction hotseat strategy MVP</strong>, using a <strong>B1 duel map with B2 race-map pacing</strong>. The sections cited by READY implementation stories are approved implementation sources; future packets still require exact READY stories before implementation.</p>
+</blockquote>
+<h2 id="1-summary">1. Summary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-summary" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The strategic map is the main HoMM-like decision surface for Neon Champions. The MVP should prove that the game is not only a tactics demo: two factions contest a small Greenland scenario through Champion movement, site control, resource gains, recruitment/reinforcement, and tactical battles.</p>
+<p>Quick reference:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Layer</td><td>Core</td></tr><tr><td>Priority</td><td>MVP</td></tr><tr><td>Player fantasy</td><td>Command a public Champion across a contested cyberpunk Arctic map where infrastructure, routes, guarded sites, and faction pressure shape every fight.</td></tr><tr><td>MVP target</td><td>C3-H: two-faction local hotseat strategy MVP.</td></tr><tr><td>First scenario shape</td><td>B1 duel map with B2 pacing: direct contest plus early race for neutral sites/resources before the central clash.</td></tr><tr><td>Main dependencies</td><td>Data Registry, Turn/Time, Factions, Champions, Resources, Intel, Tactical Combat, UX/HUD.</td></tr><tr><td>Main risk</td><td>Building a full strategy game before the core loop is playable.</td></tr></tbody></table></div>
+<h2 id="2-approved-mvp-direction">2. Approved MVP Direction<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-approved-mvp-direction" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="c3-h-two-faction-hotseat-strategy-mvp">C3-H: Two-Faction Hotseat Strategy MVP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c3-h-two-faction-hotseat-strategy-mvp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The MVP target is a real two-faction strategic contest without strategic AI.</p>
+<p>Rules:</p>
+<ol>
+<li>The first playable MVP has two in-world factions in one scenario.</li>
+<li>Each faction has a local controller. In MVP this means local hotseat control; future controller types may include strategic AI.</li>
+<li>Each faction begins with one Champion and one army.</li>
+<li>Factions take sequential strategic turns.</li>
+<li>The strategic layer supports movement, site interaction, guarded encounters, enemy-faction contesting, resource/reward gains, recruitment or reinforcement, and victory/loss evaluation.</li>
+<li>Tactical battles are entered from the strategic map and return results back to the strategic layer.</li>
+<li>Hotseat is local only. No online multiplayer, simultaneous turns, networking, lobbies, accounts, or live-service systems are in MVP scope.</li>
+<li>Strategic AI is out of scope for the first MVP. Combat AI is in scope because neutral guards and optional AI-controlled battle sides need it.</li>
+</ol>
+<p>Design implication:</p>
+<ul>
+<li><strong>Faction</strong> = in-world side.</li>
+<li><strong>Controller</strong> = decision-maker for a side, such as <code>HumanLocal</code>, future <code>StrategicAI</code>, or tactical-only <code>CombatAI</code>.</li>
+<li><strong>Champion</strong> = strategic map actor owned by a faction.</li>
+<li><strong>Army</strong> = stack collection associated with a Champion or site.</li>
+<li><strong>BattleSide</strong> = tactical participant generated from strategic state.</li>
+<li><strong>BattleSideController</strong> = tactical decision-maker, such as <code>HumanLocal</code> or <code>CombatAI</code>.</li>
+</ul>
+<h2 id="3-first-scenario-shape">3. First Scenario Shape<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-first-scenario-shape" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="b1-duel-map-with-b2-pacing">B1 Duel Map With B2 Pacing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#b1-duel-map-with-b2-pacing" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The first scenario should be a compact duel/race map.</p>
+<p>Rules:</p>
+<ol>
+<li>The scenario has two faction starting hubs.</li>
+<li>The map contains a small number of neutral sites between and around the starts.</li>
+<li>Early turns should reward racing to useful neutral sites instead of immediately forcing one central fight.</li>
+<li>Midgame pressure should concentrate around one central objective or high-value infrastructure site.</li>
+<li>Both factions should have plausible early choices: secure resources, recruit/reinforce, contest the center, or attack the opponent’s path.</li>
+<li>The map should be small enough that playtests reach tactical battles and strategic consequences quickly.</li>
+</ol>
+<p>Working first-map content budget:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Element</th><th style="text-align:right;">MVP Working Range</th><th>Purpose</th></tr></thead><tbody><tr><td>Factions</td><td style="text-align:right;">2</td><td>Hotseat strategic contest.</td></tr><tr><td>Champions</td><td style="text-align:right;">1 per faction</td><td>Keep strategic control readable.</td></tr><tr><td>Starting hubs</td><td style="text-align:right;">1 per faction</td><td>Spawn, ownership anchor, possible recruitment/reinforcement point.</td></tr><tr><td>Neutral sites</td><td style="text-align:right;">6-10</td><td>Exploration, resources, recruitment, pacing choices.</td></tr><tr><td>Guarded resource sites</td><td style="text-align:right;">2-3</td><td>Tactical battle entry and resource reward test.</td></tr><tr><td>Recruitment/reinforcement sites</td><td style="text-align:right;">1-2</td><td>Army growth loop.</td></tr><tr><td>Central objective site</td><td style="text-align:right;">1</td><td>Midgame contest and win-pressure anchor.</td></tr><tr><td>Tactical battle types</td><td style="text-align:right;">Guarded site, faction-vs-faction site contest</td><td>Minimum proof that strategy hands off into combat.</td></tr></tbody></table></div>
+<h2 id="4-mvp-in-scope">4. MVP In Scope<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-mvp-in-scope" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Two factions in one scenario.</li>
+<li>Local hotseat turn order.</li>
+<li>One Champion per faction.</li>
+<li>One active army per Champion.</li>
+<li>Strategic movement across the map.</li>
+<li>Site ownership/control states.</li>
+<li>Guarded neutral sites.</li>
+<li>Enemy-faction contested sites.</li>
+<li>Basic resource stockpiles and rewards.</li>
+<li>Intel as a reward/resource if the required Intel rules are ready; otherwise it may be represented as a locked placeholder with stable ID.</li>
+<li>Basic recruitment or reinforcement path.</li>
+<li>Tactical battle handoff and result application.</li>
+<li>Tactical side controller modes: <code>HumanLocal</code> and <code>CombatAI</code>.</li>
+<li>Neutral guard combat AI.</li>
+<li>At least one victory condition.</li>
+<li>Serializable scenario runtime state design from the start.</li>
+</ul>
+<h2 id="5-explicitly-out-of-scope-for-first-mvp">5. Explicitly Out of Scope for First MVP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-explicitly-out-of-scope-for-first-mvp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Online or networked multiplayer.</li>
+<li>Simultaneous turns.</li>
+<li>Strategic AI opponent.</li>
+<li>Full diplomacy.</li>
+<li>Full town/city building tree.</li>
+<li>Deep economy or market simulation.</li>
+<li>Full fog/misinformation/feed-state layer.</li>
+<li>Full crisis-clock system.</li>
+<li>Full campaign persistence across scenarios.</li>
+<li>Map editor.</li>
+<li>Advanced logistics/supply.</li>
+<li>Advanced Champion progression trees.</li>
+<li>Final save/load format, unless separately approved by ADR/story.</li>
+<li>Complex combat AI personalities beyond functional tactical decision-making.</li>
+</ul>
+<h2 id="6-core-loop-contract">6. Core Loop Contract<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-core-loop-contract" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Scenario initializes faction states, Champions, armies, sites, map topology, starting ownership, resources, and victory conditions.</li>
+<li>Active faction begins its strategic turn.</li>
+<li>Active faction selects its Champion.</li>
+<li>Champion moves along the map according to movement rules.</li>
+<li>Champion interacts with a site.</li>
+<li>If the site is guarded or enemy-contested, the strategic layer creates a tactical <code>BattleSetup</code>.</li>
+<li>Tactical combat resolves and returns a <code>BattleResult</code>.</li>
+<li>Strategic layer applies the result: losses, site control, rewards, recruitment availability, victory progress, and turn-state changes.</li>
+<li>Active faction may continue until movement/actions are exhausted or the player ends turn.</li>
+<li>Turn passes to the next faction.</li>
+<li>Scenario ends when victory/loss criteria are met.</li>
+</ol>
+<h2 id="7-data-and-state-contract-draft">7. Data and State Contract Draft<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-data-and-state-contract-draft" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The exact schemas remain a later packet, but implementation stories should expect these concepts:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Concept</th><th>Static Definition?</th><th>Runtime State?</th><th>Notes</th></tr></thead><tbody><tr><td>Scenario</td><td>Yes</td><td>Yes</td><td>Defines map, factions, starts, sites, objectives; runtime tracks progress.</td></tr><tr><td>Faction</td><td>Yes</td><td>Yes</td><td>Definition owns identity; runtime tracks resources, ownership, controller.</td></tr><tr><td>Controller</td><td>Yes/config</td><td>Runtime assignment</td><td><code>HumanLocal</code> for hotseat MVP; future strategic AI should fit without rewriting faction model.</td></tr><tr><td>Champion</td><td>Yes</td><td>Yes</td><td>Definition owns identity/archetype; runtime tracks position, army, movement, state.</td></tr><tr><td>Army</td><td>Possibly template</td><td>Yes</td><td>Runtime stack collection; must hand off to tactical battle.</td></tr><tr><td>Site</td><td>Yes</td><td>Yes</td><td>Definition owns type/rewards/guards; runtime tracks owner/cleared/visited/state.</td></tr><tr><td>Route/Map Link</td><td>Yes</td><td>Maybe</td><td>Movement cost/topology.</td></tr><tr><td>Resource</td><td>Yes</td><td>Yes</td><td>Stockpile and rewards.</td></tr><tr><td>BattleSetup</td><td>DTO</td><td>Per battle</td><td>Generated by strategy, consumed by tactics.</td></tr><tr><td>BattleResult</td><td>DTO</td><td>Per battle</td><td>Generated by tactics, consumed by strategy.</td></tr></tbody></table></div>
+<p>All runtime state must be serializable even before final save/load format is approved.</p>
+<h2 id="8-ux--readability-requirements-draft">8. UX / Readability Requirements Draft<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-ux--readability-requirements-draft" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The first playable strategic map must make these visible:</p>
+<ul>
+<li>active faction and current controller;</li>
+<li>active Champion;</li>
+<li>movement range or reachable sites;</li>
+<li>site ownership/control/guarded state;</li>
+<li>expected interaction type before committing, such as visit, battle, recruit, collect, or contest;</li>
+<li>resource stockpiles and reward changes;</li>
+<li>whose turn is next;</li>
+<li>victory condition progress;</li>
+<li>clear transition into tactical battle and clear return summary after battle.</li>
+</ul>
+<h2 id="9-strategic-map-topology">9. Strategic Map Topology<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9-strategic-map-topology" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="packet-c-decision-cd-hybrid">Packet C Decision: C/D Hybrid<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#packet-c-decision-cd-hybrid" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction: use an authored node-route graph for MVP rules, presented over a visual Greenland map. Keep the data model abstract enough that a later tile/grid or richer spatial layer is not blocked.</p>
+<p>This is a hybrid of:</p>
+<ul>
+<li><strong>C: authored nodes over visual terrain</strong> — the player sees a geographic/terrain map, but gameplay decisions happen at discrete sites and routes.</li>
+<li><strong>D: phased node-route now, richer map later</strong> — MVP implementation uses node-route rules first, without pretending this is the final full-vision map model.</li>
+</ul>
+<p>Rules:</p>
+<ol>
+<li>The MVP strategic map is a graph of authored nodes connected by authored routes.</li>
+<li>Nodes represent meaningful strategic places: hubs, sites, infrastructure, route junctions, objective points, or encounter locations.</li>
+<li>Routes represent viable travel corridors: roads, ice roads, air/sea links, maintenance corridors, Treaty Net logistics links, or local wilderness paths.</li>
+<li>The visual layer may draw terrain, geography, coastlines, roads, weather, and infrastructure, but rules read from graph topology unless a later packet promotes richer spatial rules.</li>
+<li>Movement, reachability, site interaction, and strategic battle triggers operate on node/route state.</li>
+<li>The graph model must not hardcode a single visual layout. Nodes need stable IDs and map/presentation coordinates.</li>
+<li>The domain model should distinguish graph rules from presentation coordinates.</li>
+<li>A future tile/grid/region model should be possible by adding another topology representation or route-generation layer, not by rewriting faction/Champion/site ownership rules.</li>
+</ol>
+<p>MVP data implications:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Concept</th><th>Required Fields / Behavior</th></tr></thead><tbody><tr><td>StrategicNodeDefinition</td><td>stable node ID, node type, display/localization key, presentation position, optional site ID, optional owner/start state.</td></tr><tr><td>StrategicRouteDefinition</td><td>stable route ID, from node ID, to node ID, movement cost, route type, traversal flags/requirements if any.</td></tr><tr><td>StrategicMapDefinition</td><td>stable map ID, node list, route list, starting faction placements, optional visual map reference.</td></tr><tr><td>ChampionStrategicState</td><td>champion ID, faction ID, current node ID, movement points/state.</td></tr><tr><td>NodeRuntimeState</td><td>owner/control/cleared/visited/guarded state as defined by later site packet.</td></tr><tr><td>RouteRuntimeState</td><td>open/blocked/contested state if later needed; default route state is open.</td></tr></tbody></table></div>
+<p>MVP movement contract draft:</p>
+<ol>
+<li>A Champion occupies exactly one strategic node at a time.</li>
+<li>A Champion moves along connected routes.</li>
+<li>Route movement cost spends movement points or movement allowance, to be finalized in the Champion/turn packet.</li>
+<li>MVP does not require free positioning between nodes.</li>
+<li>MVP does not require continuous pathfinding over terrain.</li>
+<li>Route blocking, weather, local guide bonuses, and movement-type differences are supported as future route modifiers, not first-pass requirements unless promoted by a later packet.</li>
+</ol>
+<p>Why this fits the first scenario:</p>
+<ul>
+<li>B1 duel structure is easy to author as two start hubs connected through neutral site clusters and a central objective.</li>
+<li>B2 race pacing is easy to tune by route costs and site placement.</li>
+<li>Playtests can quickly reveal whether map choices, timing, and tactical handoffs are fun.</li>
+<li>Implementation can start with deterministic pure C# graph logic and simple visual adapters.</li>
+</ul>
+<p>Out of scope for MVP topology:</p>
+<ul>
+<li>hex/square strategic tile movement;</li>
+<li>freeform map movement;</li>
+<li>complex terrain pathfinding;</li>
+<li>elevation/terrain simulation;</li>
+<li>procedural map generation;</li>
+<li>route construction/destruction systems;</li>
+<li>final map editor format.</li>
+</ul>
+<h2 id="10-site-and-infrastructure-states">10. Site and Infrastructure States<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#10-site-and-infrastructure-states" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="packet-d-decision-d-hybrid-site-model">Packet D Decision: D Hybrid Site Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#packet-d-decision-d-hybrid-site-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction: use HoMM-like mechanical site categories from Packet D option B, expressed through Neon-flavored infrastructure types from option C. For MVP, site mechanics stay simple and reusable; each site carries theme/type metadata so later systems can add richer infrastructure-specific rules.</p>
+<p>This means MVP sites are designed in two layers:</p>
+<ol>
+<li><strong>Mechanical category</strong> — what the site does in the rules.</li>
+<li><strong>Infrastructure theme/type</strong> — what the place is in the world and UI.</li>
+</ol>
+<p>Rules:</p>
+<ol>
+<li>Every interactive strategic location with gameplay state is a <code>Site</code> attached to a strategic node.</li>
+<li>A site has one primary mechanical category for MVP implementation.</li>
+<li>A site also has one infrastructure/theme type for fiction, labels, icons, rewards, and later specialization.</li>
+<li>Site mechanics must be reusable across many themes. Example: a <code>Resource Site</code> can be a mine, cold-chain fishery, compute outpost, or salvage cache.</li>
+<li>MVP implementation must not hardcode one bespoke rule system per infrastructure theme.</li>
+<li>Site definitions need stable IDs and localization keys.</li>
+<li>Site runtime state tracks ownership/control/cleared/visited/guarded state separately from the static definition.</li>
+<li>Site interactions must be previewable before commitment: the player should know whether the site will trigger battle, grant reward, recruit/reinforce, or contest ownership.</li>
+</ol>
+<p>MVP mechanical site categories:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Category</th><th>MVP Purpose</th><th>Typical Interaction</th></tr></thead><tbody><tr><td>Start Hub</td><td>Faction anchor, starting position, safe/base identity.</td><td>Own from scenario start; may support reinforcement/recruitment if enabled.</td></tr><tr><td>Resource Site</td><td>Provides one-time reward or recurring income, depending on later resource packet.</td><td>Defeat guards or control site, then gain/claim resource.</td></tr><tr><td>Recruitment Site</td><td>Adds units/reinforcements to faction/Champion army.</td><td>Control or visit, then recruit/reinforce within approved limits.</td></tr><tr><td>Upgrade / Intel Site</td><td>Gives Intel, operation unlock hooks, or asset-upgrade material.</td><td>Defeat guards/claim site, then gain Intel or upgrade currency.</td></tr><tr><td>Neutral Guard Site</td><td>Battle-focused encounter site, usually protecting reward/control.</td><td>Start tactical battle against neutral guard side.</td></tr><tr><td>Central Objective</td><td>Main contested victory/score/pressure anchor.</td><td>Control, hold, contest, or battle for scenario progress.</td></tr><tr><td>One-Shot Visit Site</td><td>Single-use map reward, scouting, event, or utility.</td><td>Visit once, apply effect, mark visited/consumed.</td></tr></tbody></table></div>
+<p>MVP infrastructure/theme types:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Theme Type</th><th>Can Use Categories</th><th>Notes</th></tr></thead><tbody><tr><td>Mining / Extraction Site</td><td>Resource, Guard, Objective</td><td>Good for material resources and faction conflict.</td></tr><tr><td>Fishery / Cold-Chain Site</td><td>Resource, Objective, Visit</td><td>Grounds Greenland economy and logistics.</td></tr><tr><td>Sensor / White Sky Node</td><td>Intel, Objective, Guard, Visit</td><td>Connects climate/geoengineering and information control.</td></tr><tr><td>Clinic / Bodytech Site</td><td>Recruitment, Upgrade, Visit</td><td>Supports bodies, recovery, legitimacy, later Champion/army consequences.</td></tr><tr><td>Recruitment Contractor / Local Ally Site</td><td>Recruitment, Visit, Guard</td><td>Provides units or reinforcement access without a full town system.</td></tr><tr><td>Treaty-Net / Infrastructure Node</td><td>Central Objective, Intel, Guard</td><td>Strong first central-objective candidate.</td></tr><tr><td>Cache / Salvage / Black Site</td><td>Resource, Intel, Guard, One-Shot</td><td>Flexible early reward site.</td></tr><tr><td>Starting Hub</td><td>Start Hub, Recruitment, Resource</td><td>Faction base and scenario anchor.</td></tr></tbody></table></div>
+<p>MVP site runtime states:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>State</th><th>Meaning</th><th>Notes</th></tr></thead><tbody><tr><td>Hidden / Undiscovered</td><td>Site not yet revealed or not interactable in UI.</td><td>Optional for first MVP; can be omitted if no fog/scouting yet.</td></tr><tr><td>Revealed</td><td>Site is visible but not necessarily controlled/visited.</td><td>Default for simple MVP maps.</td></tr><tr><td>Guarded</td><td>Site has neutral guards or enemy defenders requiring battle before claim/use.</td><td>Generates tactical <code>BattleSetup</code>.</td></tr><tr><td>Uncontrolled</td><td>Site has no faction owner.</td><td>Common after guards are defeated if control is not automatic.</td></tr><tr><td>Controlled</td><td>Site is owned/controlled by a faction.</td><td>Drives ownership, income, recruitment, objective progress.</td></tr><tr><td>Contested</td><td>Site contains or is targeted by opposing faction presence.</td><td>Can trigger faction-vs-faction battle.</td></tr><tr><td>Visited / Consumed</td><td>One-shot reward or visit effect has already been used.</td><td>Prevents repeat farming.</td></tr><tr><td>Disabled / Locked</td><td>Site exists but cannot currently be used.</td><td>Reserved for future scenario conditions; not needed for first pass unless useful.</td></tr></tbody></table></div>
+<p>Ownership/control contract draft:</p>
+<ol>
+<li>Start hubs begin controlled by their assigned faction.</li>
+<li>Neutral guarded sites begin uncontrolled and guarded.</li>
+<li>Defeating neutral guards may either immediately control the site or leave it claimable; exact default is a later subdecision if needed.</li>
+<li>Enemy-controlled sites can be contested by moving an opposing Champion onto/into the site interaction.</li>
+<li>Site control changes only through explicit site interaction or battle result application.</li>
+<li>Tactical combat must not directly mutate site state; it returns a <code>BattleResult</code>, and the strategic layer applies site consequences.</li>
+</ol>
+<p>First scenario site mix target:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Site</th><th style="text-align:right;">Count</th><th>Suggested Category/Theme</th></tr></thead><tbody><tr><td>Faction start hubs</td><td style="text-align:right;">2</td><td>Start Hub / Starting Hub</td></tr><tr><td>Early resource sites</td><td style="text-align:right;">2-3</td><td>Resource / Mining, Fishery, Cache</td></tr><tr><td>Recruitment/reinforcement sites</td><td style="text-align:right;">1-2</td><td>Recruitment / Contractor, Clinic, Local Ally</td></tr><tr><td>Intel/upgrade site</td><td style="text-align:right;">1</td><td>Upgrade/Intel / Sensor, White Sky Node, Black Site</td></tr><tr><td>Central contested site</td><td style="text-align:right;">1</td><td>Central Objective / Treaty-Net or White Sky Infrastructure Node</td></tr><tr><td>Optional one-shot visit sites</td><td style="text-align:right;">1-2</td><td>Visit / Cache, Sensor, Local Ally</td></tr></tbody></table></div>
+<p>Out of scope for MVP site model:</p>
+<ul>
+<li>full town building trees;</li>
+<li>deep infrastructure maintenance simulation;</li>
+<li>unique bespoke rules for every infrastructure type;</li>
+<li>diplomacy/consent systems as separate mechanics;</li>
+<li>complex legal/provenance ownership states;</li>
+<li>full fog/feed misinformation around site identity;</li>
+<li>multi-turn construction or upgrades;</li>
+<li>final site editor UX.</li>
+</ul>
+<h2 id="11-resources-intel-and-recruitmentreinforcement-minimum">11. Resources, Intel, and Recruitment/Reinforcement Minimum<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-resources-intel-and-recruitmentreinforcement-minimum" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="packet-e-decision-d-phased-hybrid-resource-model">Packet E Decision: D Phased Hybrid Resource Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#packet-e-decision-d-phased-hybrid-resource-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction: use the simple mechanical resource set from Packet E option B for the first hotseat MVP, while keeping resource/theme metadata flexible enough for later infrastructure-flavored resources from option C.</p>
+<p>This means the MVP economy has three active strategic resources:</p>
+<ol>
+<li><strong>Credits</strong> — payment, recruitment, contracts, and general operational spending.</li>
+<li><strong>Materials</strong> — equipment, reinforcement, repair, infrastructure-like growth, and future upgrade hooks.</li>
+<li><strong>Intel</strong> — special information power used for upgrade, operation, reveal, or unlock hooks; Intel is not generic money.</li>
+</ol>
+<p>Future resource identities such as Compute, Medical Capacity, Energy, Legitimacy, Favors, or White Sky Access may appear as site flavor, tags, reward labels, or future expansion hooks, but they are not separate MVP stockpiles unless a later approved packet promotes them.</p>
+<p>Rules:</p>
+<ol>
+<li>Each faction has its own resource stockpiles.</li>
+<li>MVP faction stockpiles must include <code>Credits</code>, <code>Materials</code>, and <code>Intel</code>.</li>
+<li>Resource changes are applied by strategic-layer systems after site interaction, turn income, recruitment, or battle-result resolution.</li>
+<li>Tactical combat must not directly mutate resource stockpiles; it returns a <code>BattleResult</code>, and the strategic layer applies rewards/losses.</li>
+<li>Resource rewards and costs must be previewable before commitment where practical.</li>
+<li>Resource definitions need stable IDs and localization keys.</li>
+<li>Site definitions may carry future-facing economy tags, but MVP rules must ignore unsupported stockpile types rather than creating hidden currencies.</li>
+</ol>
+<p>MVP resource roles:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Resource</th><th>MVP Role</th><th>Typical Sources</th><th>Typical Sinks</th></tr></thead><tbody><tr><td>Credits</td><td>Broad spending resource.</td><td>Start hub income, resource sites, one-shot caches, central objective rewards.</td><td>Recruitment, reinforcement, basic site actions, future operation costs.</td></tr><tr><td>Materials</td><td>Growth and recovery resource.</td><td>Mining/extraction sites, salvage/black sites, guarded infrastructure sites.</td><td>Reinforcement, equipment/upgrade hooks, future repair/build hooks.</td></tr><tr><td>Intel</td><td>Special strategic leverage.</td><td>Sensor/White Sky nodes, Treaty-Net nodes, black sites, objective rewards.</td><td>Upgrade/intel-site effects, reveal/operation hooks, future information actions.</td></tr></tbody></table></div>
+<p>MVP income/reward contract:</p>
+<ol>
+<li>The MVP supports both one-time rewards and recurring income, but first implementation stories may start with one-time rewards if recurring-income timing is not yet implemented.</li>
+<li>Recurring income, when enabled, is evaluated at a deterministic strategic-turn timing selected in the turn/scenario packet.</li>
+<li>Site definitions declare whether they grant one-time reward, recurring income, both, or neither.</li>
+<li>One-shot visit sites mark their reward as consumed after successful application.</li>
+<li>Guarded sites grant rewards only after guards are defeated and the strategic result is applied.</li>
+<li>Enemy-faction site capture does not duplicate already-consumed one-shot rewards unless a site definition explicitly allows recapture rewards.</li>
+</ol>
+<p>Recruitment/reinforcement minimum:</p>
+<ol>
+<li>MVP recruitment/reinforcement uses predefined unit offers, not full town-building trees.</li>
+<li>Recruitment Site definitions may expose one or more recruit/reinforcement offers.</li>
+<li>Offers have stable IDs, unit/stack references, cost in Credits/Materials/Intel as needed, and availability/stock rules.</li>
+<li>The first implementation may use fixed offers and fixed stock counts.</li>
+<li>Recruitment adds units to the active Champion’s army or faction reserve, depending on the approved Champion/army packet.</li>
+<li>Reinforcement should be able to restore or add units after losses, but detailed casualty recovery rules are deferred to the Champion/army packet.</li>
+</ol>
+<p>Implementation-facing data implications:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Concept</th><th>Required Fields / Behavior</th></tr></thead><tbody><tr><td>ResourceDefinition</td><td>stable resource ID, display/localization key, category, icon/color hint.</td></tr><tr><td>FactionResourceState</td><td>faction ID, resource stockpile values for Credits, Materials, Intel.</td></tr><tr><td>ResourceDelta</td><td>resource ID, signed amount, source reason, preview/apply mode.</td></tr><tr><td>SiteRewardDefinition</td><td>one-time and/or recurring resource deltas, optional Intel reward, consumed/claim rules.</td></tr><tr><td>RecruitmentOfferDefinition</td><td>stable offer ID, unit/stack reference, resource cost, stock/availability, source site ID.</td></tr><tr><td>RecruitmentRuntimeState</td><td>remaining stock, claimed/available state, optional refresh timing.</td></tr></tbody></table></div>
+<p>Out of scope for MVP economy:</p>
+<ul>
+<li>full HoMM-style multi-resource economy;</li>
+<li>separate Compute, Energy, Medical, Legitimacy, or Favor stockpiles;</li>
+<li>market exchange/trading;</li>
+<li>loans, debt, subscriptions, or upkeep simulation;</li>
+<li>complex supply chains;</li>
+<li>faction-specific economy rules;</li>
+<li>dynamic pricing;</li>
+<li>full town construction/building trees;</li>
+<li>population/workforce simulation;</li>
+<li>deep Intel operation deck/system.</li>
+</ul>
+<h2 id="12-championarmy-strategic-state-and-movement-allowance">12. Champion/Army Strategic State and Movement Allowance<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-championarmy-strategic-state-and-movement-allowance" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="packet-f-decision-d-phased-hybrid-champion-movement-model">Packet F Decision: D Phased Hybrid Champion Movement Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#packet-f-decision-d-phased-hybrid-champion-movement-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction: implement a HoMM-lite Champion model now, while keeping the data model ready for richer logistics later.</p>
+<p>This is a phased hybrid of:</p>
+<ul>
+<li><strong>B: HoMM-lite now</strong> — Champions have movement points, move along routes with costs, carry one army, and use one major site interaction per turn.</li>
+<li><strong>C: richer logistics later</strong> — future route types, weather, supply, fatigue, faction modifiers, and movement-type differences should fit without rewriting core Champion/site/faction state.</li>
+</ul>
+<p>Rules:</p>
+<ol>
+<li>Each faction begins the first MVP scenario with one Champion.</li>
+<li>A Champion belongs to exactly one faction.</li>
+<li>A Champion occupies exactly one strategic node at a time.</li>
+<li>A Champion has one attached army for MVP.</li>
+<li>A Champion has movement points that reset at the start of that Champion’s faction turn.</li>
+<li>Moving along a route spends movement points equal to the route movement cost.</li>
+<li>A Champion may move through multiple connected nodes in one turn if movement points allow.</li>
+<li>A Champion cannot move along a route if remaining movement points are below that route’s cost, unless a later rule explicitly allows partial/provisional movement.</li>
+<li>A Champion has one major strategic interaction per turn for MVP.</li>
+<li>Major strategic interactions include claiming a site, recruiting/reinforcing, collecting a guarded/owned reward, initiating a guarded battle, initiating an enemy-site contest, or using a one-shot visit effect.</li>
+<li>Previewing movement, site effects, battle risk, and recruitment costs does not consume movement or interaction.</li>
+<li>Tactical combat must not directly mutate Champion, army, or movement state; it returns a <code>BattleResult</code>, and the strategic layer applies consequences.</li>
+<li>MVP implementation should keep fields for future logistics modifiers, but not implement supply/fatigue/weather as active rules yet.</li>
+</ol>
+<p>Champion strategic state minimum:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>MVP Meaning</th><th>Future-Proofing Note</th></tr></thead><tbody><tr><td>championId</td><td>Stable runtime/definition reference.</td><td>Supports multiple Champions later.</td></tr><tr><td>factionId</td><td>Owning faction.</td><td>Controller remains separate from faction.</td></tr><tr><td>currentNodeId</td><td>Current strategic graph node.</td><td>Can later map to tile/region position adapter.</td></tr><tr><td>armyState</td><td>Attached stack collection.</td><td>May later split into reserves/caravans/garrisons.</td></tr><tr><td>movementPointsRemaining</td><td>Remaining movement this turn.</td><td>Can later be modified by route/weather/status.</td></tr><tr><td>hasMajorInteractionAvailable</td><td>Whether the Champion can still perform a major interaction this turn.</td><td>Allows later action systems without hardcoding one action forever.</td></tr><tr><td>championStatusFlags</td><td>Minimal status flags such as active, defeated, wounded, locked.</td><td>Future logistics/status effects can extend this.</td></tr></tbody></table></div>
+<p>Army strategic state minimum:</p>
+<ol>
+<li>MVP armies are stack collections attached directly to Champions or defensive site/guard definitions.</li>
+<li>A Champion army is the source for that faction’s tactical battle side unless a specific site/encounter overrides it.</li>
+<li>Neutral guards may use static army templates from site definitions.</li>
+<li>Enemy-controlled site defenders may use the occupying/contesting Champion army for MVP; separate garrisons are future scope unless explicitly added later.</li>
+<li>Battle losses return as stack deltas in <code>BattleResult</code> and are applied by the strategic layer.</li>
+<li>If a Champion’s army is defeated, the Champion enters a defeated/wounded/loss state to be finalized in the turn/scenario/victory packet.</li>
+</ol>
+<p>Movement and interaction contract:</p>
+<ol>
+<li>Start of faction turn resets that faction Champion’s movement points and major interaction availability.</li>
+<li>Route movement spends points and updates <code>currentNodeId</code> only after validation.</li>
+<li>Moving onto a node does not automatically claim, recruit, collect, or start battle without an explicit interaction command, unless a later UX decision chooses auto-prompt/auto-trigger behavior.</li>
+<li>Major site interaction consumes the Champion’s major interaction availability.</li>
+<li>A battle-triggering interaction consumes the major interaction when the battle is launched.</li>
+<li>After battle, remaining movement may persist if the Champion survives and movement remains, but the major interaction is spent. This can be tuned later if playtests show cleanup movement feels wrong.</li>
+<li>Recruitment adds to the active Champion army for MVP if the army has capacity and the offer is valid. Faction reserve/caravan recruitment is deferred.</li>
+</ol>
+<p>Implementation-facing data implications:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Concept</th><th>Required Fields / Behavior</th></tr></thead><tbody><tr><td>ChampionDefinition</td><td>stable champion ID, display/localization key, faction/archetype references, base movement allowance, starting army reference.</td></tr><tr><td>ChampionStrategicState</td><td>champion ID, faction ID, current node ID, army state reference/value, movement points remaining, interaction availability, status flags.</td></tr><tr><td>ArmyStackState</td><td>unit definition ID, current count, optional max/cap metadata.</td></tr><tr><td>ArmyState</td><td>owner reference, stack list, validation for empty/defeated state.</td></tr><tr><td>MovementCommand</td><td>champion ID, from node ID, to node ID or route/path, preview/apply mode.</td></tr><tr><td>SiteInteractionCommand</td><td>champion ID, site ID, interaction type, preview/apply mode.</td></tr><tr><td>BattleResultArmyDelta</td><td>side/champion/site references, stack losses/survivors, defeated flags.</td></tr></tbody></table></div>
+<p>Out of scope for MVP Champion/army movement:</p>
+<ul>
+<li>multiple Champions per faction;</li>
+<li>freeform movement between nodes;</li>
+<li>strategic tile/hex movement;</li>
+<li>caravans, detached armies, and separate faction reserves;</li>
+<li>full garrison management;</li>
+<li>Champion equipment/progression trees;</li>
+<li>supply, fatigue, weather, route ownership taxes, and logistics attrition;</li>
+<li>faction-specific movement rules;</li>
+<li>complex retreat, capture, resurrection, or hospital systems;</li>
+<li>simultaneous Champion movement;</li>
+<li>strategic AI movement planning.</li>
+</ul>
+<h2 id="13-turnscenariovictory-structure">13. Turn/Scenario/Victory Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-turnscenariovictory-structure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="packet-g-decision-d-phased-hybrid-scenario-structure">Packet G Decision: D Phased Hybrid Scenario Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#packet-g-decision-d-phased-hybrid-scenario-structure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction: implement an objective-duel hotseat structure now, while keeping scenario data ready for later score/race victory modes.</p>
+<p>This is a phased hybrid of:</p>
+<ul>
+<li><strong>B: objective duel now</strong> — fixed alternating faction turns, start-of-turn refresh/income, and victory by defeating the enemy Champion or holding the central objective.</li>
+<li><strong>C: score/race later</strong> — scenario data may include score values, turn limits, and objective counters, but these are not required active MVP rules unless a later packet promotes them.</li>
+</ul>
+<p>Rules:</p>
+<ol>
+<li>The first MVP scenario has exactly two active factions.</li>
+<li>Strategic turns are sequential and local hotseat: Faction 1, then Faction 2, repeating.</li>
+<li>There is no simultaneous turn resolution in MVP.</li>
+<li>There is no strategic AI controller in MVP.</li>
+<li>A faction turn begins with a deterministic start-of-turn phase.</li>
+<li>A faction turn ends when the player manually ends turn, or when a future implementation chooses to auto-end after no legal movement/action remains.</li>
+<li>The first implementation should support manual end turn as the reliable baseline.</li>
+<li>Scenario state must track active faction, turn number/round number, objective hold state, victory state, and defeat state.</li>
+</ol>
+<p>Start-of-faction-turn sequence:</p>
+<ol>
+<li>Set active faction/controller.</li>
+<li>Increment turn/round counters as defined by scenario state.</li>
+<li>Reset the active Champion’s movement points.</li>
+<li>Reset the active Champion’s major interaction availability.</li>
+<li>Apply recurring income for sites controlled by the active faction, if recurring income is enabled.</li>
+<li>Evaluate central-objective hold progress for the active faction.</li>
+<li>Check victory/loss state before allowing actions, so objective wins resolve cleanly.</li>
+<li>Present start-of-turn summary to the player.</li>
+</ol>
+<p>End-of-faction-turn sequence:</p>
+<ol>
+<li>Validate no modal interaction or battle is unresolved.</li>
+<li>Apply any end-turn effects approved by scenario rules.</li>
+<li>Check victory/loss state.</li>
+<li>Advance active faction to the next faction in turn order.</li>
+<li>If turn order wraps back to Faction 1, increment the round counter if using round tracking.</li>
+</ol>
+<p>MVP victory conditions:</p>
+<ol>
+<li><strong>Champion defeat victory</strong> — if a faction’s only Champion army is defeated and the Champion enters the approved defeated/loss state, the opposing faction wins unless a later rule explicitly allows recovery.</li>
+<li><strong>Central objective hold victory</strong> — if a faction controls the central objective for the required number of its own start-of-turn checks, that faction wins.</li>
+<li>The working default for the first scenario is holding the central objective for <strong>2 consecutive own turns</strong>.</li>
+<li>Scenario definitions should store the required hold count rather than hardcoding <code>2</code>.</li>
+<li>If both victory conditions could resolve in one sequence, Champion defeat takes priority immediately after battle; objective hold resolves at start-of-turn checks.</li>
+</ol>
+<p>Scenario state minimum:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>MVP Meaning</th><th>Future-Proofing Note</th></tr></thead><tbody><tr><td>scenarioId</td><td>Stable scenario definition reference.</td><td>Supports multiple scenarios/campaign later.</td></tr><tr><td>activeFactionId</td><td>Faction whose strategic turn is active.</td><td>Allows hotseat now, future strategic AI later.</td></tr><tr><td>turnOrder</td><td>Ordered faction IDs.</td><td>MVP length is two.</td></tr><tr><td>turnNumber</td><td>Count of faction turns taken.</td><td>Useful for logs/replays/tests.</td></tr><tr><td>roundNumber</td><td>Count of full cycles through turn order.</td><td>Useful for future turn limits/scoring.</td></tr><tr><td>victoryState</td><td>None, faction win, draw/abort if ever needed.</td><td>Must be explicit and serializable.</td></tr><tr><td>centralObjectiveSiteId</td><td>Site used for objective hold victory.</td><td>Future scenarios may have multiple objective sites.</td></tr><tr><td>objectiveHoldFactionId</td><td>Faction currently building hold progress.</td><td>Resets when control changes.</td></tr><tr><td>objectiveHoldProgress</td><td>Consecutive own-turn checks held.</td><td>Can generalize into objective score later.</td></tr><tr><td>objectiveHoldRequired</td><td>Required hold progress for victory.</td><td>Working default: 2.</td></tr></tbody></table></div>
+<p>Champion defeat contract:</p>
+<ol>
+<li>Tactical <code>BattleResult</code> reports whether an army was defeated.</li>
+<li>The strategic layer applies army losses and then evaluates Champion defeat.</li>
+<li>For MVP, a defeated only-Champion faction loses the scenario.</li>
+<li>More complex outcomes such as wounded recovery, ransom, clinic revival, backup bodies, retreats, or Echo continuation are deferred.</li>
+<li>Defeat handling should still use explicit state rather than deleting the Champion from runtime data.</li>
+</ol>
+<p>Objective control contract:</p>
+<ol>
+<li>The central objective is a Site with the Central Objective mechanical category.</li>
+<li>Site control changes through site interaction or battle-result application.</li>
+<li>Objective hold progress is checked at the start of the controlling faction’s own turn.</li>
+<li>If another faction controls or contests the objective before the check, prior hold progress resets or transfers according to scenario rules; MVP default is reset.</li>
+<li>Objective hold progress and reset behavior must be visible in the UI.</li>
+</ol>
+<p>Out of scope for MVP turn/scenario/victory:</p>
+<ul>
+<li>online multiplayer;</li>
+<li>simultaneous turns;</li>
+<li>strategic AI turns;</li>
+<li>diplomacy or alliances;</li>
+<li>more than two active factions;</li>
+<li>score-threshold victory as an active rule;</li>
+<li>turn-limit victory as an active rule;</li>
+<li>multiple central objectives;</li>
+<li>campaign persistence across scenarios;</li>
+<li>complex Champion recovery/revival systems;</li>
+<li>hidden victory conditions;</li>
+<li>crisis-clock/endgame systems.</li>
+</ul>
+<h2 id="14-strategy-to-tactical-dtos">14. Strategy-to-Tactical DTOs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#14-strategy-to-tactical-dtos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="packet-h-decision-d-phased-hybrid-explicit-dto-model">Packet H Decision: D Phased Hybrid Explicit DTO Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#packet-h-decision-d-phased-hybrid-explicit-dto-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction: use explicit boundary DTOs for the first implementation, but keep the result payload simpler than a full tactical event stream.</p>
+<p>This is a phased hybrid of:</p>
+<ul>
+<li><strong>B: full explicit DTO now</strong> — <code>BattleSetup</code> carries enough context for tactical combat to run without reading or mutating strategic world state; <code>BattleResult</code> returns clear outcome data for strategy to apply.</li>
+<li><strong>C: event stream later</strong> — detailed tactical event logs, replays, morale chains, and granular causal interpretation can be added later without replacing the core setup/result boundary.</li>
+</ul>
+<p>Boundary rule:</p>
+<p>Tactical combat resolves battles. Strategic systems own world consequences.</p>
+<p>Tactical combat may decide:</p>
+<ol>
+<li>battle winner/loser/no-contest result;</li>
+<li>surviving unit stacks;</li>
+<li>unit losses;</li>
+<li>defeated/routed flags;</li>
+<li>optional retreat/cancel outcome if supported by the battle mode.</li>
+</ol>
+<p>Tactical combat must not directly decide or mutate:</p>
+<ol>
+<li>site ownership/control;</li>
+<li>site consumed/visited state;</li>
+<li>resource stockpiles;</li>
+<li>recruitment offer state;</li>
+<li>objective hold progress;</li>
+<li>Champion movement/interactions beyond returned outcome flags;</li>
+<li>turn advancement;</li>
+<li>scenario victory state.</li>
+</ol>
+<p><code>BattleSetup</code> minimum:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td>battleId</td><td>Stable ID for this battle instance.</td></tr><tr><td>scenarioId</td><td>Scenario runtime/source reference.</td></tr><tr><td>sourceInteractionId</td><td>Strategic command/interaction that created the battle.</td></tr><tr><td>sourceSiteId</td><td>Site that triggered the battle, if any.</td></tr><tr><td>sourceNodeId</td><td>Strategic node where the battle occurs.</td></tr><tr><td>battleType</td><td>GuardedSite, SiteContest, ChampionVsChampion, or future extension.</td></tr><tr><td>attackingFactionId</td><td>Faction initiating the battle.</td></tr><tr><td>defendingFactionId</td><td>Defending faction, neutral faction, or guard-side reference.</td></tr><tr><td>attackingChampionId</td><td>Attacking Champion if present.</td></tr><tr><td>defendingChampionId</td><td>Defending Champion if present; optional for neutral guards.</td></tr><tr><td>attackerController</td><td>Tactical controller for attacking side: HumanLocal or CombatAI.</td></tr><tr><td>defenderController</td><td>Tactical controller for defending side: HumanLocal or CombatAI.</td></tr><tr><td>attackingArmy</td><td>Snapshot/copy of attacking army stacks.</td></tr><tr><td>defendingArmy</td><td>Snapshot/copy of defending army stacks or guard template.</td></tr><tr><td>tacticalObjectiveId</td><td>Tactical battle objective/mode reference.</td></tr><tr><td>allowedOutcomeFlags</td><td>Which outcomes the strategy layer expects, such as canRetreat or canClaimSite.</td></tr><tr><td>rewardContextId</td><td>Optional reference to strategic reward context; tactics does not grant it directly.</td></tr></tbody></table></div>
+<p><code>BattleResult</code> minimum:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td>battleId</td><td>Matches the setup battle ID.</td></tr><tr><td>battleOutcome</td><td>AttackerWin, DefenderWin, Retreat, Cancelled, Draw, or Error/Invalid if needed.</td></tr><tr><td>winningSide</td><td>Attacker, Defender, None.</td></tr><tr><td>attackerArmyResult</td><td>Surviving/lost stacks and defeated flag for attacker.</td></tr><tr><td>defenderArmyResult</td><td>Surviving/lost stacks and defeated flag for defender.</td></tr><tr><td>attackerChampionDefeated</td><td>Whether the attacking Champion is defeated by battle outcome.</td></tr><tr><td>defenderChampionDefeated</td><td>Whether the defending Champion is defeated by battle outcome.</td></tr><tr><td>retreatingSide</td><td>Optional side if retreat exists.</td></tr><tr><td>tacticalSummary</td><td>Short player-facing summary text/key or structured summary facts.</td></tr><tr><td>resultFlags</td><td>Simple flags such as guardsClearedEligible, siteClaimEligible, rewardEligible.</td></tr><tr><td>diagnostics</td><td>Optional validation/debug info for tests and agent evidence.</td></tr></tbody></table></div>
+<p>Strategic application contract:</p>
+<ol>
+<li>The strategy layer creates <code>BattleSetup</code> from scenario, Champion, army, site, controller, and interaction state.</li>
+<li>The tactical layer consumes <code>BattleSetup</code> as an input snapshot.</li>
+<li>The tactical layer returns <code>BattleResult</code> without writing strategic runtime state.</li>
+<li>The strategy layer validates that <code>BattleResult.battleId</code> matches an unresolved battle.</li>
+<li>The strategy layer applies army losses/survivors to Champion or site/guard state.</li>
+<li>The strategy layer evaluates Champion defeat and scenario loss.</li>
+<li>The strategy layer applies site control/guard clearing/reward eligibility according to site and scenario rules.</li>
+<li>The strategy layer applies resource/reward changes.</li>
+<li>The strategy layer checks victory/loss state after applying battle consequences.</li>
+<li>The strategy layer emits the player-facing strategic battle summary.</li>
+</ol>
+<p>Minimum strategic loop test cases:</p>
+<ol>
+<li>Guarded resource site creates <code>BattleSetup</code> with player Champion army vs neutral guard army.</li>
+<li>Attacker victory against guards clears guard state and grants/marks eligible reward through strategy application.</li>
+<li>Defender/guard victory damages or defeats attacking Champion army without granting the reward.</li>
+<li>Enemy-controlled central objective contest creates faction-vs-faction <code>BattleSetup</code>.</li>
+<li>Battle result can change site control only through strategic application, not tactical mutation.</li>
+<li>Defeating the enemy only-Champion faction triggers scenario victory through strategy rules.</li>
+<li><code>BattleSetup</code> preview/generation does not consume site rewards or mutate resources before <code>BattleResult</code> is applied.</li>
+</ol>
+<p>Out of scope for MVP DTOs:</p>
+<ul>
+<li>full tactical event stream;</li>
+<li>deterministic replay log as a required feature;</li>
+<li>granular per-action tactical audit beyond summary/results;</li>
+<li>multi-side battles beyond attacker/defender;</li>
+<li>diplomacy, alliances, or temporary coalitions;</li>
+<li>complex retreat/capture/ransom systems;</li>
+<li>direct tactical writes into strategic state;</li>
+<li>hidden battle outcome manipulation by feed/misinformation systems.</li>
+</ul>
+<h2 id="15-acceptance-criteria-draft">15. Acceptance Criteria Draft<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#15-acceptance-criteria-draft" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>This GDD is implementation-ready only when later packets define enough detail that stories can test:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> A scenario can initialize two factions, one Champion per faction, starting hubs, neutral sites, resources, and victory conditions.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Local hotseat turn order is deterministic and visible.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> A Champion can move according to approved map topology and movement rules.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> A Champion can interact with guarded, neutral, owned, and enemy-contested sites.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Site interaction can create a tactical <code>BattleSetup</code> without mutating strategy state prematurely.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Tactical <code>BattleResult</code> can update losses, ownership/control, rewards, and victory progress.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Resource and recruitment/reinforcement changes are observable and testable.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> All strategic runtime state is serializable.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> No production story requires strategic AI, networking, simultaneous turns, or unapproved full economy systems.</li>
+</ul>
+<h2 id="16-next-step">16. Next Step<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#16-next-step" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The strategic-map GDD now has the minimum packet decisions needed to draft first implementation stories.</p>
+<p>Next step: create READY-candidate stories for the first strategic MVP slice:</p>
+<ul>
+<li><code>STORY-STRAT-001</code> scenario/map graph state;</li>
+<li><code>STORY-STRAT-002</code> hotseat turn ownership;</li>
+<li><code>STORY-STRAT-003</code> Champion movement;</li>
+<li><code>STORY-STRAT-004</code> site interaction and guarded battle trigger;</li>
+<li><code>STORY-TAC-001</code> battle setup/result DTO contracts;</li>
+<li><code>STORY-LOOP-001</code> playable strategy-to-battle-to-result loop.</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-9" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#strategic-map" data-for="strategic-map">Strategic Map</a></li><li class="depth-1"><a href="#1-summary" data-for="1-summary">1. Summary</a></li><li class="depth-1"><a href="#2-approved-mvp-direction" data-for="2-approved-mvp-direction">2. Approved MVP Direction</a></li><li class="depth-2"><a href="#c3-h-two-faction-hotseat-strategy-mvp" data-for="c3-h-two-faction-hotseat-strategy-mvp">C3-H: Two-Faction Hotseat Strategy MVP</a></li><li class="depth-1"><a href="#3-first-scenario-shape" data-for="3-first-scenario-shape">3. First Scenario Shape</a></li><li class="depth-2"><a href="#b1-duel-map-with-b2-pacing" data-for="b1-duel-map-with-b2-pacing">B1 Duel Map With B2 Pacing</a></li><li class="depth-1"><a href="#4-mvp-in-scope" data-for="4-mvp-in-scope">4. MVP In Scope</a></li><li class="depth-1"><a href="#5-explicitly-out-of-scope-for-first-mvp" data-for="5-explicitly-out-of-scope-for-first-mvp">5. Explicitly Out of Scope for First MVP</a></li><li class="depth-1"><a href="#6-core-loop-contract" data-for="6-core-loop-contract">6. Core Loop Contract</a></li><li class="depth-1"><a href="#7-data-and-state-contract-draft" data-for="7-data-and-state-contract-draft">7. Data and State Contract Draft</a></li><li class="depth-1"><a href="#8-ux--readability-requirements-draft" data-for="8-ux--readability-requirements-draft">8. UX / Readability Requirements Draft</a></li><li class="depth-1"><a href="#9-strategic-map-topology" data-for="9-strategic-map-topology">9. Strategic Map Topology</a></li><li class="depth-2"><a href="#packet-c-decision-cd-hybrid" data-for="packet-c-decision-cd-hybrid">Packet C Decision: C/D Hybrid</a></li><li class="depth-1"><a href="#10-site-and-infrastructure-states" data-for="10-site-and-infrastructure-states">10. Site and Infrastructure States</a></li><li class="depth-2"><a href="#packet-d-decision-d-hybrid-site-model" data-for="packet-d-decision-d-hybrid-site-model">Packet D Decision: D Hybrid Site Model</a></li><li class="depth-1"><a href="#11-resources-intel-and-recruitmentreinforcement-minimum" data-for="11-resources-intel-and-recruitmentreinforcement-minimum">11. Resources, Intel, and Recruitment/Reinforcement Minimum</a></li><li class="depth-2"><a href="#packet-e-decision-d-phased-hybrid-resource-model" data-for="packet-e-decision-d-phased-hybrid-resource-model">Packet E Decision: D Phased Hybrid Resource Model</a></li><li class="depth-1"><a href="#12-championarmy-strategic-state-and-movement-allowance" data-for="12-championarmy-strategic-state-and-movement-allowance">12. Champion/Army Strategic State and Movement Allowance</a></li><li class="depth-2"><a href="#packet-f-decision-d-phased-hybrid-champion-movement-model" data-for="packet-f-decision-d-phased-hybrid-champion-movement-model">Packet F Decision: D Phased Hybrid Champion Movement Model</a></li><li class="depth-1"><a href="#13-turnscenariovictory-structure" data-for="13-turnscenariovictory-structure">13. Turn/Scenario/Victory Structure</a></li><li class="depth-2"><a href="#packet-g-decision-d-phased-hybrid-scenario-structure" data-for="packet-g-decision-d-phased-hybrid-scenario-structure">Packet G Decision: D Phased Hybrid Scenario Structure</a></li><li class="depth-1"><a href="#14-strategy-to-tactical-dtos" data-for="14-strategy-to-tactical-dtos">14. Strategy-to-Tactical DTOs</a></li><li class="depth-2"><a href="#packet-h-decision-d-phased-hybrid-explicit-dto-model" data-for="packet-h-decision-d-phased-hybrid-explicit-dto-model">Packet H Decision: D Phased Hybrid Explicit DTO Model</a></li><li class="depth-1"><a href="#15-acceptance-criteria-draft" data-for="15-acceptance-criteria-draft">15. Acceptance Criteria Draft</a></li><li class="depth-1"><a href="#16-next-step" data-for="16-next-step">16. Next Step</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../design/gdd/README" class="internal">GDD Reading Guide</a></li><li><a href="../../" class="internal">index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>

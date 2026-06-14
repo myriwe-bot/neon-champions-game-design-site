@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Tactical Combat — Morale, Rout, and Cohesion · Neon Champions</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Neon Champions Game Design"/><meta property="og:title" content="Tactical Combat — Morale, Rout, and Cohesion · Neon Champions"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Tactical Combat — Morale, Rout, and Cohesion · Neon Champions"/><meta name="twitter:description" content="Tactical Combat — Morale, Rout, and Cohesion This article preserves and reorganizes design-session content from tactical-combat-deep-reference."/><meta property="og:description" content="Tactical Combat — Morale, Rout, and Cohesion This article preserves and reorganizes design-session content from tactical-combat-deep-reference."/><meta property="og:image:alt" content="Tactical Combat — Morale, Rout, and Cohesion This article preserves and reorganizes design-session content from tactical-combat-deep-reference."/><meta property="twitter:domain" content="myriwe-bot.github.io/neon-champions-game-design-site"/><meta property="og:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/morale-rout-and-cohesion"/><meta property="twitter:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/morale-rout-and-cohesion"/><link rel="icon" href="../../../static/icon.png"/><meta name="description" content="Tactical Combat — Morale, Rout, and Cohesion This article preserves and reorganizes design-session content from tactical-combat-deep-reference."/><meta name="generator" content="Quartz"/><link href="../../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxOb3JkaWNHYW1lclxcYWN0aW9ucy1ydW5uZXJcXG5lb25jaGFtcC1kZXNpZ25cXF93b3JrXFxuZW9uLWNoYW1waW9ucy1nYW1lLWRlc2lnblxcbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ25cXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgcGFkZGluZzogMC40cmVtO1xyXG4gIG1hcmdpbjogMC4zcmVtO1xyXG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xyXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcclxuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcclxuICBib3JkZXI6IDFweCBzb2xpZDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgb3BhY2l0eTogMDtcclxuICB0cmFuc2l0aW9uOiAwLjJzO1xyXG5cclxuICAmID4gc3ZnIHtcclxuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcclxuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcclxuICB9XHJcblxyXG4gICY6aG92ZXIge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG4gIH1cclxuXHJcbiAgJjpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiAwO1xyXG4gIH1cclxufVxyXG5cclxucHJlIHtcclxuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICAgIHRyYW5zaXRpb246IDAuMnM7XHJcbiAgfVxyXG59XHJcblxyXG4jbWVybWFpZC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICBjb250YWluOiBsYXlvdXQ7XHJcbiAgei1pbmRleDogOTk5O1xyXG4gIGxlZnQ6IDA7XHJcbiAgdG9wOiAwO1xyXG4gIHdpZHRoOiAxMDB2dztcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XHJcblxyXG4gICYuYWN0aXZlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB9XHJcblxyXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgdG9wOiA1MCU7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICAgIGhlaWdodDogODB2aDtcclxuICAgIHdpZHRoOiA4MHZ3O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuXHJcbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XHJcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xyXG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xyXG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICAgICAgbWluLWhlaWdodDogMjAwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XHJcblxyXG4gICAgICBwcmUge1xyXG4gICAgICAgIG1hcmdpbjogMDtcclxuICAgICAgICBib3JkZXI6IG5vbmU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIHN2ZyB7XHJcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xyXG4gICAgICAgIGhlaWdodDogYXV0bztcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XHJcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgYm90dG9tOiAyMHB4O1xyXG4gICAgICByaWdodDogMjBweDtcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgZ2FwOiA4cHg7XHJcbiAgICAgIHBhZGRpbmc6IDhweDtcclxuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XHJcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICAgIHotaW5kZXg6IDI7XHJcblxyXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XHJcbiAgICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgICAgIHdpZHRoOiAzMnB4O1xyXG4gICAgICAgIGhlaWdodDogMzJweDtcclxuICAgICAgICBwYWRkaW5nOiAwO1xyXG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XHJcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xyXG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XHJcblxyXG4gICAgICAgICY6aG92ZXIge1xyXG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgICY6YWN0aXZlIHtcclxuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxyXG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcclxuICAgICAgICAgIHdpZHRoOiBhdXRvO1xyXG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xyXG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxufVxyXG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://myriwe-bot.github.io/neon-champions-game-design-site/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/morale-rout-and-cohesion-og-image.webp"/><meta property="og:image:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/morale-rout-and-cohesion-og-image.webp"/><meta name="twitter:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/tactical-combat/morale-rout-and-cohesion-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="design/gdd/tactical-combat/morale-rout-and-cohesion"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../../..">Neon Champions Game Design</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-34"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-34" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../design/">design</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../design/gdd/">gdd</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../../design/gdd/tactical-combat/">Tactical Combat</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Tactical Combat — Morale, Rout, and Cohesion</a></div></nav><h1 class="article-title">Tactical Combat — Morale, Rout, and Cohesion</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-29T21:00:00.000Z">May 30, 2026</time><span>20 min read</span></p></div></div><article class="popover-hint"><h1 id="tactical-combat--morale-rout-and-cohesion">Tactical Combat — Morale, Rout, and Cohesion<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tactical-combat--morale-rout-and-cohesion" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote>
+<p>This article preserves and reorganizes design-session content from <a href="../../../design/research/tactical-combat-deep-reference" class="internal" data-slug="design/research/tactical-combat-deep-reference">tactical-combat-deep-reference</a>. It is part of the tactical combat GDD split for readability. Do not treat missing context as permission to invent rules; check the active overview at <a href="../../../design/gdd/tactical-combat" class="internal" data-slug="design/gdd/tactical-combat">tactical-combat</a>.</p>
+</blockquote>
+<h2 id="article-contents">Article Contents<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#article-contents" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Retreat, Surrender, and Tactical Loss Boundary</li>
+<li>Morale, Routing, and Stack Collapse</li>
+<li>Global Morale Model</li>
+<li>Morale Scale, Thresholds, and Rout Checks</li>
+<li>Morale Recovery and Rally Actions</li>
+<li>Morale Event Sources and Strategic Links</li>
+<li>Morale UI, Prediction, and Player Readability</li>
+<li>Morale Complexity Boundary and MVP Cut</li>
+<li>End of Morale Block — Integration Check</li>
+<li>Morale / Cohesion</li>
+</ul>
+<hr/>
+<h2 id="retreat-surrender-and-tactical-loss-boundary">Retreat, Surrender, and Tactical Loss Boundary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#retreat-surrender-and-tactical-loss-boundary" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>Voluntary retreat availability depends on battle type.</li>
+<li>Retreat is primarily a command-layer escape/concession, not a default way to save the committed army.</li>
+<li>In most ordinary battle types, choosing retreat means losing the committed army/stacks for sure.</li>
+<li>Stack preservation on leaving combat depends on battle type, but mostly retreat does <strong>not</strong> preserve surviving stacks.</li>
+<li>Scenario extraction is a separate pattern: only stacks that satisfy the extraction rule, such as reaching an extraction edge/tile, may escape.</li>
+<li>Surrender exists separately from retreat.</li>
+<li>Surrender should preserve more than retreat, but costs resources, reputation, leverage, terms, prisoners, debt, access, or other strategic concessions.</li>
+<li>If all allied stacks are destroyed, routed, or otherwise removed, the battle is lost.</li>
+<li>Champion death or capture from tactical loss occurs only by explicit scenario/battle rule, not by default.</li>
+<li>Champion assets, operations, or supporting resources are at risk only if they were deployed or committed to that battle.</li>
+</ol>
+<p>Baseline rule text:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Retreat: battle-type-dependent voluntary exit. In most ordinary battles, retreat concedes the battlefield and forfeits the committed army/stacks. Retreat protects the command-layer Champion from routine tactical death/capture unless the battle explicitly says otherwise.</span></span>
+<span data-line> </span>
+<span data-line><span>Surrender: battle-type-dependent negotiated loss. Surrender may preserve more forces or assets than retreat, but imposes strategic costs such as payment, reputation damage, prisoners, debt, loss of position, access concessions, or scenario-specific terms.</span></span>
+<span data-line> </span>
+<span data-line><span>Extraction: scenario-specific escape. Stacks escape only if they meet the scenario's extraction condition, usually reaching or controlling an extraction tile/edge/objective.</span></span></code></pre></figure>
+<p>Battle-type patterns:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Field Battle / Skirmish: Retreat may be available, but normally forfeits the committed army. Surrender may preserve some forces at a strategic cost.</span></span>
+<span data-line> </span>
+<span data-line><span>Ambush / Trap: Retreat may be restricted, delayed, or especially punishing. Extraction or survival objectives may replace generic retreat.</span></span>
+<span data-line> </span>
+<span data-line><span>Raid / Sabotage / Extraction Mission: Leaving the battlefield should usually be objective-driven. Surviving stacks are preserved only if the scenario extraction rules are satisfied.</span></span>
+<span data-line> </span>
+<span data-line><span>Siege / Base Assault: Retreat and surrender terms should depend on attacker/defender role, encirclement, control zones, and strategic stakes.</span></span>
+<span data-line> </span>
+<span data-line><span>Story / Set-Piece Battle: Champion capture, death, asset loss, or special escape rules occur only if explicitly authored.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>This keeps HoMM-like retreat/surrender texture without making retreat a low-cost army-saving button.</li>
+<li>Retreat should usually protect the Champion’s continuity/control layer, not preserve the deployed army.</li>
+<li>Surrender is the softer-loss valve: it can save more than retreat, but should create visible strategic debt or loss of leverage.</li>
+<li>Extraction missions should reward positional play rather than letting the player press a universal Retreat command to save everyone.</li>
+<li>Champion consequences should be battle-authored. Routine tactical defeat should not casually kill or capture Champions because Champions are not baseline board units.</li>
+<li>Asset risk should follow commitment. If a drone wing, safehouse uplink, Operator channel, transport, or special support asset was committed to the fight, it can be lost, damaged, exposed, or captured according to scenario rules.</li>
+</ul>
+<h2 id="morale-routing-and-stack-collapse">Morale, Routing, and Stack Collapse<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#morale-routing-and-stack-collapse" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>Individual stacks can rout during tactical combat.</li>
+<li>Rout is a normal morale state, not only a rare scenario exception.</li>
+<li>A routed stack normally remains on the battlefield but cannot attack or perform objective interactions.</li>
+<li>Baseline routed behavior: the stack may only Move or Defend unless the causing effect defines a different behavior.</li>
+<li>Specific rout-causing effects may override the baseline behavior when fiction requires it, such as panic flight, signal seizure, surrender cascade, berserk withdrawal, or forced retreat.</li>
+<li>Whether rout counts as destroyed/removed for battle-loss checks depends on recoverability.</li>
+<li>If a routed stack can recover, it does not automatically count as destroyed for battle-loss checks.</li>
+<li>If a routed stack is permanently out of player control, removed, captured, or forced off-field, it counts as removed for battle-loss checks.</li>
+<li>Combat uses an army-wide global morale model.</li>
+</ol>
+<p>Baseline rule text:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Routed: a stack morale-collapse state. A routed stack remains present but loses offensive and objective agency. By default it may only Move or Defend. It cannot Attack, Interact / Objective, Reload + Fire, use active special abilities, or voluntarily trigger complex tactical actions unless a rule explicitly allows it.</span></span>
+<span data-line> </span>
+<span data-line><span>Recoverable Rout: the stack is temporarily routed and may return to normal control through morale recovery, Champion command, faction effects, rally actions, time, or scenario rules. Recoverable routed stacks do not automatically count as destroyed for battle-loss checks.</span></span>
+<span data-line> </span>
+<span data-line><span>Removed Rout: the stack is effectively gone from the fight through flight, capture, surrender, signal seizure, cohesion collapse, or forced off-field removal. Removed routed stacks count as removed for battle-loss checks.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>Making rout a normal morale state gives battles a middle failure state between full combat readiness and stack death.</li>
+<li>The baseline should be simple: routed stacks lose agency, but are not automatically deleted.</li>
+<li>Effect-specific rout behavior keeps room for faction identity: propaganda panic, Hacked command loops, cult discipline breaks, drone swarm desync, biotech shock, or corporate surrender protocols can all read differently.</li>
+<li>The global morale model should be visible and readable, not a hidden dicey subsystem.</li>
+<li>Morale must not become a second HP bar for every stack unless later packets justify that complexity.</li>
+</ul>
+<h2 id="global-morale-model">Global Morale Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#global-morale-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>Combat uses one army-wide Morale value per side.</li>
+<li>Global Morale is side-level, not a separate morale bar for every stack.</li>
+<li>Morale mostly changes through readable battle events.</li>
+<li>Pre-battle army quality, Champion state, faction traits, doctrine, preparation, and strategic context can set or modify starting Morale.</li>
+<li>Event-based morale swings include stack loss, stack rout, objective loss/gain, Champion command, terror/propaganda effects, flanking or encirclement moments, decisive kills, and scenario-specific shocks.</li>
+<li>Low global Morale creates a combination of consequences, but mostly increases stack rout risk.</li>
+<li>Low Morale may also create limited penalties, command friction, or vulnerability to enemy pressure, but should not become an overwhelming snowball by default.</li>
+<li>High Morale primarily enables Champion/faction/command abilities rather than granting broad passive stat bonuses.</li>
+</ol>
+<p>Baseline rule text:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Global Morale: each side has one visible army-wide Morale value for the battle. Morale reflects battlefield confidence, command cohesion, perceived legitimacy, fear, panic, and willingness to keep fighting.</span></span>
+<span data-line> </span>
+<span data-line><span>Starting Morale: set before battle from army quality, Champion/Marshal/Operator context, faction traits, doctrine, strategic preparation, scenario state, and relevant assets.</span></span>
+<span data-line> </span>
+<span data-line><span>Morale Change: Morale changes mainly through significant readable events, not constant hidden drift. Stack destruction, rout, objective shifts, command actions, terror/propaganda, and scenario shocks can raise or lower Morale.</span></span>
+<span data-line> </span>
+<span data-line><span>Low Morale: increases the risk that stacks rout or fail to recover from rout. It may also apply light command friction or expose the army to specific pressure effects, but rout risk is the primary consequence.</span></span>
+<span data-line> </span>
+<span data-line><span>High Morale: does not normally grant broad passive combat stats. Instead it can unlock, empower, discount, or stabilize specific Champion, faction, doctrine, or command abilities.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>One side-level value keeps morale readable and avoids a hidden morale simulation for every stack.</li>
+<li>Starting Morale lets strategic-layer quality matter without requiring per-stack morale accounting.</li>
+<li>Event-based morale makes the system legible: players should know why morale changed.</li>
+<li>High morale should be active/identity-driven rather than generic win-more damage or defense.</li>
+<li>Low morale should create pressure and rout risk, but avoid irreversible death spirals unless a faction/scenario is explicitly built around morale collapse.</li>
+</ul>
+<h2 id="morale-scale-thresholds-and-rout-checks">Morale Scale, Thresholds, and Rout Checks<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#morale-scale-thresholds-and-rout-checks" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>Morale uses a hidden numeric value with player-facing visible bands.</li>
+<li>The hidden numeric value exists for tuning, balancing, event deltas, thresholds, and AI evaluation.</li>
+<li>The player-facing UI should show morale as readable bands rather than over-precise numbers.</li>
+<li>Rout checks happen from a combination of major morale events and heavy stack losses.</li>
+<li>Rout should feel caused by battlefield events, not like a random per-round tax.</li>
+<li>Rout is weighted/probabilistic based on Morale band and event severity.</li>
+<li>Stack type affects rout resistance through broad traits rather than a full morale stat on every unit.</li>
+<li>Broad rout-resistance traits may include disciplined, fearless, fragile, drone, fanatic, mercenary, civilian, expendable, unstable, or similar faction/unit descriptors.</li>
+</ol>
+<p>Baseline rule text:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Morale Value: each side has a hidden numeric Morale value for tuning and rules resolution.</span></span>
+<span data-line> </span>
+<span data-line><span>Visible Morale Band: the UI presents Morale as broad readable bands, such as Broken, Shaken, Steady, Confident, and Inspired, rather than exposing exact numbers by default.</span></span>
+<span data-line> </span>
+<span data-line><span>Rout Check: when a major morale event occurs or a stack suffers heavy losses, affected stacks may make a rout check. The check is weighted by current Morale band, event severity, relevant stack traits, Champion/faction modifiers, and scenario rules.</span></span>
+<span data-line> </span>
+<span data-line><span>Stack Rout Traits: units do not need a universal morale stat. Instead, broad traits modify rout behavior where fiction and roster identity justify it.</span></span></code></pre></figure>
+<p>Example morale bands:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Inspired: high morale; enables or strengthens specific Champion/faction/command abilities.</span></span>
+<span data-line><span>Confident: above baseline; troops are stable and less vulnerable to rout pressure.</span></span>
+<span data-line><span>Steady: normal morale; no special collapse pressure.</span></span>
+<span data-line><span>Shaken: low morale; rout checks become more dangerous and recovery is harder.</span></span>
+<span data-line><span>Broken: collapse state; rout risk is severe and some commands/effects may fail or become unavailable.</span></span></code></pre></figure>
+<p>Example rout-trigger events:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>- A stack is destroyed.</span></span>
+<span data-line><span>- A stack suffers heavy losses in a single attack or activation.</span></span>
+<span data-line><span>- A key objective is lost, captured, hacked, sabotaged, or extracted.</span></span>
+<span data-line><span>- A Champion/faction terror, propaganda, command, or shock effect resolves.</span></span>
+<span data-line><span>- A routed stack fails to recover or is removed from the field.</span></span>
+<span data-line><span>- A scenario-specific morale shock occurs.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>Hidden numeric plus visible bands gives implementation flexibility without making players count morale points.</li>
+<li>Major-event and heavy-loss checks keep rout connected to drama the player can understand.</li>
+<li>Weighted chance preserves uncertainty; event severity and banding prevent it from feeling arbitrary.</li>
+<li>Broad stack traits give unit identity without adding a mandatory morale-resistance stat to every roster entry.</li>
+<li>Traits should be sparse and meaningful. Do not tag every unit unless the trait changes a real rule.</li>
+</ul>
+<h2 id="morale-recovery-and-rally-actions">Morale Recovery and Rally Actions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#morale-recovery-and-rally-actions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>Routed stack recovery depends on the source of the rout.</li>
+<li>Panic, hack seizure, surrender cascade, drone desync, biotech shock, propaganda collapse, and other rout sources may define different recovery rules.</li>
+<li>Combat has a basic Champion/command-layer Rally action.</li>
+<li>There is no baseline adjacent-stack Rally action.</li>
+<li>Rally cost depends on the Rally source.</li>
+<li>Basic Champion Rally can cost a Champion command resource/action, while faction, unit, doctrine, asset, or scenario Rally tools may use their own costs.</li>
+<li>Rally effects depend on the Rally source.</li>
+<li>Rally may improve global Morale, clear/reduce Routed on one or more stacks, stabilize recovery checks, remove command friction, or combine those effects where appropriate.</li>
+</ol>
+<p>Baseline rule text:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Rout Recovery: a routed stack's recovery method is defined by the source of the rout. Some rout states can recover naturally, some require Champion command, some require faction/unit abilities, and some are removed-rout states that cannot recover during the battle.</span></span>
+<span data-line> </span>
+<span data-line><span>Champion Rally: a command-layer action used to restore control, stabilize morale, or reassert command over routed or wavering forces. Champion Rally is the baseline universal Rally form.</span></span>
+<span data-line> </span>
+<span data-line><span>Rally Source: each Rally effect defines its own cost and scope. Costs may include Champion command resource, once-per-battle use, cooldown, doctrine charge, asset exposure, scenario resource, or faction-specific requirement.</span></span>
+<span data-line> </span>
+<span data-line><span>Rally Effect: a Rally may raise global Morale, clear or downgrade Routed, improve recovery odds, stabilize a stack against further rout checks, restore command access, or combine several modest effects.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>Recovery should preserve fiction. A panicked militia stack, a hacked drone swarm, and a corporate unit entering surrender protocol should not all snap back for the same reason.</li>
+<li>Keeping baseline Rally at the Champion/command layer avoids adjacency micromanagement and reinforces that morale is a command problem.</li>
+<li>Unit/faction-specific rally abilities can still exist, but they are exceptions and identity tools, not the default recovery UI.</li>
+<li>Rally should be strong enough to create comeback decisions but not erase rout as a meaningful failure state.</li>
+<li>Removed-rout states should be clearly labeled so the player knows when recovery is impossible.</li>
+</ul>
+<h2 id="morale-event-sources-and-strategic-links">Morale Event Sources and Strategic Links<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#morale-event-sources-and-strategic-links" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>Stack destruction affects global Morale, scaled by stack value and battlefield role.</li>
+<li>Losing cheap, expendable, or low-commitment stacks should not hit Morale as hard as losing elite, symbolic, expensive, rare, or command-critical stacks.</li>
+<li>Objective gain and loss affects global Morale by default.</li>
+<li>Objective morale impact should reflect objective importance, current scenario stakes, and whether the objective is framed as symbolic, tactical, logistical, informational, or existential.</li>
+<li>Pre-battle strategic conditions affect starting Morale.</li>
+<li>Starting Morale can be shaped by supply, fatigue, territory, intel, reputation, recent victories/losses, preparation, army quality, Champion state, faction traits, doctrine, and scenario context.</li>
+<li>Factions can have distinct morale baselines and morale-response hooks.</li>
+<li>Morale behavior is a faction-identity surface: drones, cultists, mercenaries, citizens, biotech swarms, corporate professionals, insurgents, and Echo-mediated forces may gain, lose, resist, or exploit Morale differently.</li>
+</ol>
+<p>Baseline rule text:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Stack Loss Morale: when a stack is destroyed or removed, global Morale changes based on the stack's value, role, rarity, symbolic weight, and faction/scenario traits. Expendable stacks may have reduced or altered morale impact; elite or command-critical stacks may create major shocks.</span></span>
+<span data-line> </span>
+<span data-line><span>Objective Morale: gaining, holding, losing, hacking, sabotaging, extracting, or failing objectives can raise or lower global Morale. The objective definition sets the morale weight and any faction/scenario exceptions.</span></span>
+<span data-line> </span>
+<span data-line><span>Starting Morale: before combat begins, each side's starting Morale is modified by strategic conditions such as supply, fatigue, territory control, intel advantage, reputation, recent victories or losses, preparation, Champion state, faction traits, doctrine, and scenario context.</span></span>
+<span data-line> </span>
+<span data-line><span>Faction Morale Hooks: factions may define morale baselines, event modifiers, recovery patterns, rout traits, high-morale uses, low-morale vulnerabilities, or unusual interpretations of morale.</span></span></code></pre></figure>
+<p>Example faction morale hooks:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Drone / autonomous forces: may resist fear-based morale shocks but be vulnerable to command desync, hacking, bandwidth collapse, or control-node loss.</span></span>
+<span data-line> </span>
+<span data-line><span>Cult / ideology-bound forces: may resist ordinary casualties but suffer severe shocks from symbolic failure, leader contradiction, exposed fraud, or doctrine-breaking events.</span></span>
+<span data-line> </span>
+<span data-line><span>Mercenary / corporate forces: may respond strongly to contract viability, payment confidence, reputation, extraction options, and perceived legal/PR exposure.</span></span>
+<span data-line> </span>
+<span data-line><span>Citizen / militia forces: may be sensitive to casualties and terror, but gain morale from defending home territory, visible legitimacy, or successful protection of civilians.</span></span>
+<span data-line> </span>
+<span data-line><span>Biotech / swarm forces: may treat individual losses as low-impact but react strongly to brood-node death, chemical disruption, command pheromone collapse, or containment breach.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>Scaling stack-loss morale by value prevents cheap fodder from becoming morale-liability spam.</li>
+<li>Objective morale ties psychological momentum to scenario play and makes non-kill actions matter.</li>
+<li>Strategic starting Morale gives map-layer decisions tactical consequences without adding per-turn overhead.</li>
+<li>Faction morale hooks should be sparse and legible. The goal is identity, not a bespoke morale minigame for every faction.</li>
+<li>Morale rules should expose why morale changed: “Elite stack destroyed,” “Upload secured,” “Fighting in home territory,” “Supply exhausted,” etc.</li>
+</ul>
+<h2 id="morale-ui-prediction-and-player-readability">Morale UI, Prediction, and Player Readability<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#morale-ui-prediction-and-player-readability" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>Morale is always visible in the tactical UI as a band plus trend indicator.</li>
+<li>The UI should always show recent causes for Morale changes.</li>
+<li>Rout risk should be previewed before major foreseeable morale-risk actions, events, or objective decisions.</li>
+<li>Exact hidden numeric Morale may be exposed through optional advanced tooltip/accessibility UI.</li>
+<li>Normal UI should remain band-based and readable; exact numbers are not the default presentation.</li>
+</ol>
+<p>Baseline rule text:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Morale Display: each side's Morale is always visible in tactical combat as a readable band plus trend indicator, such as rising, stable, pressured, or collapsing.</span></span>
+<span data-line> </span>
+<span data-line><span>Morale Cause Feed: when Morale changes, the UI shows the recent cause or causes, such as Elite stack destroyed, Objective secured, Supply exhausted, Fighting in home territory, Champion Rally, or Broadcast panic effect.</span></span>
+<span data-line> </span>
+<span data-line><span>Rout Risk Preview: when a major foreseeable action or objective outcome may trigger meaningful rout risk, the UI previews an approximate risk band rather than an exact hidden roll by default.</span></span>
+<span data-line> </span>
+<span data-line><span>Advanced Morale Detail: optional advanced tooltips or accessibility settings may expose exact hidden numeric Morale, recent modifiers, and approximate rout probabilities for players who want more transparency.</span></span></code></pre></figure>
+<p>Example UI language:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Morale: Shaken, falling</span></span>
+<span data-line><span>Recent causes: Elite stack destroyed; Upload objective contested</span></span>
+<span data-line><span>Risk preview: Destroying this stack may trigger Moderate rout risk among nearby low-discipline units.</span></span>
+<span data-line><span>Advanced tooltip: Morale 34/100; Shaken band; -12 recent event delta; +5 home territory modifier.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>Morale cannot be both mechanically important and invisible. Always-visible bands protect fairness.</li>
+<li>Showing causes is mandatory for event-based morale; otherwise morale will feel arbitrary.</li>
+<li>Rout risk preview should focus on major foreseeable events, not every tiny action, to avoid UI noise and over-mechanization.</li>
+<li>Optional exact values support clarity, accessibility, testing, and strategy-minded players without forcing spreadsheet UI on everyone.</li>
+<li>The trend indicator helps players understand direction even when the band has not changed yet.</li>
+</ul>
+<h2 id="morale-complexity-boundary-and-mvp-cut">Morale Complexity Boundary and MVP Cut<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#morale-complexity-boundary-and-mvp-cut" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>MVP morale scope is core tactical morale only: visible bands, major morale events, rout, and Champion Rally.</li>
+<li>MVP should include enough morale to support rout gameplay and command-layer recovery without carrying the full strategic/faction morale system.</li>
+<li>Post-MVP morale scope includes faction-specific morale hooks, strategic starting modifiers, advanced numeric/accessibility detail, and deep per-objective morale tuning.</li>
+<li>MVP rout should be mostly deterministic rather than random.</li>
+<li>Rout resolution should use morale band, event severity, and relevant traits/modifiers to produce clear outcomes or threshold-based outcomes.</li>
+<li>Morale-linked surrender/retreat negotiation is not part of MVP.</li>
+<li>Retreat and surrender remain separate battle-type rules for MVP, not morale-driven systems.</li>
+</ol>
+<p>Baseline rule text:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>MVP Morale Scope: tactical combat ships with visible morale bands, major event-driven morale changes, stack rout, and Champion Rally. The system should prove whether morale/rout adds useful battlefield pressure before adding strategic and faction-specific depth.</span></span>
+<span data-line> </span>
+<span data-line><span>Post-MVP Morale Scope: faction-specific morale hooks, strategic starting modifiers, advanced numeric/accessibility detail, and detailed per-objective morale tuning are valuable but do not block first playable tactical combat.</span></span>
+<span data-line> </span>
+<span data-line><span>MVP Rout Resolution: rout is mostly deterministic. Morale band, event severity, stack rout traits, Champion modifiers, and scenario rules determine whether a stack routs or stays controlled. Avoid hidden random morale rolls as the baseline MVP behavior.</span></span>
+<span data-line> </span>
+<span data-line><span>MVP Retreat/Surrender Boundary: morale does not drive retreat or surrender terms in MVP. Retreat and surrender follow battle-type and scenario rules.</span></span></code></pre></figure>
+<p>Deterministic vs probabilistic note:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Deterministic rout means the same state produces the same result: for example, Shaken morale + severe loss + Fragile trait always routs, while Steady morale + minor loss does not.</span></span>
+<span data-line> </span>
+<span data-line><span>Probabilistic rout means the same state produces a chance: for example, Shaken morale + severe loss + Fragile trait gives a 65% rout chance.</span></span>
+<span data-line> </span>
+<span data-line><span>Approved direction: prefer the deterministic version for baseline/MVP. If later playtests show morale feels too solved or too rigid, limited uncertainty can be added as a post-MVP tuning layer.</span></span></code></pre></figure>
+<p>Design notes:</p>
+<ul>
+<li>This cut keeps morale from overtaking basic combat implementation.</li>
+<li>Visible bands, event changes, rout, and Champion Rally are enough to test whether morale creates good decisions.</li>
+<li>Strategic/faction morale depth should return after the base combat loop is playable and understandable.</li>
+<li>Deterministic rout is easier to test, explain, balance, and debug than hidden random checks.</li>
+<li>If randomness is ever added later, the UI must still preview risk clearly and explain causes.</li>
+</ul>
+<h2 id="end-of-morale-block--integration-check">End of Morale Block — Integration Check<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#end-of-morale-block--integration-check" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approved direction:</p>
+<ol>
+<li>Basic morale/rout/Rally is part of MVP tactical combat.</li>
+<li>Morale/rout should be referenced in the combat summary/current direction, not hidden only in the morale section.</li>
+<li>Morale is kept separate from retreat/surrender/loss integration for now.</li>
+<li>The next design area after morale should be victory/loss rewards and post-battle resolution.</li>
+</ol>
+<p>Integration notes:</p>
+<ul>
+<li>MVP tactical combat includes basic morale/rout/Rally as an implementation-relevant system slice.</li>
+<li>The Summary and MVP Scope sections now explicitly mention basic morale/rout/Rally.</li>
+<li>Retreat and surrender remain battle-type/scenario systems, not morale-driven systems for MVP.</li>
+<li>Routed/removed stacks can still matter for battle-loss checks according to the rout rules, but no extra retreat/surrender morale coupling is being added here.</li>
+<li>Post-battle resolution is the natural next packet because retreat, surrender, rout, tactical loss, and asset commitment now need consequence handling.</li>
+</ul>
+<h2 id="morale--cohesion">Morale / Cohesion<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#morale--cohesion" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="core-cohesion-model">Core Cohesion Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#core-cohesion-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Use <strong>Cohesion</strong> as Neon Champions’ morale-equivalent stat.</li>
+<li>Cohesion covers morale, command integrity, squad coordination, signal discipline, ideological alignment, and faction/army synchronization.</li>
+<li>Low Cohesion can cause negative events or penalties.</li>
+<li>High Cohesion should grant stable bonuses rather than swingy positive tempo spikes.</li>
+<li>Faction mixing reduces Cohesion by default unless Champion/faction traits, diplomacy, doctrine, or other systems mitigate it.</li>
+<li>Everyone uses the same Cohesion system by default; exceptions should be explicit traits, not hidden category rules.</li>
+</ol>
+<p>Low Cohesion candidate effects:</p>
+<ul>
+<li>Initiative penalty.</li>
+<li>AP penalty in severe cases.</li>
+<li>Reduced damage or accuracy.</li>
+<li>Weaker response to Champion commands.</li>
+<li>Higher vulnerability to Signal disruption or suppression.</li>
+<li>Chance of delayed/skipped action if the system later supports controlled randomness.</li>
+</ul>
+<p>High Cohesion candidate effects:</p>
+<ul>
+<li>Stable initiative bonus.</li>
+<li>Better resistance to Suppressed/Hacked/Jammed effects.</li>
+<li>Improved Champion command reliability.</li>
+<li>Better Defend/Retaliation consistency.</li>
+<li>Reduced penalties from casualties or mixed forces.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Cohesion should not create frequent random bonus turns; that would add too much swinginess.</li>
+<li>Different unit types can justify Cohesion fiction differently: drone Cohesion is command-link/swarm coordination; corporate Cohesion is doctrine/comms discipline; street Cohesion is trust and momentum; Echo Cohesion is identity continuity; biotech Cohesion is pack/body-control integrity.</li>
+<li>Candidate future traits may modify Cohesion behavior: Autonomous, Fanatical, Fragile Command Link, Echo-Stable, Coalition Doctrine, Analog Discipline.</li>
+<li>Keep the default rule universal for readability; add exceptions only when a unit/faction needs them.</li>
+</ul>
+<h3 id="cohesion-sources-and-faction-mixing">Cohesion Sources and Faction Mixing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cohesion-sources-and-faction-mixing" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approved direction:</p>
+<ol>
+<li>Army composition uses a hybrid model: basic faction mixing can reduce Cohesion, and specific compatibility/incompatibility rules may further modify it.</li>
+<li>Mixed armies should also provide positive benefits: tactical flexibility, access to more damage types, abilities, logistics styles, and strategic options.</li>
+<li>Champion identity can mitigate or worsen mixed-force Cohesion. Some Champions are coalition-builders; others demand faction purity, command discipline, or ideological alignment.</li>
+<li>Battlefield events can affect Cohesion during combat.</li>
+<li>Temporary combat Cohesion mostly resets/recalculates after battle, but strategic morale/cohesion problems may persist when caused by major events, campaign state, faction conflict, or specific systems.</li>
+</ol>
+<p>Candidate composition factors:</p>
+<ul>
+<li>Number of factions represented in the army.</li>
+<li>Whether units share ideology, employer, command protocol, or operational culture.</li>
+<li>Whether a Champion has coalition/purity/discipline traits.</li>
+<li>Presence of incompatible units or hated rivals.</li>
+<li>Presence of mediating units, officers, handlers, translators, command relays, or doctrine assets.</li>
+</ul>
+<p>Candidate positive reasons to mix factions:</p>
+<ul>
+<li>Broader damage type coverage.</li>
+<li>Better answers to specific defensive traits.</li>
+<li>Access to different movement profiles.</li>
+<li>Logistics flexibility.</li>
+<li>More tactical roles and utility abilities.</li>
+<li>Strategic diplomacy or recruitment opportunities.</li>
+</ul>
+<p>Candidate battlefield Cohesion events:</p>
+<ul>
+<li>Friendly stack destroyed.</li>
+<li>Enemy stack destroyed.</li>
+<li>Champion command succeeds or fails.</li>
+<li>Stack is Suppressed, Hacked, Jammed, or hit by Signal attack.</li>
+<li>High-value/elite stack suffers casualties.</li>
+<li>Army is cut off from supply or network support.</li>
+<li>Unit acts adjacent to incompatible or inspiring ally.</li>
+</ul>
+<p>Design notes:</p>
+<ul>
+<li>Mixing should be a real tradeoff, not an automatic mistake.</li>
+<li>Pure armies should be more coherent and easier to command.</li>
+<li>Mixed armies should be tactically broader but require Champion support, doctrine, logistics, or player planning to avoid Cohesion penalties.</li>
+<li>Avoid tracking persistent Cohesion damage for every small combat event; reserve persistence for major campaign-relevant problems.</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-18" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#tactical-combat--morale-rout-and-cohesion" data-for="tactical-combat--morale-rout-and-cohesion">Tactical Combat — Morale, Rout, and Cohesion</a></li><li class="depth-1"><a href="#article-contents" data-for="article-contents">Article Contents</a></li><li class="depth-1"><a href="#retreat-surrender-and-tactical-loss-boundary" data-for="retreat-surrender-and-tactical-loss-boundary">Retreat, Surrender, and Tactical Loss Boundary</a></li><li class="depth-1"><a href="#morale-routing-and-stack-collapse" data-for="morale-routing-and-stack-collapse">Morale, Routing, and Stack Collapse</a></li><li class="depth-1"><a href="#global-morale-model" data-for="global-morale-model">Global Morale Model</a></li><li class="depth-1"><a href="#morale-scale-thresholds-and-rout-checks" data-for="morale-scale-thresholds-and-rout-checks">Morale Scale, Thresholds, and Rout Checks</a></li><li class="depth-1"><a href="#morale-recovery-and-rally-actions" data-for="morale-recovery-and-rally-actions">Morale Recovery and Rally Actions</a></li><li class="depth-1"><a href="#morale-event-sources-and-strategic-links" data-for="morale-event-sources-and-strategic-links">Morale Event Sources and Strategic Links</a></li><li class="depth-1"><a href="#morale-ui-prediction-and-player-readability" data-for="morale-ui-prediction-and-player-readability">Morale UI, Prediction, and Player Readability</a></li><li class="depth-1"><a href="#morale-complexity-boundary-and-mvp-cut" data-for="morale-complexity-boundary-and-mvp-cut">Morale Complexity Boundary and MVP Cut</a></li><li class="depth-1"><a href="#end-of-morale-block--integration-check" data-for="end-of-morale-block--integration-check">End of Morale Block — Integration Check</a></li><li class="depth-1"><a href="#morale--cohesion" data-for="morale--cohesion">Morale / Cohesion</a></li><li class="depth-2"><a href="#core-cohesion-model" data-for="core-cohesion-model">Core Cohesion Model</a></li><li class="depth-2"><a href="#cohesion-sources-and-faction-mixing" data-for="cohesion-sources-and-faction-mixing">Cohesion Sources and Faction Mixing</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../../design/gdd/tactical-combat" class="internal">Tactical Combat</a></li><li><a href="../../../design/gdd/tactical-combat/section-map" class="internal">Tactical Combat Section Map</a></li><li><a href="../../../" class="internal">index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../../postscript.js" type="module" data-persist="true"></script></html>

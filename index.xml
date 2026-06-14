@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Neon Champions Game Design</title>
+      <link>https://myriwe-bot.github.io/neon-champions-game-design-site</link>
+      <description>Last 10 notes on Neon Champions Game Design</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>AGENTS</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</guid>
+    <description><![CDATA[ AGENTS.md — Neon Champions Game Design Repo This repository is the production-facing game design and agent-control source of truth for Neon Champions. ]]></description>
+    <pubDate>Sun, 14 Jun 2026 16:20:37 GMT</pubDate>
+  </item><item>
+    <title>README</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/README</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/README</guid>
+    <description><![CDATA[ Neon Champions Game Design Private production-facing design repo for Neon Champions. ]]></description>
+    <pubDate>Sun, 14 Jun 2026 16:20:37 GMT</pubDate>
+  </item><item>
+    <title>SCHEMA</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</guid>
+    <description><![CDATA[ Neon Champions Game Design Schema Domain Production-facing game design and AI-assisted development control for Neon Champions. ]]></description>
+    <pubDate>Sun, 14 Jun 2026 16:20:37 GMT</pubDate>
+  </item><item>
+    <title>index</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/</guid>
+    <description><![CDATA[ Neon Champions Game Design Index Last updated: 2026-06-14 Current phase: Phase 1 — Concept Review mode: Lean default, Full for major gates Start Here README — repository purpose and separation from worldbuilding. ]]></description>
+    <pubDate>Sun, 14 Jun 2026 16:20:37 GMT</pubDate>
+  </item><item>
+    <title>log</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/log</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/log</guid>
+    <description><![CDATA[ Neon Champions Game Design Log Append-only project log. ]]></description>
+    <pubDate>Sun, 14 Jun 2026 16:20:37 GMT</pubDate>
+  </item><item>
+    <title>EPIC-005 Playability Repair Train</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/sprints/epic-005-playability-repair-train</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/sprints/epic-005-playability-repair-train</guid>
+    <description><![CDATA[ EPIC-005 Playability Repair Train Status Approved direction after human playtest rejected EPIC-005 closeout on 2026-06-13. Run one story at a time. ]]></description>
+    <pubDate>Sat, 13 Jun 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>Strategic MVP Codex Run Prompts</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/sprints/strategic-mvp-codex-run-prompts</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/sprints/strategic-mvp-codex-run-prompts</guid>
+    <description><![CDATA[ Strategic MVP Codex Run Prompts Recommended mode Current READY / approved Unity implementation packet: STORY-STRAT-OBJECTIVE-001 Multi-Turn Objective Contest Direction. ]]></description>
+    <pubDate>Sat, 13 Jun 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>STORY-CMD-005 Champion Command Explanation Pass</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-cmd-005-champion-command-explanation-pass</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-cmd-005-champion-command-explanation-pass</guid>
+    <description><![CDATA[ STORY-CMD-005 Champion Command Explanation Pass Status DONE / merged. ]]></description>
+    <pubDate>Sat, 13 Jun 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>STORY-QA-007 Champion Encounter Initiation Clarity</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-qa-007-champion-encounter-initiation-clarity</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-qa-007-champion-encounter-initiation-clarity</guid>
+    <description><![CDATA[ STORY-QA-007 Champion Encounter Initiation Clarity Status DONE / merged. ]]></description>
+    <pubDate>Sat, 13 Jun 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>STORY-STRAT-OBJECTIVE-001 Multi-Turn Objective Contest Direction</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-strat-objective-001-multi-turn-objective-contest-direction</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-strat-objective-001-multi-turn-objective-contest-direction</guid>
+    <description><![CDATA[ STORY-STRAT-OBJECTIVE-001 Multi-Turn Objective Contest Direction Status READY / approved for implementation. ]]></description>
+    <pubDate>Sat, 13 Jun 2026 21:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
