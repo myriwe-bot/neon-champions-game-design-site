@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Neon Champions Game Design</title>
+      <link>https://myriwe-bot.github.io/neon-champions-game-design-site</link>
+      <description>Last 10 notes on Neon Champions Game Design</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>AGENTS</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</guid>
+    <description><![CDATA[ AGENTS.md — Neon Champions Game Design Repo This repository is the production-facing game design and agent-control source of truth for Neon Champions. ]]></description>
+    <pubDate>Thu, 02 Jul 2026 07:03:23 GMT</pubDate>
+  </item><item>
+    <title>README</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/README</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/README</guid>
+    <description><![CDATA[ Neon Champions Game Design Private production-facing design repo for Neon Champions. ]]></description>
+    <pubDate>Thu, 02 Jul 2026 07:03:23 GMT</pubDate>
+  </item><item>
+    <title>SCHEMA</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</guid>
+    <description><![CDATA[ Neon Champions Game Design Schema Domain Production-facing game design and AI-assisted development control for Neon Champions. ]]></description>
+    <pubDate>Thu, 02 Jul 2026 07:03:23 GMT</pubDate>
+  </item><item>
+    <title>index</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/</guid>
+    <description><![CDATA[ Neon Champions Game Design Index Last updated: 2026-06-30 Current phase: Phase 1 — Concept Review mode: Lean default, Full for major gates Start Here README — repository purpose and separation from worldbuilding. ]]></description>
+    <pubDate>Thu, 02 Jul 2026 07:03:23 GMT</pubDate>
+  </item><item>
+    <title>log</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/log</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/log</guid>
+    <description><![CDATA[ Neon Champions Game Design Log Append-only project log. ]]></description>
+    <pubDate>Thu, 02 Jul 2026 07:03:23 GMT</pubDate>
+  </item><item>
+    <title>EPIC-VSLICE-MVP-013 Scenario Pressure and Victory Readability</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/epics/epic-vslice-mvp-013-scenario-pressure-and-victory-readability</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/epics/epic-vslice-mvp-013-scenario-pressure-and-victory-readability</guid>
+    <description><![CDATA[ Epic: EPIC-VSLICE-MVP-013 Scenario Pressure and Victory Readability Status APPROVED / IN PROGRESS. ]]></description>
+    <pubDate>Wed, 01 Jul 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>Strategic MVP Codex Run Prompts</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/sprints/strategic-mvp-codex-run-prompts</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/sprints/strategic-mvp-codex-run-prompts</guid>
+    <description><![CDATA[ Strategic MVP Codex Run Prompts Recommended mode Current READY / approved Unity implementation packet: STORY-PRESSURE-002 Opponent Contest and Loss Pressure Smoke. ]]></description>
+    <pubDate>Wed, 01 Jul 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>STORY-PRESSURE-001 Objective Pressure and Victory Readability Smoke</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-pressure-001-objective-pressure-and-victory-readability-smoke</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-pressure-001-objective-pressure-and-victory-readability-smoke</guid>
+    <description><![CDATA[ STORY-PRESSURE-001 Objective Pressure and Victory Readability Smoke Status DONE / merged. ]]></description>
+    <pubDate>Wed, 01 Jul 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>STORY-PRESSURE-002 Opponent Contest and Loss Pressure Smoke</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-pressure-002-opponent-contest-and-loss-pressure-smoke</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-pressure-002-opponent-contest-and-loss-pressure-smoke</guid>
+    <description><![CDATA[ STORY-PRESSURE-002 Opponent Contest and Loss Pressure Smoke Status READY / approved. Human approval recorded 2026-07-02: “Approved”. ]]></description>
+    <pubDate>Wed, 01 Jul 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>EPIC-VSLICE-MVP-012 Intel Leads and Verification</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/epics/epic-vslice-mvp-012-intel-leads-and-verification</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/epics/epic-vslice-mvp-012-intel-leads-and-verification</guid>
+    <description><![CDATA[ Epic: EPIC-VSLICE-MVP-012 Intel Leads and Verification Status DONE / closed for the approved MVP slice. ]]></description>
+    <pubDate>Tue, 30 Jun 2026 21:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

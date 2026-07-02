@@ -1,0 +1,81 @@
+# Codex prompt — STORY-BASE-001
+
+Preflight: read `production/stories/story-base-001-base-definition-and-facility-construction-core.md` in the design/control repo and confirm its frontmatter is exactly:
+
+```yaml
+status: ready
+approval: approved
+```
+
+If it is not READY / approved, stop without editing Unity and report the mismatch.
+
+Implement only:
+
+- `production/stories/story-base-001-base-definition-and-facility-construction-core.md`
+
+Required source authority:
+
+- `production/epics/epic-vslice-mvp-009-strategic-map-geography-bases-and-facility-construction.md`
+- `production/stories/story-map-real-001-scenario-authored-strategic-map-shell.md`
+- `design/gdd/strategic-map.md` §§1-16, especially §12
+- `design/research/homm-town-building-reference.md`
+- `design/research/homm-like-strategic-map-topology-reference.md`
+- `docs/architecture/control-manifest.md`
+- `docs/architecture/testing-strategy.md`
+- `docs/architecture/ci-build-automation.md`
+
+Branch:
+
+- `story/STORY-BASE-001-base-definition-and-facility-construction-core`
+
+PR title:
+
+- `STORY-BASE-001 Base definition and facility construction core`
+
+Core scope:
+
+- Scenario-authored/data-driven base facility definitions.
+- Base runtime state with constructed facility IDs and per-turn build availability.
+- Build command/service validating ownership, availability, prerequisites, affordability, already-built state, and one-build-per-base-per-turn.
+- Resource-cost deduction and constructed-state mutation with no partial mutation on invalid commands.
+- Minimal visible base panel/build preview/action result.
+- Prototype facility catalog for current two-faction scenario.
+- Tests and evidence for validation, build command, resource payment, one-build limit, turn reset, and UI evidence.
+
+Hard exclusions / stop conditions:
+
+- No recurring income chain behavior.
+- No recruitment/dwelling refresh or new unit behavior.
+- No active facility effects beyond constructed/unbuilt state, costs, prerequisites, and UI feedback.
+- No base capture, siege, garrison, or ownership transfer.
+- No full HoMM town tree, marketplace, editor UI, strategic AI, topology rewrite, final art, or new victory conditions.
+
+Required evidence:
+
+- EditMode/unit tests for validators and build command behavior.
+- PlayMode or smoke evidence for base panel/build affordance and existing strategic loop preservation.
+- PNG/video evidence under Unity repo: `production/evidence/STORY-BASE-001/`.
+- Exact-head Unity Foundation CI before merge.
+
+PR body requirements:
+
+- Link to `STORY-BASE-001`.
+- Link to required GDD/research/control docs.
+- Summary of implementation.
+- Tests/evidence with paths and CI URL.
+- Known omissions/stubs/placeholders/deferred work, or `No known omissions`.
+- Confirmation that no unauthorized design/architecture decisions were introduced.
+
+Stop and report rather than inventing design if implementation requires income effects, recruitment refresh, capture/siege, editor UI, full town-tree design, strategic AI, topology changes, or final art decisions.
+
+
+## Required workflow
+
+1. In the Unity repo, create branch `story/STORY-BASE-001-base-definition-and-facility-construction-core` from current `main`.
+2. Read root `AGENTS.md` and all scoped AGENTS files for touched Runtime, Domain, Application, Presentation, Tests, and Evidence paths.
+3. Implement with tests first where practical for validators/build command behavior.
+4. Preserve current movement, site interaction, recruitment, tactical handoff, objective flow, and STORY-MAP-REAL-001 authored map behavior.
+5. Put visual/manual evidence under `production/evidence/STORY-BASE-001/`.
+6. Run the strongest available local checks/tests; if Unity CLI is unavailable locally, say so and rely on PR CI after pushing.
+7. Push the branch and open a PR titled exactly `STORY-BASE-001 Base definition and facility construction core`.
+8. PR body must include implementation summary, test/evidence paths, known omissions/stubs/placeholders, and explicit confirmation that income effects/recruitment refresh/capture/editor UI/topology rewrite/final art were not implemented.

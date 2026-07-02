@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>EPIC-008 Faction Armies, Recruitment, and Role Identity Plan · Neon Champions</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Neon Champions Game Design"/><meta property="og:title" content="EPIC-008 Faction Armies, Recruitment, and Role Identity Plan · Neon Champions"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="EPIC-008 Faction Armies, Recruitment, and Role Identity Plan · Neon Champions"/><meta name="twitter:description" content="EPIC-008 Faction Armies, Recruitment, and Role Identity Plan Decision Next epic direction is approved for planning: Faction Armies, Recruitment, and Tactical Role Identity."/><meta property="og:description" content="EPIC-008 Faction Armies, Recruitment, and Role Identity Plan Decision Next epic direction is approved for planning: Faction Armies, Recruitment, and Tactical Role Identity."/><meta property="og:image:alt" content="EPIC-008 Faction Armies, Recruitment, and Role Identity Plan Decision Next epic direction is approved for planning: Faction Armies, Recruitment, and Tactical Role Identity."/><meta property="twitter:domain" content="myriwe-bot.github.io/neon-champions-game-design-site"/><meta property="og:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/epic-008-faction-armies-recruitment-and-role-identity-plan"/><meta property="twitter:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/epic-008-faction-armies-recruitment-and-role-identity-plan"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="EPIC-008 Faction Armies, Recruitment, and Role Identity Plan Decision Next epic direction is approved for planning: Faction Armies, Recruitment, and Tactical Role Identity."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxOb3JkaWNHYW1lclxcYWN0aW9ucy1ydW5uZXJcXG5lb25jaGFtcC1kZXNpZ25cXF93b3JrXFxuZW9uLWNoYW1waW9ucy1nYW1lLWRlc2lnblxcbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ25cXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgcGFkZGluZzogMC40cmVtO1xyXG4gIG1hcmdpbjogMC4zcmVtO1xyXG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xyXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcclxuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcclxuICBib3JkZXI6IDFweCBzb2xpZDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgb3BhY2l0eTogMDtcclxuICB0cmFuc2l0aW9uOiAwLjJzO1xyXG5cclxuICAmID4gc3ZnIHtcclxuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcclxuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcclxuICB9XHJcblxyXG4gICY6aG92ZXIge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG4gIH1cclxuXHJcbiAgJjpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiAwO1xyXG4gIH1cclxufVxyXG5cclxucHJlIHtcclxuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICAgIHRyYW5zaXRpb246IDAuMnM7XHJcbiAgfVxyXG59XHJcblxyXG4jbWVybWFpZC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICBjb250YWluOiBsYXlvdXQ7XHJcbiAgei1pbmRleDogOTk5O1xyXG4gIGxlZnQ6IDA7XHJcbiAgdG9wOiAwO1xyXG4gIHdpZHRoOiAxMDB2dztcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XHJcblxyXG4gICYuYWN0aXZlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB9XHJcblxyXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgdG9wOiA1MCU7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICAgIGhlaWdodDogODB2aDtcclxuICAgIHdpZHRoOiA4MHZ3O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuXHJcbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XHJcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xyXG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xyXG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICAgICAgbWluLWhlaWdodDogMjAwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XHJcblxyXG4gICAgICBwcmUge1xyXG4gICAgICAgIG1hcmdpbjogMDtcclxuICAgICAgICBib3JkZXI6IG5vbmU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIHN2ZyB7XHJcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xyXG4gICAgICAgIGhlaWdodDogYXV0bztcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XHJcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgYm90dG9tOiAyMHB4O1xyXG4gICAgICByaWdodDogMjBweDtcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgZ2FwOiA4cHg7XHJcbiAgICAgIHBhZGRpbmc6IDhweDtcclxuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XHJcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICAgIHotaW5kZXg6IDI7XHJcblxyXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XHJcbiAgICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgICAgIHdpZHRoOiAzMnB4O1xyXG4gICAgICAgIGhlaWdodDogMzJweDtcclxuICAgICAgICBwYWRkaW5nOiAwO1xyXG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XHJcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xyXG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XHJcblxyXG4gICAgICAgICY6aG92ZXIge1xyXG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgICY6YWN0aXZlIHtcclxuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxyXG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcclxuICAgICAgICAgIHdpZHRoOiBhdXRvO1xyXG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xyXG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxufVxyXG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://myriwe-bot.github.io/neon-champions-game-design-site/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/epic-008-faction-armies-recruitment-and-role-identity-plan-og-image.webp"/><meta property="og:image:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/epic-008-faction-armies-recruitment-and-role-identity-plan-og-image.webp"/><meta name="twitter:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/epic-008-faction-armies-recruitment-and-role-identity-plan-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="production/planning/epic-008-faction-armies-recruitment-and-role-identity-plan"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">Neon Champions Game Design</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-80"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-80" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../production/">production</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../production/planning/">planning</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>EPIC 008 Faction Armies, Recruitment, and Role Identity Plan</a></div></nav><h1 class="article-title">EPIC-008 Faction Armies, Recruitment, and Role Identity Plan</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-24T21:00:00.000Z">Jun 25, 2026</time><span>7 min read</span></p></div></div><article class="popover-hint"><h1 id="epic-008-faction-armies-recruitment-and-role-identity-plan">EPIC-008 Faction Armies, Recruitment, and Role Identity Plan<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#epic-008-faction-armies-recruitment-and-role-identity-plan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="decision">Decision<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#decision" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Next epic direction is approved for planning: <strong>Faction Armies, Recruitment, and Tactical Role Identity</strong>.</p>
+<p>Default settings:</p>
+<ul>
+<li>First faction pair: <strong>Home Rule Coalition</strong> vs <strong>QXZ Meridian Arctic Mandate</strong>.</li>
+<li>Home Rule canon posture: soft-canon / game-bridge provisional production name.</li>
+<li>Unit depth: 3 unit lines per faction, no upgrades yet.</li>
+<li>Tactical complexity: roles plus one readable status/effect.</li>
+<li>First status lane: QXZ <code>Strato Sensor Swarm</code> owns Sensor Lock / Marked in the next behavior slice.</li>
+<li>Recruitment model: fixed offers at starting hubs plus one neutral recruitment site.</li>
+<li>Story sizing: 4 medium-batched implementation slices + QA closeout.</li>
+</ul>
+<h2 id="why-this-epic-now">Why this epic now<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#why-this-epic-now" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>EPIC-006 made tactical actions readable enough. EPIC-007 made strategic map/bases/regions readable enough. The next missing game-feel layer is army identity: factions need different units and recruitment choices so the strategic layer produces different tactical fights.</p>
+<p>This is a better next move than a full strategic tile map, full Champion Assets/Operations, or full Intel economy because those systems need meaningful unit identities underneath them.</p>
+<h2 id="slice-plan">Slice plan<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-plan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="slice-a--story-army-001-mvp-faction-unit-definitions-and-roster-seed">Slice A — STORY-ARMY-001 MVP Faction Unit Definitions and Roster Seed<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-a--story-army-001-mvp-faction-unit-definitions-and-roster-seed" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Stop treating stacks as cloned placeholders.</li>
+<li>Add the first game-facing unit definition layer and roster seed.</li>
+</ul>
+<p>Scope:</p>
+<ul>
+<li>3 Home Rule unit definitions.</li>
+<li>3 QXZ unit definitions.</li>
+<li>1-2 neutral guard definitions.</li>
+<li>Validation and lookup tests.</li>
+<li>Tactical setup consumes definitions where practical.</li>
+<li>UI/event feed displays unit names/counts.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / merged in Unity PR #60.</li>
+</ul>
+<h3 id="slice-b--story-army-002-tactical-role-behaviors-and-sensor-lock">Slice B — STORY-ARMY-002 Tactical Role Behaviors and Sensor Lock<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-b--story-army-002-tactical-role-behaviors-and-sensor-lock" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Make the unit definitions play differently.</li>
+</ul>
+<p>Scope target:</p>
+<ul>
+<li>Melee/retaliator behavior lane.</li>
+<li>Ranged/recon behavior lane.</li>
+<li>Support/recon lane.</li>
+<li>One readable status/effect: Sensor Lock / Marked.</li>
+<li>QXZ <code>Strato Sensor Swarm</code> is the first primary Sensor Lock owner.</li>
+<li>Home Rule counters through positioning/local-knowledge flavor later, not in the first behavior implementation unless cheap.</li>
+</ul>
+<p>Out of scope:</p>
+<ul>
+<li>Full cover/LOS/morale/damage taxonomy.</li>
+<li>Full faction signature mechanics.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / merged in Unity PR #61.</li>
+</ul>
+<p>Human-approved default:</p>
+<ul>
+<li>Strato Sensor Swarm applies a separate 1 AP Sensor Lock support action; the next successful attack against the marked target deals +1 stack-count damage and consumes the mark.</li>
+</ul>
+<h3 id="slice-c--story-army-003-fixed-recruitment-offers-and-army-summary">Slice C — <a href="../.././stories/story-army-003-fixed-recruitment-offers-and-army-summary" class="internal alias" data-slug="stories/story-army-003-fixed-recruitment-offers-and-army-summary">STORY-ARMY-003 Fixed Recruitment Offers and Army Summary</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-c--story-army-003-fixed-recruitment-offers-and-army-summary" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Connect faction units to the strategic layer.</li>
+</ul>
+<p>Scope target:</p>
+<ul>
+<li>Starting hubs offer fixed reinforcement/recruitment.</li>
+<li>One neutral recruitment site offers a fixed unit or neutral defender/recruit path.</li>
+<li>Army summary shows current stack composition.</li>
+<li>Recruited units enter tactical setup.</li>
+</ul>
+<p>Out of scope:</p>
+<ul>
+<li>Town building tree.</li>
+<li>Weekly economy.</li>
+<li>Upgrades.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / merged in Unity PR #64. Human approval recorded 2026-06-19: Home Rule hub offers <code>settlement_watch</code>, QXZ hub offers <code>meridian_security</code>, neutral site attempts <code>survey_drones</code> if small, claims are one-time consumed, and counts use MVP defaults unless documented otherwise for readability.</li>
+</ul>
+<h3 id="slice-d--story-army-004-composition-consequence-scenario">Slice D — <a href="../.././stories/story-army-004-composition-consequence-scenario" class="internal alias" data-slug="stories/story-army-004-composition-consequence-scenario">STORY-ARMY-004 Composition Consequence Scenario</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-d--story-army-004-composition-consequence-scenario" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Prove recruitment and unit roles matter in a playable loop.</li>
+</ul>
+<p>Scope target:</p>
+<ul>
+<li>One guarded site or central objective tuned to show composition effects.</li>
+<li>Compare starting composition vs reinforced composition.</li>
+<li>Post-battle summary records losses/reward/site outcome.</li>
+</ul>
+<p>Out of scope:</p>
+<ul>
+<li>Full balance pass.</li>
+<li>Scenario editor.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / merged in Unity PR #67. Human approval recorded 2026-06-19: prove narrow Home Rule <code>settlement_watch</code> path first; require visible setup/label/loss-summary difference rather than guaranteed win/loss tuning; adapt existing guarded-site path if small otherwise create one story-scoped composition-demo guarded site; defer mirrored QXZ proof to QA/closeout unless trivial.</li>
+</ul>
+<h3 id="slice-e--story-qa-009-epic-008-playtest-and-closeout-review">Slice E — <a href="../.././stories/story-qa-009-epic-008-playtest-and-closeout-review" class="internal alias" data-slug="stories/story-qa-009-epic-008-playtest-and-closeout-review">STORY-QA-009 EPIC-008 Playtest and Closeout Review</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-e--story-qa-009-epic-008-playtest-and-closeout-review" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Decide whether army/recruitment identity works before deeper systems.</li>
+</ul>
+<p>Review loop:</p>
+<ol>
+<li>recruit;</li>
+<li>inspect army;</li>
+<li>fight;</li>
+<li>suffer losses;</li>
+<li>return to strategic map;</li>
+<li>fight with changed composition;</li>
+<li>record verdict.</li>
+</ol>
+<p>Possible next directions after closeout:</p>
+<ul>
+<li>Champion Assets/Operations.</li>
+<li>Intel/upgrades.</li>
+<li>deeper tactical systems.</li>
+<li>strategic economy/base depth.</li>
+<li>readability/balance repair.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / merged in Unity PR #70. Original verdict recommended <code>CLOSE EPIC</code>, but human playtest on 2026-06-25 rejected closeout because army/recruitment/tactical-role readability remains too poor to judge composition.</li>
+</ul>
+<h3 id="slice-f--story-army-005-army-recruitment-and-map-readability-repair">Slice F — <a href="../.././stories/story-army-005-army-recruitment-and-map-readability-repair" class="internal alias" data-slug="stories/story-army-005-army-recruitment-and-map-readability-repair">STORY-ARMY-005 Army, Recruitment, and Map Readability Repair</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-f--story-army-005-army-recruitment-and-map-readability-repair" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Repair the failed human playtest closeout by making army state, recruitment results, tactical stack identity, and map focus readable enough to judge EPIC-008.</li>
+</ul>
+<p>Scope target:</p>
+<ul>
+<li>Selected-Champion bottom hero bar on the strategic map.</li>
+<li>Hero name/class/level placeholders where needed.</li>
+<li>Army stack slots with unit names, counts, and role hints.</li>
+<li>HoMM3 Tier-1-style fixed recruitment clarity for the prototype while preserving future dwelling extensibility.</li>
+<li>Compact tactical stack labels always visible, details on select.</li>
+<li>Strategic map panning/scrolling.</li>
+<li>Small objective contrast repair if directly tied to readability.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / merged in Unity PR #72. Post-merge Unity Foundation CI passed: <a href="https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28163961946" class="external">https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28163961946<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>. Unity current-task pointer cleanup merged in PR #73 with post-merge CI passed: <a href="https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28164738365" class="external">https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28164738365<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</li>
+</ul>
+<h3 id="slice-g--story-qa-010-epic-008-repair-playtest-and-closeout-review">Slice G — <a href="../.././stories/story-qa-010-epic-008-repair-playtest-and-closeout-review" class="internal alias" data-slug="stories/story-qa-010-epic-008-repair-playtest-and-closeout-review">STORY-QA-010 EPIC-008 Repair Playtest and Closeout Review</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-g--story-qa-010-epic-008-repair-playtest-and-closeout-review" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Re-test the repaired army/recruitment/tactical-role loop after ARMY-005 and decide whether EPIC-008 can close.</li>
+</ul>
+<p>Scope target:</p>
+<ul>
+<li>Human playtest protocol.</li>
+<li>Closeout verdict: close epic, one narrow follow-up, or reject closeout.</li>
+<li>No Unity runtime changes.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / closeout rejected on 2026-06-25. Human notes: pan/zoom resets after button clicks; recruitment only increases drones once despite appearing available again; tactical drones cannot be selected/moved/utilized; stack info is not shown on tactical click.</li>
+</ul>
+<h3 id="slice-h--story-army-006-map-camera-recruitment-and-tactical-stack-interaction-repair">Slice H — <a href="../.././stories/story-army-006-map-camera-recruitment-and-tactical-stack-interaction-repair" class="internal alias" data-slug="stories/story-army-006-map-camera-recruitment-and-tactical-stack-interaction-repair">STORY-ARMY-006 Map Camera, Recruitment, and Tactical Stack Interaction Repair</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-h--story-army-006-map-camera-recruitment-and-tactical-stack-interaction-repair" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Repair the QA-010 blockers that still prevent judging army composition after ARMY-005.</li>
+</ul>
+<p>Scope target:</p>
+<ul>
+<li>Preserve strategic map pan/zoom across UI button clicks.</li>
+<li>Make recruitment availability/result truthfulness match the drone fixed-offer behavior.</li>
+<li>Make recruited tactical drone stacks selectable, inspectable, and usable/movable where current rules allow.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / merged in Unity PR #74. Post-merge Unity Foundation CI passed: <a href="https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28184379301" class="external">https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28184379301<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>. Unity current-task pointer cleanup merged in PR #75 with post-merge CI passed: <a href="https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28185218400" class="external">https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28185218400<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>. Follow-up tactical selection AP fix merged in PR #76 with post-merge CI passed: <a href="https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28186926534" class="external">https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28186926534<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</li>
+</ul>
+<h3 id="slice-i--story-qa-011-epic-008-second-repair-playtest-and-closeout-review">Slice I — <a href="../.././stories/story-qa-011-epic-008-second-repair-playtest-and-closeout-review" class="internal alias" data-slug="stories/story-qa-011-epic-008-second-repair-playtest-and-closeout-review">STORY-QA-011 EPIC-008 Second Repair Playtest and Closeout Review</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-i--story-qa-011-epic-008-second-repair-playtest-and-closeout-review" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Re-test the camera/recruitment/tactical-drone repairs after ARMY-006 and decide whether EPIC-008 can close.</li>
+</ul>
+<p>Scope target:</p>
+<ul>
+<li>Human playtest protocol.</li>
+<li>Closeout verdict: close epic, one narrow follow-up, or reject closeout.</li>
+<li>No Unity runtime changes.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / one narrow follow-up. Human note: pan not working at all; otherwise looks better.</li>
+</ul>
+<h3 id="slice-j--story-army-007-strategic-map-pan-input-repair">Slice J — <a href="../.././stories/story-army-007-strategic-map-pan-input-repair" class="internal alias" data-slug="stories/story-army-007-strategic-map-pan-input-repair">STORY-ARMY-007 Strategic Map Pan Input Repair</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slice-j--story-army-007-strategic-map-pan-input-repair" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Restore player-facing strategic-map pan input after human QA-011 reported: “The pan is now not working at all. Otherwise, it seems to look better.”</li>
+</ul>
+<p>Scope target:</p>
+<ul>
+<li>Pan-only Unity input repair.</li>
+<li>Preserve ARMY-006 camera persistence across UI refreshes.</li>
+<li>Prevent pan/drag from accidental map selection and disable strategic pan during tactical view.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DONE / merged in Unity PR #77. Post-merge CI passed: <a href="https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28191824791" class="external">https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28191824791<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>. Unity current-task pointer cleanup PR #78 passed post-merge CI: <a href="https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28192659752" class="external">https://github.com/myriwe-bot/neon-champions-unity/actions/runs/28192659752<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</li>
+</ul>
+<h3 id="parallel-design-only-brief--strategic-map-realism-brief">Parallel design-only brief — <a href="../../production/planning/strategic-map-realism-brief-2026-06-25" class="internal alias" data-slug="production/planning/strategic-map-realism-brief-2026-06-25">Strategic Map Realism Brief</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#parallel-design-only-brief--strategic-map-realism-brief" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Purpose:</p>
+<ul>
+<li>Start deciding what a more realistic map means without authorizing map replacement implementation inside ARMY-005.</li>
+</ul>
+<p>Status:</p>
+<ul>
+<li>DRAFT / design-only.</li>
+</ul>
+<h2 id="mvp-roster-seed">MVP roster seed<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mvp-roster-seed" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="home-rule-coalition">Home Rule Coalition<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#home-rule-coalition" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Soft-canon / game-bridge faction name. Do not use <code>Kalaallit</code> as a faction brand.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Unit</th><th>Role</th><th>First gameplay posture</th></tr></thead><tbody><tr><td>Settlement Watch</td><td>Defensive infantry / baseline melee</td><td>holds space, retaliates</td></tr><tr><td>Sled Logistics Team</td><td>Support / mobility</td><td>support-role placeholder; later mobility/extraction/supply hooks</td></tr><tr><td>Hunter-Scouts</td><td>Recon / skirmisher</td><td>local-knowledge scout, target selection</td></tr></tbody></table></div>
+<h3 id="qxz-meridian-arctic-mandate">QXZ Meridian Arctic Mandate<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#qxz-meridian-arctic-mandate" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Reviewed soft-canon White Sky corporate faction.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Unit</th><th>Role</th><th>First gameplay posture</th></tr></thead><tbody><tr><td>Meridian Security</td><td>Disciplined infantry</td><td>reliable baseline attacker</td></tr><tr><td>Strato Sensor Swarm</td><td>Ranged/recon drone</td><td>first Sensor Lock / Marked lane</td></tr><tr><td>Climate Bulwark</td><td>Heavy defender</td><td>slow, durable infrastructure protector</td></tr></tbody></table></div>
+<h3 id="neutral--shared">Neutral / shared<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#neutral--shared" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Survey Drones.</li>
+<li>Site Guards.</li>
+</ul>
+<p>Use both only if technically cheap; otherwise pick the one closest to current guarded-site setup.</p>
+<h2 id="guardrails">Guardrails<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#guardrails" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>No full faction roster.</li>
+<li>No upgraded unit variants.</li>
+<li>No full town tree.</li>
+<li>No full economy.</li>
+<li>No full Intel upgrade loop.</li>
+<li>No hard-canon lock beyond the accepted soft-canon production name.</li>
+<li>No direct use of real Greenlandic endonym/national-cultural identity as faction IP.</li>
+</ul>
+<h2 id="recommended-approval-question">Recommended approval question<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommended-approval-question" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><code>STORY-ARMY-001 MVP Faction Unit Definitions and Roster Seed</code> approved 2026-06-18 as the first EPIC-008 Unity implementation packet, using Home Rule Coalition as provisional soft-canon production name and the listed 3+3 roster seed.</p>
+<h2 id="closeout-result--2026-06-25">Closeout result — 2026-06-25<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#closeout-result--2026-06-25" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>EPIC-008 is DONE / closed. The final pan-input blocker identified by QA-011 was repaired by STORY-ARMY-007 in Unity PR #77, verified by exact-head and post-merge CI, and the Unity current-task pointer was cleared by PR #78. No approved Unity implementation task remains active.</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-64" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#epic-008-faction-armies-recruitment-and-role-identity-plan" data-for="epic-008-faction-armies-recruitment-and-role-identity-plan">EPIC-008 Faction Armies, Recruitment, and Role Identity Plan</a></li><li class="depth-1"><a href="#decision" data-for="decision">Decision</a></li><li class="depth-1"><a href="#why-this-epic-now" data-for="why-this-epic-now">Why this epic now</a></li><li class="depth-1"><a href="#slice-plan" data-for="slice-plan">Slice plan</a></li><li class="depth-2"><a href="#slice-a--story-army-001-mvp-faction-unit-definitions-and-roster-seed" data-for="slice-a--story-army-001-mvp-faction-unit-definitions-and-roster-seed">Slice A — STORY-ARMY-001 MVP Faction Unit Definitions and Roster Seed</a></li><li class="depth-2"><a href="#slice-b--story-army-002-tactical-role-behaviors-and-sensor-lock" data-for="slice-b--story-army-002-tactical-role-behaviors-and-sensor-lock">Slice B — STORY-ARMY-002 Tactical Role Behaviors and Sensor Lock</a></li><li class="depth-2"><a href="#slice-c--story-army-003-fixed-recruitment-offers-and-army-summary" data-for="slice-c--story-army-003-fixed-recruitment-offers-and-army-summary">Slice C — STORY-ARMY-003 Fixed Recruitment Offers and Army Summary</a></li><li class="depth-2"><a href="#slice-d--story-army-004-composition-consequence-scenario" data-for="slice-d--story-army-004-composition-consequence-scenario">Slice D — STORY-ARMY-004 Composition Consequence Scenario</a></li><li class="depth-2"><a href="#slice-e--story-qa-009-epic-008-playtest-and-closeout-review" data-for="slice-e--story-qa-009-epic-008-playtest-and-closeout-review">Slice E — STORY-QA-009 EPIC-008 Playtest and Closeout Review</a></li><li class="depth-2"><a href="#slice-f--story-army-005-army-recruitment-and-map-readability-repair" data-for="slice-f--story-army-005-army-recruitment-and-map-readability-repair">Slice F — STORY-ARMY-005 Army, Recruitment, and Map Readability Repair</a></li><li class="depth-2"><a href="#slice-g--story-qa-010-epic-008-repair-playtest-and-closeout-review" data-for="slice-g--story-qa-010-epic-008-repair-playtest-and-closeout-review">Slice G — STORY-QA-010 EPIC-008 Repair Playtest and Closeout Review</a></li><li class="depth-2"><a href="#slice-h--story-army-006-map-camera-recruitment-and-tactical-stack-interaction-repair" data-for="slice-h--story-army-006-map-camera-recruitment-and-tactical-stack-interaction-repair">Slice H — STORY-ARMY-006 Map Camera, Recruitment, and Tactical Stack Interaction Repair</a></li><li class="depth-2"><a href="#slice-i--story-qa-011-epic-008-second-repair-playtest-and-closeout-review" data-for="slice-i--story-qa-011-epic-008-second-repair-playtest-and-closeout-review">Slice I — STORY-QA-011 EPIC-008 Second Repair Playtest and Closeout Review</a></li><li class="depth-2"><a href="#slice-j--story-army-007-strategic-map-pan-input-repair" data-for="slice-j--story-army-007-strategic-map-pan-input-repair">Slice J — STORY-ARMY-007 Strategic Map Pan Input Repair</a></li><li class="depth-2"><a href="#parallel-design-only-brief--strategic-map-realism-brief" data-for="parallel-design-only-brief--strategic-map-realism-brief">Parallel design-only brief — Strategic Map Realism Brief</a></li><li class="depth-1"><a href="#mvp-roster-seed" data-for="mvp-roster-seed">MVP roster seed</a></li><li class="depth-2"><a href="#home-rule-coalition" data-for="home-rule-coalition">Home Rule Coalition</a></li><li class="depth-2"><a href="#qxz-meridian-arctic-mandate" data-for="qxz-meridian-arctic-mandate">QXZ Meridian Arctic Mandate</a></li><li class="depth-2"><a href="#neutral--shared" data-for="neutral--shared">Neutral / shared</a></li><li class="depth-1"><a href="#guardrails" data-for="guardrails">Guardrails</a></li><li class="depth-1"><a href="#recommended-approval-question" data-for="recommended-approval-question">Recommended approval question</a></li><li class="depth-1"><a href="#closeout-result--2026-06-25" data-for="closeout-result--2026-06-25">Closeout result — 2026-06-25</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../" class="internal">index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>
