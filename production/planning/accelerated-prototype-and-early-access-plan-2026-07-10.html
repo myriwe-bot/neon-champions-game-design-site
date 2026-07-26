@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Accelerated Prototype and Early Access Plan — 2026-07-10 · Neon Champions</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Neon Champions Game Design"/><meta property="og:title" content="Accelerated Prototype and Early Access Plan — 2026-07-10 · Neon Champions"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Accelerated Prototype and Early Access Plan — 2026-07-10 · Neon Champions"/><meta name="twitter:description" content="Accelerated Prototype and Early Access Plan — 2026-07-10 Status and authority The owner approved the delivery ambition and constraints below on 2026-07-10."/><meta property="og:description" content="Accelerated Prototype and Early Access Plan — 2026-07-10 Status and authority The owner approved the delivery ambition and constraints below on 2026-07-10."/><meta property="og:image:alt" content="Accelerated Prototype and Early Access Plan — 2026-07-10 Status and authority The owner approved the delivery ambition and constraints below on 2026-07-10."/><meta property="twitter:domain" content="myriwe-bot.github.io/neon-champions-game-design-site"/><meta property="og:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/accelerated-prototype-and-early-access-plan-2026-07-10"/><meta property="twitter:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/accelerated-prototype-and-early-access-plan-2026-07-10"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Accelerated Prototype and Early Access Plan — 2026-07-10 Status and authority The owner approved the delivery ambition and constraints below on 2026-07-10."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxOb3JkaWNHYW1lclxcYWN0aW9ucy1ydW5uZXJcXG5lb25jaGFtcC1kZXNpZ25cXF93b3JrXFxuZW9uLWNoYW1waW9ucy1nYW1lLWRlc2lnblxcbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ25cXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgcGFkZGluZzogMC40cmVtO1xyXG4gIG1hcmdpbjogMC4zcmVtO1xyXG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xyXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcclxuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcclxuICBib3JkZXI6IDFweCBzb2xpZDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgb3BhY2l0eTogMDtcclxuICB0cmFuc2l0aW9uOiAwLjJzO1xyXG5cclxuICAmID4gc3ZnIHtcclxuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcclxuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcclxuICB9XHJcblxyXG4gICY6aG92ZXIge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG4gIH1cclxuXHJcbiAgJjpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiAwO1xyXG4gIH1cclxufVxyXG5cclxucHJlIHtcclxuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICAgIHRyYW5zaXRpb246IDAuMnM7XHJcbiAgfVxyXG59XHJcblxyXG4jbWVybWFpZC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICBjb250YWluOiBsYXlvdXQ7XHJcbiAgei1pbmRleDogOTk5O1xyXG4gIGxlZnQ6IDA7XHJcbiAgdG9wOiAwO1xyXG4gIHdpZHRoOiAxMDB2dztcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XHJcblxyXG4gICYuYWN0aXZlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB9XHJcblxyXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgdG9wOiA1MCU7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICAgIGhlaWdodDogODB2aDtcclxuICAgIHdpZHRoOiA4MHZ3O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuXHJcbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XHJcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xyXG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xyXG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICAgICAgbWluLWhlaWdodDogMjAwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XHJcblxyXG4gICAgICBwcmUge1xyXG4gICAgICAgIG1hcmdpbjogMDtcclxuICAgICAgICBib3JkZXI6IG5vbmU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIHN2ZyB7XHJcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xyXG4gICAgICAgIGhlaWdodDogYXV0bztcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XHJcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgYm90dG9tOiAyMHB4O1xyXG4gICAgICByaWdodDogMjBweDtcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgZ2FwOiA4cHg7XHJcbiAgICAgIHBhZGRpbmc6IDhweDtcclxuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XHJcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICAgIHotaW5kZXg6IDI7XHJcblxyXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XHJcbiAgICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgICAgIHdpZHRoOiAzMnB4O1xyXG4gICAgICAgIGhlaWdodDogMzJweDtcclxuICAgICAgICBwYWRkaW5nOiAwO1xyXG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XHJcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xyXG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XHJcblxyXG4gICAgICAgICY6aG92ZXIge1xyXG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgICY6YWN0aXZlIHtcclxuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxyXG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcclxuICAgICAgICAgIHdpZHRoOiBhdXRvO1xyXG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xyXG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxufVxyXG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://myriwe-bot.github.io/neon-champions-game-design-site/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/accelerated-prototype-and-early-access-plan-2026-07-10-og-image.webp"/><meta property="og:image:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/accelerated-prototype-and-early-access-plan-2026-07-10-og-image.webp"/><meta name="twitter:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/accelerated-prototype-and-early-access-plan-2026-07-10-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="production/planning/accelerated-prototype-and-early-access-plan-2026-07-10"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">Neon Champions Game Design</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-103"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-103" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../production/">production</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../production/planning/">planning</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Accelerated Prototype and Early Access Plan — 2026 07 10</a></div></nav><h1 class="article-title">Accelerated Prototype and Early Access Plan — 2026-07-10</h1><p show-comma="true" class="content-meta"><time datetime="2026-07-09T21:00:00.000Z">Jul 10, 2026</time><span>11 min read</span></p></div></div><article class="popover-hint"><h1 id="accelerated-prototype-and-early-access-plan--2026-07-10">Accelerated Prototype and Early Access Plan — 2026-07-10<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#accelerated-prototype-and-early-access-plan--2026-07-10" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="status-and-authority">Status and authority<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#status-and-authority" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The owner approved the delivery ambition and constraints below on 2026-07-10. The detailed sequencing remains <strong>in review</strong> until the owner approves this plan or revises it.</p>
+<p>This plan does not authorize implementation by itself. Implementation still requires approved capability epics and READY stories.</p>
+<h2 id="human-approved-delivery-direction">Human-approved delivery direction<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#human-approved-delivery-direction" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Produce a fully playable prototype in approximately <strong>8 weeks</strong>, not 12–16 weeks.</li>
+<li>The prototype must already have a normal player-facing interface, coherent visual treatment, initial graphics, sound, and game-feel feedback. It cannot remain a debug UI with raw IDs.</li>
+<li>Reach a near-shipping <strong>Early Access candidate in 24 weeks</strong> with graphics, sound, polish, editor/tooling, and the broad product feature set described in the July 6 Claude plan and subsequent audit discussion.</li>
+<li>The six-month target is not a narrow demo. It is the first substantial commercial product milestone.</li>
+<li>Use four playable factions by the six-month target: Home Rule Coalition, QXZ Meridian, Barents, and Janus-Kestrel, subject to later faction-design approval.</li>
+<li>Include a usable map/scenario editor in the six-month product.</li>
+<li>Do not forecast capacity from raw story counts. Plan by playable capabilities and parallel production lanes.</li>
+</ol>
+<h2 id="human-approved-design-corrections">Human-approved design corrections<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#human-approved-design-corrections" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="first-campaign-geography">First campaign geography<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#first-campaign-geography" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Do not publicly identify the first campaign as Greenland because of current geopolitical concerns.</li>
+<li>Do not lock a replacement name or exact polity yet.</li>
+<li>Working direction: an unnamed fictional Arctic region, internally inspired by Greenland after significant ice-shelf retreat.</li>
+<li><code>Meridian Shelf</code> is rejected.</li>
+<li>Existing Greenland research remains useful internal grounding, not player-facing location authority.</li>
+</ul>
+<h3 id="determinism-and-randomness">Determinism and randomness<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#determinism-and-randomness" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Current deterministic behavior is a temporary implementation baseline, not a human-approved final product identity.</li>
+<li>Reach a stable, playtestable combat baseline before introducing randomness.</li>
+<li>Revisit tactical resolution after that baseline; likely direction is visible damage ranges and controlled seeded randomness.</li>
+<li>Any implemented randomness still requires deterministic seed ownership, replay/save/debug support, preview rules, and tests.</li>
+</ul>
+<h3 id="blue-monday">Blue Monday<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#blue-monday" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Working private-truth direction remains: an activist attack or limited shutdown attempt contributes to the initial sky break; a larger infrastructure/failsafe cascade causes the disaster.</li>
+<li>Exact culpability, tutorial framing, and whether the tutorial depicts the attack remain open.</li>
+<li>Do not spend the next implementation train resolving this narrative detail.</li>
+</ul>
+<h3 id="champion-operations-idea">Champion Operations idea<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#champion-operations-idea" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Keep the existing Command / Operations / Doctrine model as current authority.</li>
+<li>Record army-generated Bandwidth / Protocol capacity as an exploratory option.</li>
+<li>Do not replace the existing model until a focused design comparison and combat prototype justify it.</li>
+</ul>
+<h3 id="ukrainian-defense-megacorp">Ukrainian defense megacorp<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ukrainian-defense-megacorp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Rename <code>Tryzub Systems</code> to <strong>Vezha Systems</strong>.</li>
+<li>Dnipro Systems and Sich Dynamics remain subsidiaries/acquired predecessor firms.</li>
+<li>Do not merge Vezha Systems with Janus-Kestrel.</li>
+</ul>
+<h2 id="production-model-required-by-the-ambition">Production model required by the ambition<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#production-model-required-by-the-ambition" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The target is not credible as one serial story lane. Run four coordinated lanes with one human creative director:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Lane</th><th>Primary output</th><th>Near-term owner model</th></tr></thead><tbody><tr><td>Core game</td><td>strategic/tactical rules, AI, economy, information, persistence, networking</td><td>Codex/Hermes implementation agents with strict tests</td></tr><tr><td>UX and presentation</td><td>UI architecture, strategic/tactical screens, game feel, accessibility</td><td>dedicated agent lane plus human visual review</td></tr><tr><td>Content and audiovisual</td><td>maps, scenarios, factions, units, narrative, 2D/3D assets, VFX, sound, music</td><td>agent-assisted authoring plus licensed/generated/contracted assets</td></tr><tr><td>Tools and product</td><td>editor, validators, mod packaging, builds, distribution, telemetry/crash reporting</td><td>dedicated tools/infrastructure lane</td></tr></tbody></table></div>
+<p>Required operating changes:</p>
+<ul>
+<li>Use medium-batched capability stories rather than dozens of tiny scaffolding stories.</li>
+<li>Keep one integration owner/gate; parallel lanes merge only through green CI and playable integration smoke.</li>
+<li>Capture screenshots/video for every presentation story.</li>
+<li>Run a human playtest at least weekly from week 2 onward.</li>
+<li>Add outside testers by week 6, not only at final hardening.</li>
+<li>Choose the asset sourcing strategy in week 1. Code throughput cannot substitute for art direction, sound, and content production.</li>
+</ul>
+<h2 id="eight-week-fully-playable-prototype">Eight-week fully playable prototype<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#eight-week-fully-playable-prototype" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="weeks-12--production-reset-and-playable-shell">Weeks 1–2 — production reset and playable shell<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-12--production-reset-and-playable-shell" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Goal: replace the debug-instrumented presentation with a coherent game shell while protecting the existing tested loop.</p>
+<p>Deliver:</p>
+<ul>
+<li>map-first strategic interface with no raw IDs in normal play;</li>
+<li>tactical interface with initiative, selected stack, legal actions, forecasts, and concise event feedback;</li>
+<li>normal menus, scenario start, settings shell, pause/restart, and win/loss flow;</li>
+<li>first cohesive visual kit: palette, typography, map tokens, faction color/shape language, unit silhouettes, terrain tiles, effects baseline;</li>
+<li>first audio kit: UI confirmations/denials, attack impact, movement, battle transition, ambient loop, one music bed;</li>
+<li>data loading failure becomes explicit; hardcoded scenario fallback is removed or isolated behind a developer-only switch;</li>
+<li>reusable static definitions separated from scenario placement where necessary for multiple maps;</li>
+<li>UI Toolkit and plain-.NET extraction handled as bounded spikes, not unconditional migrations;</li>
+<li>revised prototype map brief for 16–24 meaningful nodes with loops, chokepoints, prizes, bases, and a victory network;</li>
+<li>fresh human baseline playtest entered in the journal.</li>
+</ul>
+<p>Gate A — <strong>legible shell</strong>: a player starts, acts, enters combat, returns, and understands win/loss without seeing implementation IDs or needing developer explanation.</p>
+<h3 id="weeks-34--strategic-game-and-opponent">Weeks 3–4 — strategic game and opponent<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-34--strategic-game-and-opponent" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Deliver:</p>
+<ul>
+<li>16–24-node authored Arctic test map;</li>
+<li>Credits, Materials, and Intel economy with visible recurring income and competing sinks;</li>
+<li>one-build-per-base cadence and meaningful facility choices;</li>
+<li>guarded rewards, caches, contractor/recruitment sites, and a temptation every few moves;</li>
+<li>networked victory objective rather than one easy central capture;</li>
+<li>strategic AI that values sites, recruits, contests objectives, attacks when favorable, and protects its own route;</li>
+<li>operations-cycle forecast and cadence at minimum viable depth;</li>
+<li>first maintenance site and source-tagged output discrepancy;</li>
+<li>engagement brief before tactical battle;</li>
+<li>save/resume prototype for the full test scenario;</li>
+<li>visual/audio pass on all new interactions.</li>
+</ul>
+<p>Gate B — <strong>strategic choice</strong>: testers can describe competing routes, economy tradeoffs, opponent pressure, and why the objective cannot be solved by a trivial rush.</p>
+<h3 id="weeks-56--tactical-depth-and-faction-identity">Weeks 5–6 — tactical depth and faction identity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-56--tactical-depth-and-faction-identity" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Deliver:</p>
+<ul>
+<li>HRC and QXZ prototype rosters at five basic tiers, with upgrades allowed to remain selective for the 8-week build;</li>
+<li>initiative, AP, Wait, Defend, retaliation, morale/cohesion, terrain, hazards, and mission objectives working together;</li>
+<li>one signature active per implemented unit line plus faction passives;</li>
+<li>current Command / Operations / Doctrine model made readable and useful;</li>
+<li>2–3 polished Operations per current core channel only where needed for the prototype roster;</li>
+<li>tactical boards selected from strategic context;</li>
+<li>tactical AI able to use objectives, terrain, unit roles, and signature actions;</li>
+<li>battle speed and autoresolve/fast-resolution direction evaluated;</li>
+<li>controlled audiovisual identity for both factions.</li>
+</ul>
+<p>Gate C — <strong>combat worth repeating</strong>: battles create distinct army-composition and terrain decisions without relying on hidden rules.</p>
+<h3 id="weeks-78--distinctive-vertical-prototype">Weeks 7–8 — distinctive vertical prototype<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-78--distinctive-vertical-prototype" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Deliver:</p>
+<ul>
+<li>unknown / detected / identified or Lead / Stale / Verified information states reconciled into one readable model;</li>
+<li>ghost/decoy contact at prototype depth;</li>
+<li>Feed as event log and player-facing world frame;</li>
+<li>attribution/Heat prototype with at least one threshold consequence;</li>
+<li>one Champion public consequence and at least two defeat outcomes;</li>
+<li>maintenance/audit/repair loop connected to the economy;</li>
+<li>victory web connected to multiple tactical mission types;</li>
+<li>editor foundation able to load, validate, modify, and save the prototype map/scenario data, even if usability remains developer-facing;</li>
+<li>tutorial/onboarding flow over the real game shell; the Blue Monday attack may later become its narrative framing;</li>
+<li>first outsider playtests and repair pass;</li>
+<li>packaged Windows prototype build.</li>
+</ul>
+<p>Prototype Gate — <strong>fully playable at 8 weeks</strong>:</p>
+<ul>
+<li>complete 60–120 minute match/scenario;</li>
+<li>normal interface and cohesive initial graphics/audio;</li>
+<li>two differentiated factions;</li>
+<li>functional strategic and tactical AI;</li>
+<li>save/resume;</li>
+<li>no critical readability blockers;</li>
+<li>testers can explain both the core loop and at least two Neon Champions differentiators;</li>
+<li>editor foundation proves that another map can be authored without bespoke runtime code.</li>
+</ul>
+<p>If this gate fails, repair the prototype immediately, but continue asset/content production in parallel rather than pausing the entire roadmap.</p>
+<h2 id="weeks-916--early-access-breadth">Weeks 9–16 — Early Access breadth<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-916--early-access-breadth" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="weeks-912--systems-completion-and-first-campaign-slice">Weeks 9–12 — systems completion and first campaign slice<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-912--systems-completion-and-first-campaign-slice" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Deliver:</p>
+<ul>
+<li>explicit seeded RNG service and ADR revision if playtests approve damage ranges;</li>
+<li>visible tactical damage ranges with reproducible seeds and exact replay/save continuation;</li>
+<li>complete HRC and QXZ five-tier rosters with upgrades;</li>
+<li>full Heat/attribution/Lantern intervention ladder at first-product depth;</li>
+<li>fuller Feed, sentiment/legitimacy, and manipulation operations;</li>
+<li>Champion Wounded, Captured, Echoed, and Martyred outcomes where narratively approved;</li>
+<li>squad/detachment names and lightweight persistent traits;</li>
+<li>doctrine drafts;</li>
+<li>convoy and interdiction missions;</li>
+<li>seasonal/forecast route changes;</li>
+<li>Audience/broadcast tradeoff;</li>
+<li>production-ready save/load and replay-debug logs;</li>
+<li>two linked campaign scenarios including tutorial/onboarding;</li>
+<li>editor MVP with node/edge/site/objective/event editing, undo/redo, validation, preview, and save;</li>
+<li>first external schema/mod documentation.</li>
+</ul>
+<p>Gate D — <strong>vertical slice</strong>: HRC/QXZ campaign slice is presentation-complete enough for public preview and the editor can create a valid alternate scenario.</p>
+<h3 id="weeks-1316--four-faction-product">Weeks 13–16 — four-faction product<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-1316--four-faction-product" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Deliver:</p>
+<ul>
+<li>Barents and Janus-Kestrel complete five-tier rosters with upgrades;</li>
+<li>faction economies/tracks and information identities;</li>
+<li>Bandwidth-from-army experiment resolved: integrate, restrict to a faction/doctrine, or reject based on evidence;</li>
+<li>broader Protocol/Operation content without replacing approved vocabulary accidentally;</li>
+<li>faction-aware strategic and tactical AI;</li>
+<li>balance/autoplay harness and reports;</li>
+<li>third campaign scenario and skirmish generator;</li>
+<li>editor usability pass and scenario templates;</li>
+<li>mod/datapack discovery, packaging, compatibility/version checks, and error reporting;</li>
+<li>async multiplayer vertical slice using command logs, version checks, persistence, resign/time controls, and desync detection;</li>
+<li>faction audiovisual differentiation and upgraded unit presentation.</li>
+</ul>
+<p>Gate E — <strong>content-complete alpha</strong>: four factions, three-scenario campaign, skirmish, editor, mods, and async match flow all work end-to-end, with placeholders explicitly inventoried.</p>
+<h2 id="weeks-1724--near-shipping-early-access-candidate">Weeks 17–24 — near-shipping Early Access candidate<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-1724--near-shipping-early-access-candidate" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="weeks-1720--production-quality">Weeks 17–20 — production quality<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-1720--production-quality" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Deliver:</p>
+<ul>
+<li>replace remaining critical placeholder art, icons, text, animation, VFX, audio, and music;</li>
+<li>final strategic/tactical information hierarchy and accessibility pass;</li>
+<li>scenario pacing, difficulty presets, and AI personality tuning;</li>
+<li>campaign narrative/event pass and Echo tutorial decision;</li>
+<li>editor documentation and starter templates;</li>
+<li>async multiplayer UX, recovery, notifications, and compatibility hardening;</li>
+<li>performance budgets and profiling;</li>
+<li>crash reporting and diagnostic export;</li>
+<li>localization-ready string tables and at least one pseudo-localization pass;</li>
+<li>Steam/demo packaging direction and store assets started;</li>
+<li>weekly external playtests with tracked funnels and completion rates.</li>
+</ul>
+<p>Gate F — <strong>beta</strong>: all advertised Early Access features exist, no critical placeholder blocks comprehension, and the full campaign path can be completed repeatedly.</p>
+<h3 id="weeks-2124--ship-candidate">Weeks 21–24 — ship candidate<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weeks-2124--ship-candidate" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Deliver:</p>
+<ul>
+<li>bug burn-down and regression hardening;</li>
+<li>balance pass informed by human and batch simulation evidence;</li>
+<li>save migration and backward-compatibility policy;</li>
+<li>input remapping, text scaling, contrast, motion, and audio controls;</li>
+<li>install/update/uninstall and clean-machine verification;</li>
+<li>editor/mod security and destructive-action safeguards;</li>
+<li>multiplayer desync/recovery tests;</li>
+<li>final legal/provenance inventory for assets, licenses, generated content, music, fonts, and middleware;</li>
+<li>release checklist, known issues, support plan, telemetry/privacy stance, rollback/patch plan;</li>
+<li>release-candidate build and external acceptance playtest.</li>
+</ul>
+<p>Six-Month Gate — <strong>Early Access candidate</strong>:</p>
+<ul>
+<li>near-shipping commercial presentation;</li>
+<li>four playable factions and approximately forty basic/upgraded unit variants;</li>
+<li>strategic and tactical layers with AI;</li>
+<li>campaign, skirmish, save/load, editor, mod packaging, and async multiplayer beta;</li>
+<li>dirty information, maintenance, Heat/attribution, Feed/legitimacy, Champion consequences, convoys, seasonal map behavior, doctrines, squad identity, and Audience/broadcast systems at coherent first-product depth;</li>
+<li>graphics, audio, UX, accessibility, performance, packaging, and support readiness sufficient for an Early Access launch decision.</li>
+</ul>
+<h2 id="scope-discipline-inside-the-ambitious-target">Scope discipline inside the ambitious target<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#scope-discipline-inside-the-ambitious-target" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Including a feature does not require maximum depth.</p>
+<p>Use three levels:</p>
+<ul>
+<li><strong>Product-complete:</strong> the advertised player loop works end-to-end and is supportable.</li>
+<li><strong>First-product depth:</strong> a narrow but coherent rule/content set, designed to expand after Early Access.</li>
+<li><strong>Experimental/beta:</strong> explicitly labeled but usable, especially async multiplayer and mod support.</li>
+</ul>
+<p>Do not respond to schedule pressure by adding hollow UI buttons, schemas with no users, or systems only agents can operate. Every included feature must have a playable path, validation, UI, and evidence.</p>
+<h2 id="critical-dependencies-and-failure-modes">Critical dependencies and failure modes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#critical-dependencies-and-failure-modes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><strong>Asset throughput:</strong> choose licensed/generated/contracted art and audio sources immediately. Without this, near-shipping presentation is not credible.</li>
+<li><strong>Parallel integration:</strong> four lanes require branch discipline and a daily integration build. Serial story execution will miss the target.</li>
+<li><strong>Human decisions:</strong> unresolved faction, geography, Operations, and narrative details must not block systems with placeholder-safe data contracts.</li>
+<li><strong>UI architecture:</strong> extending the 3,960-line bootstrap directly will slow every lane. Decompose or replace touched presentation surfaces early.</li>
+<li><strong>Test architecture:</strong> split the 5,989-line PlayMode suite as new product surfaces arrive.</li>
+<li><strong>Editor scope:</strong> editor must author the actual runtime format; no second hidden format.</li>
+<li><strong>Networking scope:</strong> async multiplayer remains beta unless persistence, versioning, desync detection, and recovery pass real tests.</li>
+<li><strong>Quality truth:</strong> automated evidence cannot substitute for weekly human playtests.</li>
+</ol>
+<h2 id="immediate-next-capability-train">Immediate next capability train<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#immediate-next-capability-train" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Recommend one medium-batched, implementation-facing epic:</p>
+<p><strong>EPIC-016 Accelerated Playable Product Foundation</strong></p>
+<p>Children to prepare after plan approval:</p>
+<ol>
+<li><code>STORY-UI-SHELL-001 Map-First Strategic UI and Normal Player Shell</code></li>
+<li><code>STORY-PRESENTATION-001 Initial Visual/Audio Kit and Evidence Pipeline</code></li>
+<li><code>STORY-MAP-FUN-001 Dense Arctic Prototype Map, Economy, and Objective Web</code></li>
+<li><code>STORY-AI-PLAY-001 Strategic AI Value, Recruitment, Contest, and Attack</code></li>
+<li><code>STORY-TACTICS-FUN-001 Tactical Initiative, Roles, Terrain, and Signature Actions Integration</code></li>
+<li><code>STORY-PROTOTYPE-016 Eight-Week Playable Prototype Integration and Human Gate</code></li>
+</ol>
+<p>Promote only the first approved child to READY at a time, but allow independent art/audio research and asset sourcing to run concurrently.</p>
+<h2 id="verdict">Verdict<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#verdict" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>CONCERNS / AMBITIOUS BUT ACTIONABLE WITH CONDITIONS.</strong></p>
+<p>The target is intentionally aggressive. It is viable as a production plan only if work becomes genuinely parallel, asset sourcing begins immediately, medium-batched stories replace excessive ceremony, and human playtests govern integration. Under a serial one-agent/one-story pipeline with no dedicated asset lane, it is not a credible forecast.</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-82" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#accelerated-prototype-and-early-access-plan--2026-07-10" data-for="accelerated-prototype-and-early-access-plan--2026-07-10">Accelerated Prototype and Early Access Plan — 2026-07-10</a></li><li class="depth-1"><a href="#status-and-authority" data-for="status-and-authority">Status and authority</a></li><li class="depth-1"><a href="#human-approved-delivery-direction" data-for="human-approved-delivery-direction">Human-approved delivery direction</a></li><li class="depth-1"><a href="#human-approved-design-corrections" data-for="human-approved-design-corrections">Human-approved design corrections</a></li><li class="depth-2"><a href="#first-campaign-geography" data-for="first-campaign-geography">First campaign geography</a></li><li class="depth-2"><a href="#determinism-and-randomness" data-for="determinism-and-randomness">Determinism and randomness</a></li><li class="depth-2"><a href="#blue-monday" data-for="blue-monday">Blue Monday</a></li><li class="depth-2"><a href="#champion-operations-idea" data-for="champion-operations-idea">Champion Operations idea</a></li><li class="depth-2"><a href="#ukrainian-defense-megacorp" data-for="ukrainian-defense-megacorp">Ukrainian defense megacorp</a></li><li class="depth-1"><a href="#production-model-required-by-the-ambition" data-for="production-model-required-by-the-ambition">Production model required by the ambition</a></li><li class="depth-1"><a href="#eight-week-fully-playable-prototype" data-for="eight-week-fully-playable-prototype">Eight-week fully playable prototype</a></li><li class="depth-2"><a href="#weeks-12--production-reset-and-playable-shell" data-for="weeks-12--production-reset-and-playable-shell">Weeks 1–2 — production reset and playable shell</a></li><li class="depth-2"><a href="#weeks-34--strategic-game-and-opponent" data-for="weeks-34--strategic-game-and-opponent">Weeks 3–4 — strategic game and opponent</a></li><li class="depth-2"><a href="#weeks-56--tactical-depth-and-faction-identity" data-for="weeks-56--tactical-depth-and-faction-identity">Weeks 5–6 — tactical depth and faction identity</a></li><li class="depth-2"><a href="#weeks-78--distinctive-vertical-prototype" data-for="weeks-78--distinctive-vertical-prototype">Weeks 7–8 — distinctive vertical prototype</a></li><li class="depth-1"><a href="#weeks-916--early-access-breadth" data-for="weeks-916--early-access-breadth">Weeks 9–16 — Early Access breadth</a></li><li class="depth-2"><a href="#weeks-912--systems-completion-and-first-campaign-slice" data-for="weeks-912--systems-completion-and-first-campaign-slice">Weeks 9–12 — systems completion and first campaign slice</a></li><li class="depth-2"><a href="#weeks-1316--four-faction-product" data-for="weeks-1316--four-faction-product">Weeks 13–16 — four-faction product</a></li><li class="depth-1"><a href="#weeks-1724--near-shipping-early-access-candidate" data-for="weeks-1724--near-shipping-early-access-candidate">Weeks 17–24 — near-shipping Early Access candidate</a></li><li class="depth-2"><a href="#weeks-1720--production-quality" data-for="weeks-1720--production-quality">Weeks 17–20 — production quality</a></li><li class="depth-2"><a href="#weeks-2124--ship-candidate" data-for="weeks-2124--ship-candidate">Weeks 21–24 — ship candidate</a></li><li class="depth-1"><a href="#scope-discipline-inside-the-ambitious-target" data-for="scope-discipline-inside-the-ambitious-target">Scope discipline inside the ambitious target</a></li><li class="depth-1"><a href="#critical-dependencies-and-failure-modes" data-for="critical-dependencies-and-failure-modes">Critical dependencies and failure modes</a></li><li class="depth-1"><a href="#immediate-next-capability-train" data-for="immediate-next-capability-train">Immediate next capability train</a></li><li class="depth-1"><a href="#verdict" data-for="verdict">Verdict</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../" class="internal">index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>

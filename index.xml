@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Neon Champions Game Design</title>
+      <link>https://myriwe-bot.github.io/neon-champions-game-design-site</link>
+      <description>Last 10 notes on Neon Champions Game Design</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>AGENTS</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/AGENTS</guid>
+    <description><![CDATA[ AGENTS.md — Neon Champions Game Design Repo This repository is the production-facing game design and agent-control source of truth for Neon Champions. ]]></description>
+    <pubDate>Sun, 26 Jul 2026 11:01:39 GMT</pubDate>
+  </item><item>
+    <title>README</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/README</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/README</guid>
+    <description><![CDATA[ Neon Champions Game Design Private production-facing design repo for Neon Champions. ]]></description>
+    <pubDate>Sun, 26 Jul 2026 11:01:39 GMT</pubDate>
+  </item><item>
+    <title>SCHEMA</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/SCHEMA</guid>
+    <description><![CDATA[ Neon Champions Game Design Schema Domain Production-facing game design and AI-assisted development control for Neon Champions. ]]></description>
+    <pubDate>Sun, 26 Jul 2026 11:01:39 GMT</pubDate>
+  </item><item>
+    <title>index</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/</guid>
+    <description><![CDATA[ Neon Champions Game Design Index Last updated: 2026-07-26 Current phase: Production — accelerated eight-week prototype and six-month Early Access planning Review mode: Lean default, Full for major gates Start Here README — repository purpose and separation from worldbuilding. ]]></description>
+    <pubDate>Sun, 26 Jul 2026 11:01:39 GMT</pubDate>
+  </item><item>
+    <title>log</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/log</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/log</guid>
+    <description><![CDATA[ Neon Champions Game Design Log Append-only project log. ]]></description>
+    <pubDate>Sun, 26 Jul 2026 11:01:39 GMT</pubDate>
+  </item><item>
+    <title>EPIC-021 Contested Crisis Core-Fun Experiment</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/epics/epic-021-contested-crisis-core-fun-experiment</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/epics/epic-021-contested-crisis-core-fun-experiment</guid>
+    <description><![CDATA[ EPIC-021 Contested Crisis Core-Fun Experiment Outcome Test whether reading a visibly committed rival, sacrificing one response posture, and turning physical control of a failed multi-service relay into locally accepted authority is enjoyable. ]]></description>
+    <pubDate>Sat, 25 Jul 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>STORY-CORE-FUN-002 Opening Crisis Readability and Regression Repair</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-core-fun-002-opening-crisis-readability-and-regression-repair</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/production/stories/story-core-fun-002-opening-crisis-readability-and-regression-repair</guid>
+    <description><![CDATA[ STORY-CORE-FUN-002 Opening Crisis Readability and Regression Repair Status DONE / ALL DELAYED HIGH REVIEW FINDINGS CLOSED / OWNER REPLAYTEST PENDING. ]]></description>
+    <pubDate>Sat, 25 Jul 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>Core Fun Prototype — Contested Infrastructure Crisis</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/core-fun-prototype</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/core-fun-prototype</guid>
+    <description><![CDATA[ Core Fun Prototype — Contested Infrastructure Crisis Approval Boundary Approved on 2026-07-25: test a compact HoMM-like adventure-strategy loop in one tightly authored crisis scenario before expanding the current prototype. ]]></description>
+    <pubDate>Fri, 24 Jul 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>Game Concept</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/game-concept</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/game-concept</guid>
+    <description><![CDATA[ Game Concept: Neon Champions Creative Brief Neon Champions is a single-player-first turn-based strategy/RPG inspired by Heroes of Might and Magic III and Olden Era, translated into a no-magic cyberpunk world where Champions lead factions through infrastructure wars, polluted information, body techno... ]]></description>
+    <pubDate>Fri, 24 Jul 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>Game Pillars</title>
+    <link>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/game-pillars</link>
+    <guid>https://myriwe-bot.github.io/neon-champions-game-design-site/design/gdd/game-pillars</guid>
+    <description><![CDATA[ Game Pillars Pillars Pillar: Strategic Clarity Under Dirty Information Definition: The player should make readable strategic choices in a world where information is partial, polluted, source-tagged, or politically shaped. ]]></description>
+    <pubDate>Fri, 24 Jul 2026 21:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

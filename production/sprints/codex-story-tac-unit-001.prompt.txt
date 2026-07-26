@@ -1,0 +1,119 @@
+You are Codex working in the Neon Champions Unity repo.
+
+Current approved implementation packet:
+- STORY-TAC-UNIT-001 Minimal Unit Definition Stats
+
+Authoritative design/control repo:
+- C:\Users\NordicGamer\CodexProjects\neon-champions-game-design
+
+Unity implementation repo:
+- C:\Users\NordicGamer\CodexProjects\neon-champions-unity
+
+Branch:
+- story/STORY-TAC-UNIT-001-minimal-unit-definition-stats
+
+PR title:
+- STORY-TAC-UNIT-001 Minimal unit definition stats
+
+Before coding:
+1. In the design/control repo, read the story completely:
+   - production\stories\story-tac-unit-001-minimal-unit-definition-stats.md
+2. Confirm the story says `status: ready` and `approval: approved`.
+   - If not, STOP and report that STORY-TAC-UNIT-001 is not approved.
+3. Read every linked source doc named by the story, especially:
+   - design\gdd\tactical-combat.md
+   - design\gdd\tactical-combat\army-deployment-and-stacks.md
+   - design\gdd\tactical-combat\mvp-content-and-faction-rosters.md
+   - design\gdd\tactical-combat\implementation-contracts.md
+   - production\planning\prototype-readability-and-map-next-steps-2026-06-15.md
+   - docs\architecture\control-manifest.md
+   - docs\architecture\testing-strategy.md
+   - docs\architecture\ci-build-automation.md
+   - production\epics\epic-vslice-mvp-006-tactical-battle-readability-and-defender-agency.md
+4. In the Unity repo, read root AGENTS.md and every scoped AGENTS.md under directories you will touch.
+5. Confirm main includes STORY-TAC-READ-002, STORY-TAC-RET-001, and STORY-TAC-AFFORD-001.
+6. Create/switch to branch `story/STORY-TAC-UNIT-001-minimal-unit-definition-stats` from current main.
+
+Important source-authority note:
+- The story records a narrow human-approved exception for cited passages in draft/pending tactical articles.
+- Use those cited passages only for this minimal unit-definition data path.
+- Do not treat those draft articles as approval for broader deployment, full roster, abilities/statuses, objectives, AP, or advanced tactical systems.
+
+Implementation authority:
+- Add minimal tactical unit definition data with stable ID, display label, movement range, attack range, attack damage, retaliation capability, and optional role tag.
+- Provide a tiny code-side placeholder definition catalog for currently used prototype unit IDs, including at least:
+  - unit_placeholder_infantry
+  - unit_placeholder_guard
+  - existing Champion-vs-Champion placeholder IDs currently emitted by battle setup smoke paths.
+- Have tactical board setup populate placed stack stats/display fields from the catalog.
+- Use definition-derived attack damage for basic attack and retaliation.
+- Reject unknown/blank unit definitions with clear diagnostics and no partial accepted board.
+- Preserve existing prototype behavior where intended by assigning current-equivalent placeholder stats unless a test explicitly establishes a small contrast.
+- Add one or two tiny prototype stat differences only to prove the data path; document them in tests/evidence/PR omissions.
+- Surface unit-derived display labels and stats in the existing tactical presentation/affordance UI.
+- If a unit cannot retaliate, skip melee retaliation and add clear event-feed text explaining why.
+
+Hard exclusions:
+- No full faction roster implementation.
+- No final unit names, final lore copy, final art/icons, animations, VFX, audio, portraits, or localization.
+- No balance pass beyond tiny documented prototype stat differences.
+- No armor, shields, damage types, morale, statuses, cover, LOS, terrain, range falloff, or ability system.
+- No AP economy or Defend bonus.
+- No Zone of Control, opportunity attacks, Overwatch, CombatAI, or initiative system.
+- No recruitment/economy/base/strategic-map topology changes.
+- No ScriptableObject/editor tooling in this story.
+
+Required tests/evidence:
+- TDD for catalog/factory/damage behavior.
+- Focused Unit/EditMode tests for:
+  - catalog lookup;
+  - tactical board factory population;
+  - missing/blank definition rejection and no partial accepted board;
+  - legal movement range from definitions;
+  - legal attack range from definitions;
+  - definition-derived attack damage;
+  - retaliation capability / cannot-retaliate event feed.
+- Focused PlayMode evidence showing:
+  - visible unit-derived stat difference;
+  - combat outcome using definition-derived damage/count output.
+- Evidence directory:
+  - production\evidence\STORY-TAC-UNIT-001\
+- Evidence summary must include local checks, screenshot paths, CI URL placeholder until PR CI runs, and omissions/deferred work.
+
+Required commands before PR/merge readiness:
+- .\ci\RunEditModeTests.ps1
+- .\ci\RunPlayModeTests.ps1 -neonChampionsEvidenceDir "production\evidence\STORY-TAC-UNIT-001"
+- .\ci\RunPlaceholderValidator.ps1
+- git diff --check
+- Unity Foundation CI exact-head success before merge.
+
+Required Git/GitHub closeout before stopping:
+- git status --short --branch
+- git log --oneline -5
+- If `git status --short` shows modified or untracked story files after tests/evidence, do not report the task complete; add, commit, and push them first.
+- Commit the implementation and evidence on `story/STORY-TAC-UNIT-001-minimal-unit-definition-stats`.
+- Push with `git push -u origin HEAD:story/STORY-TAC-UNIT-001-minimal-unit-definition-stats`.
+- Open or update the PR and include the PR URL/number in the final response.
+- If pushing or PR creation is impossible, explicitly report the blocker and leave the exact local `git status --short --branch` output.
+
+PR requirements:
+- Title: STORY-TAC-UNIT-001 Minimal unit definition stats
+- Body must include:
+  - linked story and source docs;
+  - summary;
+  - tests/checks run;
+  - evidence paths;
+  - CI URL;
+  - omissions/deferred work.
+- Explicitly state omitted/deferred:
+  - full roster;
+  - final names/content/art;
+  - balance pass;
+  - AP and Defend bonus;
+  - ZoC, opportunity attacks, Overwatch;
+  - CombatAI;
+  - abilities/statuses;
+  - strategic-map/base/recruitment changes;
+  - final art/content.
+
+Stop and ask only if implementation requires changing story scope or making an unapproved design decision.

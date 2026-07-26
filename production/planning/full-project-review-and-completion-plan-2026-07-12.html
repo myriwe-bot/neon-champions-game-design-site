@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Full Project Review and Completion Plan — 2026-07-12 · Neon Champions</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Neon Champions Game Design"/><meta property="og:title" content="Full Project Review and Completion Plan — 2026-07-12 · Neon Champions"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Full Project Review and Completion Plan — 2026-07-12 · Neon Champions"/><meta name="twitter:description" content="Full Project Review and Completion Plan — 2026-07-12 Executive verdict Strategic direction: APPROVE WITH MAJOR REVISION."/><meta property="og:description" content="Full Project Review and Completion Plan — 2026-07-12 Executive verdict Strategic direction: APPROVE WITH MAJOR REVISION."/><meta property="og:image:alt" content="Full Project Review and Completion Plan — 2026-07-12 Executive verdict Strategic direction: APPROVE WITH MAJOR REVISION."/><meta property="twitter:domain" content="myriwe-bot.github.io/neon-champions-game-design-site"/><meta property="og:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/full-project-review-and-completion-plan-2026-07-12"/><meta property="twitter:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/full-project-review-and-completion-plan-2026-07-12"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Full Project Review and Completion Plan — 2026-07-12 Executive verdict Strategic direction: APPROVE WITH MAJOR REVISION."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxOb3JkaWNHYW1lclxcYWN0aW9ucy1ydW5uZXJcXG5lb25jaGFtcC1kZXNpZ25cXF93b3JrXFxuZW9uLWNoYW1waW9ucy1nYW1lLWRlc2lnblxcbmVvbi1jaGFtcGlvbnMtZ2FtZS1kZXNpZ25cXHF1YXJ0elxcY29tcG9uZW50c1xcc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgcGFkZGluZzogMC40cmVtO1xyXG4gIG1hcmdpbjogMC4zcmVtO1xyXG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xyXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcclxuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcclxuICBib3JkZXI6IDFweCBzb2xpZDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgb3BhY2l0eTogMDtcclxuICB0cmFuc2l0aW9uOiAwLjJzO1xyXG5cclxuICAmID4gc3ZnIHtcclxuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcclxuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcclxuICB9XHJcblxyXG4gICY6aG92ZXIge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG4gIH1cclxuXHJcbiAgJjpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiAwO1xyXG4gIH1cclxufVxyXG5cclxucHJlIHtcclxuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICAgIHRyYW5zaXRpb246IDAuMnM7XHJcbiAgfVxyXG59XHJcblxyXG4jbWVybWFpZC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICBjb250YWluOiBsYXlvdXQ7XHJcbiAgei1pbmRleDogOTk5O1xyXG4gIGxlZnQ6IDA7XHJcbiAgdG9wOiAwO1xyXG4gIHdpZHRoOiAxMDB2dztcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XHJcblxyXG4gICYuYWN0aXZlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB9XHJcblxyXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgdG9wOiA1MCU7XHJcbiAgICBsZWZ0OiA1MCU7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICAgIGhlaWdodDogODB2aDtcclxuICAgIHdpZHRoOiA4MHZ3O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuXHJcbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XHJcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xyXG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xyXG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICAgICAgbWluLWhlaWdodDogMjAwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XHJcblxyXG4gICAgICBwcmUge1xyXG4gICAgICAgIG1hcmdpbjogMDtcclxuICAgICAgICBib3JkZXI6IG5vbmU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIHN2ZyB7XHJcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xyXG4gICAgICAgIGhlaWdodDogYXV0bztcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XHJcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgYm90dG9tOiAyMHB4O1xyXG4gICAgICByaWdodDogMjBweDtcclxuICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgZ2FwOiA4cHg7XHJcbiAgICAgIHBhZGRpbmc6IDhweDtcclxuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xyXG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XHJcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICAgIHotaW5kZXg6IDI7XHJcblxyXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XHJcbiAgICAgICAgZGlzcGxheTogZmxleDtcclxuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgICAgIHdpZHRoOiAzMnB4O1xyXG4gICAgICAgIGhlaWdodDogMzJweDtcclxuICAgICAgICBwYWRkaW5nOiAwO1xyXG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XHJcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xyXG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xyXG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XHJcblxyXG4gICAgICAgICY6aG92ZXIge1xyXG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgICY6YWN0aXZlIHtcclxuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxyXG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcclxuICAgICAgICAgIHdpZHRoOiBhdXRvO1xyXG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xyXG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxufVxyXG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://myriwe-bot.github.io/neon-champions-game-design-site/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/full-project-review-and-completion-plan-2026-07-12-og-image.webp"/><meta property="og:image:url" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/full-project-review-and-completion-plan-2026-07-12-og-image.webp"/><meta name="twitter:image" content="https://myriwe-bot.github.io/neon-champions-game-design-site/production/planning/full-project-review-and-completion-plan-2026-07-12-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="production/planning/full-project-review-and-completion-plan-2026-07-12"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">Neon Champions Game Design</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-105"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-105" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../production/">production</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../production/planning/">planning</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Full Project Review and Completion Plan — 2026 07 12</a></div></nav><h1 class="article-title">Full Project Review and Completion Plan — 2026-07-12</h1><p show-comma="true" class="content-meta"><time datetime="2026-07-11T21:00:00.000Z">Jul 12, 2026</time><span>22 min read</span></p></div></div><article class="popover-hint"><h1 id="full-project-review-and-completion-plan--2026-07-12">Full Project Review and Completion Plan — 2026-07-12<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#full-project-review-and-completion-plan--2026-07-12" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="executive-verdict">Executive verdict<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#executive-verdict" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Strategic direction: APPROVE WITH MAJOR REVISION.</strong></p>
+<p><strong>Current roadmap as executable schedule: BLOCKED.</strong></p>
+<p><strong>Current build as a technical prototype: CONCERNS, but promising.</strong></p>
+<p><strong>Current build as a commercial game: NOT READY.</strong></p>
+<p>Neon Champions has three unusually strong foundations:</p>
+<ol>
+<li>a distinctive core fantasy — command a mythic cyberpunk Champion through an Arctic infrastructure crisis beneath an engineered White Sky;</li>
+<li>a tested strategic/tactical code foundation with strong deterministic domain tests and CI;</li>
+<li>a world thesis that can differentiate it from generic HoMM-likes: infrastructure is power, information has provenance, and Champions are public identities rather than simple heroes.</li>
+</ol>
+<p>The primary danger is not lack of ideas. It is <strong>production inversion</strong>: governance, tests, stories, and designed system breadth have advanced faster than player-facing quality, human fun evidence, content tooling, audiovisual production, and product definition.</p>
+<p>The existing 8-week prototype and 24-week Early Access ambition should remain as a target, but the clock should not be treated as credibly started until a short Production Definition Gate is passed. The six-month target is only credible with genuine parallel specialist lanes, immediate asset sourcing, ruthless prototype focus, weekly human playtests, and an explicit willingness to label editor/modding/async multiplayer as beta or move them behind the launch decision if they threaten the core game.</p>
+<h2 id="evidence-basis">Evidence basis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#evidence-basis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Reviewed current synchronized <code>main</code> across:</p>
+<ul>
+<li>game design: <code>95a8c25341dccc90778fe5fc78e2831fe82193d7</code>;</li>
+<li>Unity: <code>6c0e9addff25c519053edc3f3be8ab52b932bc0c</code>;</li>
+<li>world vault: <code>c0cfa3233c9b4077a4690f827b1f02935a843718</code>.</li>
+</ul>
+<p>All three working trees were clean and matched <code>origin/main</code> during review.</p>
+<p>Unity evidence includes:</p>
+<ul>
+<li>75 C# files and approximately 41,927 lines;</li>
+<li>23,004 runtime lines and 18,852 test lines reported by repository audit;</li>
+<li>35 test files, 422 test methods, and strong EditMode/PlayMode coverage;</li>
+<li>one enabled game scene;</li>
+<li>no gameplay prefabs, no production gameplay art, and no audio assets;</li>
+<li>one JSON scenario and a retained hardcoded fallback;</li>
+<li>current presentation concentrated in <code>StrategicMapBootstrap.cs</code> at about 3,960 lines;</li>
+<li>PlayMode smoke concentrated in one file at about 5,989 lines;</li>
+<li>approximately 1 GB of checked-in evidence history, including hundreds of PNGs, without Git LFS.</li>
+</ul>
+<p>The latest checked-in human-turn screenshot remains a debug/instrumentation surface: raw IDs, large diagnostic panels, weak map hierarchy, disabled-looking action rows, placeholder geometry, dense text, and no commercial visual identity. It proves state visibility and automation, not a normal strategy-game interface.</p>
+<p>Fresh Unity tests were not rerun in the Linux audit environment because the project CI is Windows/self-hosted Unity. Checked-in CI and evidence were inspected, not misrepresented as fresh execution.</p>
+<h2 id="what-is-genuinely-strong">What is genuinely strong<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-is-genuinely-strong" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-the-game-has-a-saleable-fantasy">1. The game has a saleable fantasy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-the-game-has-a-saleable-fantasy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The strongest public-facing promise is:</p>
+<blockquote>
+<p>Lead an iconic cyberpunk Champion across a frozen frontier, build an army, seize the machines keeping the world alive, and fight over what people believe happened.</p>
+</blockquote>
+<p>This is stronger than leading with Treaty Net, admissibility, continuity liability, provenance, or institutional acronyms. Those ideas are valuable depth; they should be discovered through play after the basic fantasy is understood.</p>
+<h3 id="2-the-world-has-real-thematic-differentiation">2. The world has real thematic differentiation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-the-world-has-real-thematic-differentiation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>White Sky, infrastructure dependency, body continuity, Echo identity, corporate personhood, polluted feeds, maintenance politics, and factions as evolutionary philosophies form a coherent thesis. This is not generic neon cyberpunk.</p>
+<h3 id="3-the-implementation-foundation-is-unusually-testable">3. The implementation foundation is unusually testable<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-the-implementation-foundation-is-unusually-testable" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Plain C# domain/application boundaries, deterministic behavior, strong test coverage, CI, stable IDs, and evidence requirements are valuable. They should make balancing, replay/debugging, AI simulation, and future networking easier if the architecture is simplified rather than allowed to accrete.</p>
+<h3 id="4-the-project-records-human-complaints-rather-than-erasing-them">4. The project records human complaints rather than erasing them<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-the-project-records-human-complaints-rather-than-erasing-them" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The preserved complaints in <code>production/playtests/playtest-journal.md</code> are excellent source material. They identify real failures: unreadability, unclear turns, tiny tactical space, unclear armies and stacks, confusing attacks, unexplained abilities, broken-feeling objectives, and poor map control.</p>
+<h3 id="5-the-intended-differentiators-can-reinforce-the-strategy-loop">5. The intended differentiators can reinforce the strategy loop<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-the-intended-differentiators-can-reinforce-the-strategy-loop" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Dirty information, maintenance, legitimacy, Champion consequences, and infrastructure control can create meaningful strategic tradeoffs rather than becoming separate narrative minigames — if integrated through one or two concrete player verbs each.</p>
+<h2 id="fundamental-problems">Fundamental problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fundamental-problems" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-the-project-is-not-yet-governed-by-an-approved-north-star">1. The project is not yet governed by an approved north star<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-the-project-is-not-yet-governed-by-an-approved-north-star" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><code>design/gdd/game-concept.md</code>, <code>design/gdd/game-pillars.md</code>, and <code>design/gdd/systems-index.md</code> remain draft/pending. The approved-world slice is still only a short draft scaffold. Faction game briefs remain an empty template.</p>
+<p>This creates an inversion: dozens of implementation stories are DONE while the high-level product contract remains pending. Narrow story exceptions helped development move, but continuing this pattern will produce local correctness and global incoherence.</p>
+<p><strong>Recommendation:</strong> approve a concise Product Constitution before the next implementation epic. It should lock the player fantasy, primary audience, pillars, anti-pillars, prototype factions, first-player faction, core loop, prototype victory structure, and product scope tiers. It need not settle all lore.</p>
+<h3 id="2-human-fun-evidence-is-almost-absent">2. Human fun evidence is almost absent<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-human-fun-evidence-is-almost-absent" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The playtest journal is a template plus historical complaint seeds, not a cadence of dated playthroughs. Automated screenshots and agent closeouts prove execution and state, not enjoyment, comprehension, pacing, desire to replay, or emotional identity.</p>
+<p><strong>Recommendation:</strong> no major system expansion until a fresh owner playthrough is recorded. From then on, run one internal human playtest every week and an outside test at least every two weeks after the shell is legible.</p>
+<h3 id="3-the-current-ui-architecture-is-a-delivery-bottleneck">3. The current UI architecture is a delivery bottleneck<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-the-current-ui-architecture-is-a-delivery-bottleneck" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>A roughly 3,960-line <code>StrategicMapBootstrap.cs</code> and 2,352-line input session indicate that presentation, orchestration, and interaction concerns are over-concentrated. The screenshot confirms the player experience is still shaped like a debug harness.</p>
+<p>A cosmetic skin over this surface will fail. The player shell needs decomposition around screens, presenters/view-models, reusable controls, map interaction, and a debug overlay that can be turned off.</p>
+<p><strong>Recommendation:</strong> make the first implementation capability a bounded shell replacement/decomposition, not broad gameplay expansion. Preserve the tested domain layer and replace only the touched presentation path.</p>
+<h3 id="4-the-plan-confuses-feature-breadth-with-product-value">4. The plan confuses feature breadth with product value<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-the-plan-confuses-feature-breadth-with-product-value" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The 24-week ledger includes four factions, roughly forty unit variants, campaign, skirmish, editor, mods, asynchronous multiplayer, dirty information, Feed, Heat, legitimacy, Champion outcomes, doctrines, convoys, seasons, Audience, save migration, accessibility, release hardening, art, audio, and more.</p>
+<p>This is not impossible in principle, but it is not credible for a serial AI-agent workflow plus one human director. Integration, content tuning, visual judgment, UX repair, and testing scale nonlinearly.</p>
+<p><strong>Recommendation:</strong> preserve the feature ledger but assign each feature one of four statuses:</p>
+<ul>
+<li>launch-critical;</li>
+<li>Early Access first-product depth;</li>
+<li>explicit beta;</li>
+<li>post-launch unless ahead of schedule.</li>
+</ul>
+<p>Async multiplayer should be behind a launch-risk firewall. The editor should first be an internal scenario-production tool; public usability is a separate product feature. Mod packaging should follow a stable runtime schema, not precede it.</p>
+<h3 id="5-content-production-has-no-demonstrated-throughput">5. Content production has no demonstrated throughput<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-content-production-has-no-demonstrated-throughput" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The roadmap calls for maps, scenarios, four factions, units, upgrades, events, tutorials, narrative, art, VFX, audio, and music, but the Unity repository has no production gameplay art/audio and no demonstrated repeatable scenario pipeline beyond one JSON file.</p>
+<p><strong>Recommendation:</strong> conduct an asset and content production spike before committing to the six-month presentation claim. Build one representative final-ish strategic node, one Champion portrait/token, one tactical unit family, one terrain set, one attack VFX/SFX sequence, and one music/ambience sample. Measure real integration time and establish a style bible, naming/license ledger, and import rules.</p>
+<h3 id="6-the-first-campaign-is-a-setting-premise-not-yet-a-campaign">6. The first campaign is a setting premise, not yet a campaign<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-the-first-campaign-is-a-setting-premise-not-yet-a-campaign" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The fictional Arctic region, Blue Monday, HRC, and QXZ provide a strong premise. Missing are the playable protagonist, emotional stakes, scenario arc, antagonist relationship, mission escalation, major reversals, recurring characters, ending decision, and how campaign consequences persist.</p>
+<p><strong>Recommendation:</strong> write a one-page campaign spine before creating multiple scenarios. Keep it player-facing and dramatic, not encyclopedic.</p>
+<h3 id="7-faction-philosophy-has-not-become-faction-gameplay">7. Faction philosophy has not become faction gameplay<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-faction-philosophy-has-not-become-faction-gameplay" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The faction-pillar language is strong, but <code>design/world/faction-game-briefs.md</code> is empty and broad rosters remain draft. Four factions by six months will become cosmetic variants unless each has a concise gameplay contract.</p>
+<p><strong>Recommendation:</strong> for each faction define:</p>
+<ul>
+<li>player fantasy in one sentence;</li>
+<li>strategic advantage and strategic liability;</li>
+<li>tactical rhythm;</li>
+<li>information relationship;</li>
+<li>infrastructure relationship;</li>
+<li>Champion archetype;</li>
+<li>signature resource conversion;</li>
+<li>one heroic and one horrific expression;</li>
+<li>explicit anti-overlap with every other faction.</li>
+</ul>
+<p>Only HRC and QXZ need full prototype depth. Barents and Janus-Kestrel should not enter production until that template proves useful.</p>
+<h3 id="8-neon-champions-mechanics-risk-becoming-administrative-overlays">8. Neon Champions mechanics risk becoming administrative overlays<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-neon-champions-mechanics-risk-becoming-administrative-overlays" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Feed, Heat, attribution, legitimacy, maintenance, source tags, stale Intel, and Champion outcomes are interesting, but too many meters and status vocabularies can bury the core fantasy under bureaucracy.</p>
+<p><strong>Recommendation:</strong> every differentiator must pass a verb-and-consequence test:</p>
+<ul>
+<li>What does the player actively do?</li>
+<li>What opportunity does it create this turn?</li>
+<li>What visible cost or risk follows?</li>
+<li>How does the opponent respond?</li>
+<li>Can it be explained without lore jargon?</li>
+</ul>
+<p>If a system cannot answer these, keep it as event/content framing rather than a standalone meter.</p>
+<h3 id="9-tactical-combat-is-over-scoped-for-the-first-strong-prototype">9. Tactical combat is over-scoped for the first strong prototype<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9-tactical-combat-is-over-scoped-for-the-first-strong-prototype" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The 8-week plan combines five-tier rosters, initiative, AP, Wait, Defend, retaliation, morale/cohesion, terrain, hazards, objectives, signature actions, Operations, tactical AI, and audiovisual faction identity. This is enough for a full tactics game and leaves little time for tuning.</p>
+<p><strong>Recommendation:</strong> prototype combat should prove three things:</p>
+<ol>
+<li>army composition changes decisions;</li>
+<li>terrain/objective changes decisions;</li>
+<li>HRC and QXZ feel different.</li>
+</ol>
+<p>Use three strongly differentiated unit lines per faction plus one Champion/Operation layer first. Add tiers/upgrades only when the base match is readable and worth repeating.</p>
+<h3 id="10-strategic-map-success-criteria-need-stronger-pressure-and-replay-value">10. Strategic map success criteria need stronger pressure and replay value<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#10-strategic-map-success-criteria-need-stronger-pressure-and-replay-value" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The project has already found trivial-rush and unclear-objective problems. A larger map alone will not fix this.</p>
+<p><strong>Recommendation:</strong> prototype scenario design should include:</p>
+<ul>
+<li>at least three viable opening routes;</li>
+<li>one early irreversible or costly commitment;</li>
+<li>visible opponent pressure by turn 2–3;</li>
+<li>a victory web requiring two or three linked conditions;</li>
+<li>one optional high-risk prize;</li>
+<li>one information-driven route reversal;</li>
+<li>one comeback valve that does not erase advantage;</li>
+<li>expected session length and turn-count budgets.</li>
+</ul>
+<h3 id="11-saveload-localization-accessibility-release-and-commercial-work-are-mostly-promises">11. Save/load, localization, accessibility, release, and commercial work are mostly promises<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-saveload-localization-accessibility-release-and-commercial-work-are-mostly-promises" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>There is no production save/load, localization implementation, normal settings shell, telemetry/crash pipeline, store plan, pricing/positioning artifact, community plan, support process, or robust clean-machine release pipeline demonstrated.</p>
+<p><strong>Recommendation:</strong> add a Product/Release lane now, but keep it thin until the prototype is enjoyable. Its first outputs should be save architecture, string-table enforcement, input remapping stance, settings persistence, build versioning, crash-log export, license/provenance ledger, and a Steam positioning brief.</p>
+<h3 id="12-repository-evidence-is-becoming-technical-debt">12. Repository evidence is becoming technical debt<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-repository-evidence-is-becoming-technical-debt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Approximately 1 GB of checked-in historical evidence and hundreds of PNGs without LFS will slow clones, CI, and agent work. One 5,989-line PlayMode file is also a maintenance bottleneck.</p>
+<p><strong>Recommendation:</strong> move future bulk evidence to CI artifacts or Git LFS with an indexed lightweight summary in Git. Split PlayMode suites by player journey/screen. Do not rewrite history casually; create and approve a migration policy first.</p>
+<h2 id="opportunities">Opportunities<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#opportunities" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-make-public-truth-a-tactical-strategic-weapon">1. Make public truth a tactical-strategic weapon<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-make-public-truth-a-tactical-strategic-weapon" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Instead of adding a generic morality system, let proof affect concrete map rules: access, recruitment price, local assistance, legal attack permission, extraction routes, surrender, or post-battle consequences.</p>
+<h3 id="2-turn-maintenance-into-tempo-not-chores">2. Turn maintenance into tempo, not chores<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-turn-maintenance-into-tempo-not-chores" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Maintenance should produce strategic dilemmas: keep a failing route alive, exploit it before collapse, expose the owner, divert resources, or allow a crisis that harms both sides differently. Avoid routine repair clicking.</p>
+<h3 id="3-use-champions-as-the-campaigns-emotional-persistence-layer">3. Use Champions as the campaign’s emotional persistence layer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-use-champions-as-the-campaigns-emotional-persistence-layer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Armies and maps may reset, but Champion body state, public reputation, legal status, Echo continuity, rivals, and signature equipment can carry memory across scenarios.</p>
+<h3 id="4-treat-the-white-sky-as-a-visual-and-mechanical-clock">4. Treat the White Sky as a visual and mechanical clock<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-treat-the-white-sky-as-a-visual-and-mechanical-clock" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Sky color, light, forecast overlays, atmospheric effects, and infrastructure behavior can make the crisis legible without text walls. This is a strong art-direction anchor and a natural source of scenario escalation.</p>
+<h3 id="5-design-the-editor-first-as-the-studios-content-multiplier">5. Design the editor first as the studio’s content multiplier<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-design-the-editor-first-as-the-studios-content-multiplier" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>An internal authoring tool that reliably creates and validates scenarios can save the schedule. A polished public editor is valuable but should be a second layer over the same format.</p>
+<h3 id="6-build-marketing-proof-alongside-the-vertical-slice">6. Build marketing proof alongside the vertical slice<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-build-marketing-proof-alongside-the-vertical-slice" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>A striking map view, Champion close-up, tactical clash, White Sky transition, and one dirty-information reveal can become the first trailer/GIF language. This also forces the product fantasy to remain visually comprehensible.</p>
+<h2 id="revised-production-model">Revised production model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#revised-production-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h2 id="approved-three-gate-delivery-model--2026-07-12">Approved three-gate delivery model — 2026-07-12<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#approved-three-gate-delivery-model--2026-07-12" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The owner approved this delivery structure:</p>
+<ol>
+<li><strong>Four weeks — Presentable Proof Build:</strong> investor/player-facing proof capable of showing strategic exploration, meaningful base construction, readable tactical combat, and a Feed/narrative consequence.</li>
+<li><strong>Eight weeks — Fully Playable Prototype:</strong> complete scenario, save/resume, functional strategic and tactical AI, onboarding, internal scenario tool, outside testing, and clear Neon Champions differentiation.</li>
+<li><strong>Six months — Launch-Capable Early Access Candidate:</strong> followed by an evidence-based launch/no-launch decision rather than an unconditional release date.</li>
+</ol>
+<h3 id="approved-four-week-proof-scope">Approved four-week proof scope<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#approved-four-week-proof-scope" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>One faction-selectable HRC-versus-QXZ scenario; both are playable and neither is framed as the canonical hero or villain.</li>
+<li>Target play slice: approximately 20–30 minutes for presentation/testing, without redefining the longer eight-week prototype scenario.</li>
+<li>Strategic exploration, base construction, tactical combat, and one Feed/narrative consequence must all be visible in the build and capture plan.</li>
+<li>One base per faction and a compact 10–14-location strategic slice are recommended working targets, subject to map-design proof.</li>
+<li>Three strongly varied unit lines per faction are acceptable only if composition, upgrades/loadouts, Champion interaction, and tactical roles create sufficient variety.</li>
+<li>Normal player-facing UI, coherent zero-budget visual treatment, basic audio, scenario start, and victory/defeat flow are required.</li>
+<li>Save/load, full tutorial, public editor UX, full strategic AI, five complete tiers, multiplayer, and final art are not required at the four-week gate.</li>
+</ul>
+<h3 id="approved-prototype-base-building-model">Approved prototype base-building model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#approved-prototype-base-building-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Six possible facilities per faction.</strong></li>
+<li>Approximately <strong>three to four facilities constructible during the short proof scenario</strong>, forcing build-order tradeoffs.</li>
+<li>One construction decision per base per strategic day/cycle.</li>
+<li>Routine construction does not require Champion presence; Champion presence may later unlock bonuses or special projects.</li>
+<li>Use a shared functional skeleton only where useful — economy/administration, materials, recruitment, specialist recruitment, Intel/information, and Champion/Operations — while ensuring HRC and QXZ express those functions through different incentives, costs, dependencies, and consequences.</li>
+<li>This is prototype scope, not a permanent cap on town/base depth or future town types.</li>
+</ul>
+<h3 id="public-exposure-decision">Public exposure decision<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#public-exposure-decision" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Deferred until the four-week build can be inspected. At that gate choose between:</p>
+<ol>
+<li>private investor/tester distribution; or</li>
+<li>public development footage plus a signup/community page, without a public downloadable build.</li>
+</ol>
+<p>Do not force this choice before the presentation quality and messaging can be judged. A public downloadable pre-alpha is not the current recommendation.</p>
+<h3 id="production-definition-gate--before-week-1">Production Definition Gate — before Week 1<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#production-definition-gate--before-week-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Timebox: maximum 5–7 working days. This is not a new month of design.</p>
+<p>Required decisions and outputs:</p>
+<ol>
+<li>Approve the Product Constitution: concept, pillars, anti-pillars, target player, prototype factions, first-player faction, core loop, and scope tiers.</li>
+<li>Record a fresh owner playthrough of current <code>main</code>, including exact complaints and a KEEP/REVISE/REJECT verdict.</li>
+<li>Select asset strategy and budget: licensed, generated, contracted, original, or hybrid.</li>
+<li>Approve the prototype product contract below.</li>
+<li>Produce one representative audiovisual integration spike.</li>
+<li>Approve technical shell decomposition boundaries.</li>
+<li>Create a single integrated milestone dashboard by capability, not story count.</li>
+</ol>
+<p>Do not resolve every world mystery or write all faction lore during this gate.</p>
+<h2 id="recommended-eight-week-prototype-contract">Recommended eight-week prototype contract<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommended-eight-week-prototype-contract" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="non-negotiable-player-experience">Non-negotiable player experience<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#non-negotiable-player-experience" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>One polished 60–90 minute scenario, replayable in approximately 30–60 minutes after learning.</li>
+<li>HRC versus QXZ.</li>
+<li>One primary player Champion and one rival Champion; optional second Champion only if it improves strategic choice.</li>
+<li>Normal map-first UI, settings/pause/restart, win/loss, save/resume, tutorial prompts, and no raw IDs.</li>
+<li>Strategic and tactical AI sufficient for the scenario.</li>
+<li>Cohesive initial art/audio treatment.</li>
+<li>At least two unmistakable Neon Champions differentiators.</li>
+<li>A second scenario can be created through the internal data/tool path without runtime code changes.</li>
+</ul>
+<h3 id="recommended-strategic-depth">Recommended strategic depth<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommended-strategic-depth" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>16–20 meaningful nodes, not 24 by default.</li>
+<li>Three resources: Credits, Materials, Intel.</li>
+<li>Three opening routes and linked victory conditions.</li>
+<li>One base per side plus neutral infrastructure.</li>
+<li>Three facility choices total, not a broad building tree.</li>
+<li>Three recruitment/contractor decisions per faction.</li>
+<li>One maintenance dilemma.</li>
+<li>One dirty-information/proof loop.</li>
+<li>One Champion consequence at scenario end.</li>
+</ul>
+<h3 id="recommended-tactical-depth">Recommended tactical depth<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommended-tactical-depth" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Three core unit lines per faction, with one upgrade or variant each only if useful.</li>
+<li>One Champion command identity per side.</li>
+<li>AP, move, attack, Defend, and one timing option such as Wait.</li>
+<li>Retaliation only if readable and strategically meaningful.</li>
+<li>Two terrain families and two mission objectives.</li>
+<li>One signature active per unit line only where it changes decisions.</li>
+<li>Morale/cohesion only if it produces understandable visible choices; otherwise move it after the prototype.</li>
+<li>No obligation to implement five complete tiers before combat is fun.</li>
+</ul>
+<h3 id="explicit-prototype-exclusions">Explicit prototype exclusions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#explicit-prototype-exclusions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>public-ready editor UX;</li>
+<li>mods;</li>
+<li>multiplayer;</li>
+<li>four-faction balance;</li>
+<li>full campaign persistence;</li>
+<li>complete Heat/legitimacy ladders;</li>
+<li>complete Champion death-state matrix;</li>
+<li>broad doctrine system;</li>
+<li>convoys and seasons unless integral to the single scenario;</li>
+<li>polished autoresolve.</li>
+</ul>
+<p>These remain six-month/post-prototype product candidates, not permanent cuts.</p>
+<h2 id="eight-week-execution-sequence">Eight-week execution sequence<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#eight-week-execution-sequence" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="week-1--product-shell-and-vertical-look-target">Week 1 — product shell and vertical look target<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-1--product-shell-and-vertical-look-target" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Decompose the current bootstrap enough to support normal screens and hide diagnostics.</li>
+<li>Build title/scenario start, strategic HUD, selected-object panel, action bar, pause/settings, and win/loss shell.</li>
+<li>Integrate the representative art/audio kit.</li>
+<li>Establish debug overlay toggle.</li>
+<li>Run owner playtest and repair immediately.</li>
+</ul>
+<p><strong>Gate:</strong> a new player can start, select, move, understand a site, end a turn, and identify the objective without raw IDs or developer explanation.</p>
+<h3 id="week-2--strategic-interaction-quality">Week 2 — strategic interaction quality<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-2--strategic-interaction-quality" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Implement map pan/zoom/focus, selection hierarchy, routes, reachability, site states, resources, recruitment, and clear denial/result feedback.</li>
+<li>Lock the 16–20-node scenario topology.</li>
+<li>Remove or isolate hardcoded fallback.</li>
+<li>Split static definitions from scenario placement where required.</li>
+</ul>
+<p><strong>Gate:</strong> tester can explain three route choices, their army, resources, and what will happen next turn.</p>
+<h3 id="week-3--strategic-pressure-and-saveresume">Week 3 — strategic pressure and save/resume<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-3--strategic-pressure-and-saveresume" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Upgrade AI to value sites, recruit, contest, attack, and protect routes.</li>
+<li>Implement linked victory web and opponent pressure.</li>
+<li>Add save/resume with version and scenario identity.</li>
+<li>Add engagement brief before combat.</li>
+</ul>
+<p><strong>Gate:</strong> no trivial objective rush; save/reload continues the same match correctly.</p>
+<h3 id="week-4--tactical-readability-and-core-decisions">Week 4 — tactical readability and core decisions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-4--tactical-readability-and-core-decisions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Replace tactical debug presentation with readable initiative, stack identity, movement, legal targets, forecast, action results, and battle conclusion.</li>
+<li>Implement only the chosen core action set and terrain families.</li>
+<li>Split the monolithic PlayMode file by journey.</li>
+</ul>
+<p><strong>Gate:</strong> tester can explain whose turn it is, which side is theirs, what each stack does, why an action is legal, and what the result was.</p>
+<h3 id="week-5--hrcqxz-identity">Week 5 — HRC/QXZ identity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-5--hrcqxz-identity" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Implement three core unit lines and one Champion command identity per faction.</li>
+<li>Add faction-specific strategic advantage/liability.</li>
+<li>Integrate audiovisual faction language.</li>
+<li>Tune tactical AI for roles and objectives.</li>
+</ul>
+<p><strong>Gate:</strong> blind-description test — players can identify which faction they played from incentives and behavior, not color/name alone.</p>
+<h3 id="week-6--neon-champions-differentiator-integration">Week 6 — Neon Champions differentiator integration<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-6--neon-champions-differentiator-integration" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Integrate one dirty-information/proof loop.</li>
+<li>Integrate one maintenance/infrastructure dilemma.</li>
+<li>Frame outcomes through Feed without adding multiple redundant meters.</li>
+<li>Add one scenario-end Champion consequence.</li>
+<li>Begin outside tests.</li>
+</ul>
+<p><strong>Gate:</strong> testers can name two things this game does that HoMM or a generic tactics game does not.</p>
+<h3 id="week-7--onboarding-content-and-internal-editor-path">Week 7 — onboarding, content, and internal editor path<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-7--onboarding-content-and-internal-editor-path" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Tutorialize the real scenario through contextual prompts and safe early decisions.</li>
+<li>Validate all player-facing strings and remove raw IDs.</li>
+<li>Prove second-scenario authoring through the same data format.</li>
+<li>Add settings, remapping baseline, text scaling, contrast checks, and audio controls.</li>
+</ul>
+<p><strong>Gate:</strong> outside tester completes the opening and first battle without live guidance.</p>
+<h3 id="week-8--integration-and-prototype-release">Week 8 — integration and prototype release<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#week-8--integration-and-prototype-release" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Bug burn-down, balance, pacing, performance, clean-machine build, save/load regression, and evidence.</li>
+<li>Run at least five outside playthroughs if feasible.</li>
+<li>Produce a short gameplay capture.</li>
+<li>Make a formal prototype gate decision: continue, repair, or redesign.</li>
+</ul>
+<p><strong>Gate:</strong> complete, understandable, coherent, replayable prototype with no critical comprehension blocker.</p>
+<h2 id="six-month-roadmap-after-prototype">Six-month roadmap after prototype<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#six-month-roadmap-after-prototype" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Do not pre-authorize every feature. Re-plan at the Week 8 evidence gate.</p>
+<h3 id="months-34--vertical-slice-and-content-production-proof">Months 3–4 — vertical slice and content-production proof<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#months-34--vertical-slice-and-content-production-proof" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Priority:</p>
+<ol>
+<li>two- or three-scenario HRC/QXZ campaign arc;</li>
+<li>production save/load and migration policy;</li>
+<li>internal editor MVP used by the team for every new scenario;</li>
+<li>stable static definitions, localization keys, and validation;</li>
+<li>deeper HRC/QXZ rosters only where playtests demand it;</li>
+<li>Heat/attribution/legitimacy at one coherent first-product depth;</li>
+<li>Champion persistence and consequence framework;</li>
+<li>skirmish setup and balance simulation;</li>
+<li>presentation quality sufficient for public footage and store-page testing.</li>
+</ol>
+<p>Gate: strangers can play the campaign slice, understand the fantasy, finish it, and express interest in another scenario.</p>
+<h3 id="month-5--breadth-decision-not-automatic-breadth">Month 5 — breadth decision, not automatic breadth<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#month-5--breadth-decision-not-automatic-breadth" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Add Barents and Janus-Kestrel only if:</p>
+<ul>
+<li>HRC/QXZ content production throughput is measured;</li>
+<li>faction contracts are approved;</li>
+<li>tools can author content without code bottlenecks;</li>
+<li>AI can use faction rules;</li>
+<li>presentation lane can differentiate them;</li>
+<li>adding them does not threaten campaign completion.</li>
+</ul>
+<p>Otherwise ship the first Early Access build with two deep factions and announce the next two transparently. Four shallow factions are worse than two memorable factions.</p>
+<p>Editor public UX, mod packaging, and async multiplayer each require independent go/no-go gates. Recommended order:</p>
+<ol>
+<li>internal editor;</li>
+<li>public editor usability;</li>
+<li>stable mod/datapack schema;</li>
+<li>async multiplayer only after save/replay/versioning are proven.</li>
+</ol>
+<h3 id="month-6--release-candidate-hardening">Month 6 — release candidate hardening<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#month-6--release-candidate-hardening" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>content lock;</li>
+<li>critical placeholder replacement;</li>
+<li>onboarding and accessibility completion;</li>
+<li>performance profiling;</li>
+<li>clean-machine installation/update/uninstall;</li>
+<li>crash diagnostics and support bundle;</li>
+<li>legal/provenance/license audit;</li>
+<li>Steam page, screenshots, trailer, pricing/positioning, known issues, support and patch plans;</li>
+<li>external acceptance playtest;</li>
+<li>launch/no-launch decision based on evidence, not date alone.</li>
+</ul>
+<h2 id="team-and-lane-requirements">Team and lane requirements<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#team-and-lane-requirements" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Minimum credible lane ownership:</p>
+<ol>
+<li><strong>Creative/product director:</strong> final design, scope, playtests, integration verdicts.</li>
+<li><strong>Core engineering:</strong> domain, AI, save/load, data, tactical/strategic systems.</li>
+<li><strong>UX/presentation:</strong> screen architecture, map interaction, usability, accessibility.</li>
+<li><strong>Art/content/audio:</strong> visual target, assets, animation/VFX, maps, narrative, SFX/music.</li>
+<li><strong>Tools/release:</strong> editor, validation, builds, versioning, crash/support, store preparation.</li>
+</ol>
+<p>One person may own multiple lanes, and agents can accelerate each lane, but a lane without an accountable human reviewer is not staffed. AI cannot supply taste, player observation, or final asset coherence by itself.</p>
+<h2 id="production-rules">Production rules<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#production-rules" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>One integrated playable <code>main</code> at all times.</li>
+<li>Daily or per-merge playable smoke; weekly human build.</li>
+<li>No feature enters the prototype without a player verb and observable consequence.</li>
+<li>No system is called complete without UI, feedback, AI interaction, save behavior, and playtest evidence as applicable.</li>
+<li>Debug tooling is preserved behind toggles, never mixed into normal UI.</li>
+<li>Medium-batched capability stories replace ceremony-heavy micro-stories, but every batch retains explicit acceptance criteria and evidence.</li>
+<li>At most one major unknown per capability story; use bounded spikes for UI Toolkit, asset pipelines, networking, and editor architecture.</li>
+<li>Human playtest findings outrank automated screenshot approval for fun and clarity.</li>
+<li>Do not merge new world canon into gameplay by implementation inertia.</li>
+<li>Every Friday: capability review, risk review, scope review, and next-week go/no-go.</li>
+</ol>
+<h2 id="owner-decisions--recorded-2026-07-12">Owner decisions — recorded 2026-07-12<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#owner-decisions--recorded-2026-07-12" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><strong>Prototype factions:</strong> HRC and QXZ are the clear opposing factions. Both are playable; neither is inherently the protagonist or villain. Campaign viewpoint may vary by scenario or side.</li>
+<li><strong>Prototype units:</strong> reducing to three strong lines per faction is acceptable only if the lines create enough composition and tactical variety. This remains a prototype-depth question, not approval to make factions thin.</li>
+<li><strong>Base/town building:</strong> the prototype must open meaningful Heroes-style base construction and resource choices. The narrow three-facility recommendation is not accepted as a permanent model; the exact prototype breadth still needs a focused base-building packet.</li>
+<li><strong>Asset direction:</strong> final ambition is contractors and/or original work. Before funding, use a deliberate zero-cost prototype stack and establish a coherent art target rather than waiting for final assets.</li>
+<li><strong>Immediate budget:</strong> essentially zero through the one-month prototype. Budget bands after that must be proposed against evidence and fundraising needs.</li>
+<li><strong>Human capacity:</strong> owner plus one collaborating company CFO/game designer, who is primarily responsible for a separate strategy game but can collaborate on systems design and review. Do not plan as if a five-person specialist team exists.</li>
+<li><strong>Commercial gate:</strong> produce something marketable and investor-facing earlier than six months. Six months is a launch-capable candidate followed by a launch/no-launch decision, not an unconditional release date.</li>
+<li><strong>Faction/town breadth:</strong> owner values varied mechanics and different town/base types. The two-deep-versus-four-shallow decision remains unresolved; design should preserve four differentiated faction/town contracts without forcing premature full production.</li>
+<li><strong>Editor:</strong> reliable internal scenario tool first; player-facing usability follows. Custom scenarios must be playable, and a scenario editor remains a product goal.</li>
+<li><strong>Campaign:</strong> a three-scenario first arc is acceptable, alongside custom-scenario play.</li>
+<li><strong>Reference targets:</strong> Heroes of Might and Magic III and Olden Era; XCOM: Enemy Unknown/Within; Harebrained Schemes’ Shadowrun Returns series. Additional references should be researched by specific design problem rather than copied wholesale.</li>
+<li><strong>Platform/input:</strong> Windows mouse and keyboard is sufficient for the first product.</li>
+<li><strong>Testing:</strong> more humans can be brought into the loop, although exact tester counts are not committed.</li>
+</ol>
+<h3 id="remaining-blocking-questions">Remaining blocking questions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#remaining-blocking-questions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Resolved 2026-07-12:</p>
+<ol>
+<li><strong>Async multiplayer:</strong> may probably move after the first Early Access launch if it threatens single-player, editor, or campaign quality. Treat this as a product-risk valve rather than launch-critical scope.</li>
+<li><strong>One-month marketing proof:</strong> capture all four — strategic exploration, base construction, tactical combat, and a Feed/narrative moment.</li>
+<li><strong>Campaign viewpoints:</strong> scenarios may use different faction viewpoints. Both HRC and QXZ remain playable, but every scenario need not offer a side-selection variant. Specific campaign content can be authored later.</li>
+<li><strong>Base-building cadence:</strong> one construction decision per base per strategic day/cycle. Routine construction does not require Champion presence; presence may later enable bonuses or special projects.</li>
+</ol>
+<p>Additional reference direction: Civilization V is a primary inspiration for UI feel — calm, map-first, authoritative, tactile, readable, and strategically dense without looking like a debug dashboard.</p>
+<h2 id="recommended-immediate-authorization">Recommended immediate authorization<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommended-immediate-authorization" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Approve a short <strong>Production Definition and Player Shell Reset</strong>, not the entire 24-week ledger as automatic implementation authority.</p>
+<p>Its first outputs should be:</p>
+<ol>
+<li>approved Product Constitution;</li>
+<li>fresh human baseline playtest;</li>
+<li>asset/audiovisual integration spike and sourcing decision;</li>
+<li>campaign spine and HRC/QXZ faction contracts;</li>
+<li>UI shell architecture spike with decomposition boundaries;</li>
+<li>one READY implementation story for the normal player shell;</li>
+<li>a revised capability dashboard using the gates in this document.</li>
+</ol>
+<h2 id="final-recommendation">Final recommendation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#final-recommendation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Continue the project. The concept is worth making and the technical base is stronger than the current visual build suggests.</p>
+<p>Do not continue by adding more systems to the existing debug-shaped surface. The next phase must turn the project from a tested mechanics laboratory into a game people can understand, desire, and emotionally remember.</p>
+<p>The quality strategy is:</p>
+<ul>
+<li>approve the north star;</li>
+<li>simplify the first playable contract;</li>
+<li>establish the visual/audio target immediately;</li>
+<li>rebuild the player shell without discarding the tested domain core;</li>
+<li>prove strategic fun and tactical clarity;</li>
+<li>integrate only the strongest Neon Champions differentiators;</li>
+<li>use human playtests as the weekly steering mechanism;</li>
+<li>scale content and product breadth only after measured throughput;</li>
+<li>treat release as an evidence gate, not a calendar promise.</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-84" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#full-project-review-and-completion-plan--2026-07-12" data-for="full-project-review-and-completion-plan--2026-07-12">Full Project Review and Completion Plan — 2026-07-12</a></li><li class="depth-1"><a href="#executive-verdict" data-for="executive-verdict">Executive verdict</a></li><li class="depth-1"><a href="#evidence-basis" data-for="evidence-basis">Evidence basis</a></li><li class="depth-1"><a href="#what-is-genuinely-strong" data-for="what-is-genuinely-strong">What is genuinely strong</a></li><li class="depth-2"><a href="#1-the-game-has-a-saleable-fantasy" data-for="1-the-game-has-a-saleable-fantasy">1. The game has a saleable fantasy</a></li><li class="depth-2"><a href="#2-the-world-has-real-thematic-differentiation" data-for="2-the-world-has-real-thematic-differentiation">2. The world has real thematic differentiation</a></li><li class="depth-2"><a href="#3-the-implementation-foundation-is-unusually-testable" data-for="3-the-implementation-foundation-is-unusually-testable">3. The implementation foundation is unusually testable</a></li><li class="depth-2"><a href="#4-the-project-records-human-complaints-rather-than-erasing-them" data-for="4-the-project-records-human-complaints-rather-than-erasing-them">4. The project records human complaints rather than erasing them</a></li><li class="depth-2"><a href="#5-the-intended-differentiators-can-reinforce-the-strategy-loop" data-for="5-the-intended-differentiators-can-reinforce-the-strategy-loop">5. The intended differentiators can reinforce the strategy loop</a></li><li class="depth-1"><a href="#fundamental-problems" data-for="fundamental-problems">Fundamental problems</a></li><li class="depth-2"><a href="#1-the-project-is-not-yet-governed-by-an-approved-north-star" data-for="1-the-project-is-not-yet-governed-by-an-approved-north-star">1. The project is not yet governed by an approved north star</a></li><li class="depth-2"><a href="#2-human-fun-evidence-is-almost-absent" data-for="2-human-fun-evidence-is-almost-absent">2. Human fun evidence is almost absent</a></li><li class="depth-2"><a href="#3-the-current-ui-architecture-is-a-delivery-bottleneck" data-for="3-the-current-ui-architecture-is-a-delivery-bottleneck">3. The current UI architecture is a delivery bottleneck</a></li><li class="depth-2"><a href="#4-the-plan-confuses-feature-breadth-with-product-value" data-for="4-the-plan-confuses-feature-breadth-with-product-value">4. The plan confuses feature breadth with product value</a></li><li class="depth-2"><a href="#5-content-production-has-no-demonstrated-throughput" data-for="5-content-production-has-no-demonstrated-throughput">5. Content production has no demonstrated throughput</a></li><li class="depth-2"><a href="#6-the-first-campaign-is-a-setting-premise-not-yet-a-campaign" data-for="6-the-first-campaign-is-a-setting-premise-not-yet-a-campaign">6. The first campaign is a setting premise, not yet a campaign</a></li><li class="depth-2"><a href="#7-faction-philosophy-has-not-become-faction-gameplay" data-for="7-faction-philosophy-has-not-become-faction-gameplay">7. Faction philosophy has not become faction gameplay</a></li><li class="depth-2"><a href="#8-neon-champions-mechanics-risk-becoming-administrative-overlays" data-for="8-neon-champions-mechanics-risk-becoming-administrative-overlays">8. Neon Champions mechanics risk becoming administrative overlays</a></li><li class="depth-2"><a href="#9-tactical-combat-is-over-scoped-for-the-first-strong-prototype" data-for="9-tactical-combat-is-over-scoped-for-the-first-strong-prototype">9. Tactical combat is over-scoped for the first strong prototype</a></li><li class="depth-2"><a href="#10-strategic-map-success-criteria-need-stronger-pressure-and-replay-value" data-for="10-strategic-map-success-criteria-need-stronger-pressure-and-replay-value">10. Strategic map success criteria need stronger pressure and replay value</a></li><li class="depth-2"><a href="#11-saveload-localization-accessibility-release-and-commercial-work-are-mostly-promises" data-for="11-saveload-localization-accessibility-release-and-commercial-work-are-mostly-promises">11. Save/load, localization, accessibility, release, and commercial work are mostly promises</a></li><li class="depth-2"><a href="#12-repository-evidence-is-becoming-technical-debt" data-for="12-repository-evidence-is-becoming-technical-debt">12. Repository evidence is becoming technical debt</a></li><li class="depth-1"><a href="#opportunities" data-for="opportunities">Opportunities</a></li><li class="depth-2"><a href="#1-make-public-truth-a-tactical-strategic-weapon" data-for="1-make-public-truth-a-tactical-strategic-weapon">1. Make public truth a tactical-strategic weapon</a></li><li class="depth-2"><a href="#2-turn-maintenance-into-tempo-not-chores" data-for="2-turn-maintenance-into-tempo-not-chores">2. Turn maintenance into tempo, not chores</a></li><li class="depth-2"><a href="#3-use-champions-as-the-campaigns-emotional-persistence-layer" data-for="3-use-champions-as-the-campaigns-emotional-persistence-layer">3. Use Champions as the campaign’s emotional persistence layer</a></li><li class="depth-2"><a href="#4-treat-the-white-sky-as-a-visual-and-mechanical-clock" data-for="4-treat-the-white-sky-as-a-visual-and-mechanical-clock">4. Treat the White Sky as a visual and mechanical clock</a></li><li class="depth-2"><a href="#5-design-the-editor-first-as-the-studios-content-multiplier" data-for="5-design-the-editor-first-as-the-studios-content-multiplier">5. Design the editor first as the studio’s content multiplier</a></li><li class="depth-2"><a href="#6-build-marketing-proof-alongside-the-vertical-slice" data-for="6-build-marketing-proof-alongside-the-vertical-slice">6. Build marketing proof alongside the vertical slice</a></li><li class="depth-1"><a href="#revised-production-model" data-for="revised-production-model">Revised production model</a></li><li class="depth-1"><a href="#approved-three-gate-delivery-model--2026-07-12" data-for="approved-three-gate-delivery-model--2026-07-12">Approved three-gate delivery model — 2026-07-12</a></li><li class="depth-2"><a href="#approved-four-week-proof-scope" data-for="approved-four-week-proof-scope">Approved four-week proof scope</a></li><li class="depth-2"><a href="#approved-prototype-base-building-model" data-for="approved-prototype-base-building-model">Approved prototype base-building model</a></li><li class="depth-2"><a href="#public-exposure-decision" data-for="public-exposure-decision">Public exposure decision</a></li><li class="depth-2"><a href="#production-definition-gate--before-week-1" data-for="production-definition-gate--before-week-1">Production Definition Gate — before Week 1</a></li><li class="depth-1"><a href="#recommended-eight-week-prototype-contract" data-for="recommended-eight-week-prototype-contract">Recommended eight-week prototype contract</a></li><li class="depth-2"><a href="#non-negotiable-player-experience" data-for="non-negotiable-player-experience">Non-negotiable player experience</a></li><li class="depth-2"><a href="#recommended-strategic-depth" data-for="recommended-strategic-depth">Recommended strategic depth</a></li><li class="depth-2"><a href="#recommended-tactical-depth" data-for="recommended-tactical-depth">Recommended tactical depth</a></li><li class="depth-2"><a href="#explicit-prototype-exclusions" data-for="explicit-prototype-exclusions">Explicit prototype exclusions</a></li><li class="depth-1"><a href="#eight-week-execution-sequence" data-for="eight-week-execution-sequence">Eight-week execution sequence</a></li><li class="depth-2"><a href="#week-1--product-shell-and-vertical-look-target" data-for="week-1--product-shell-and-vertical-look-target">Week 1 — product shell and vertical look target</a></li><li class="depth-2"><a href="#week-2--strategic-interaction-quality" data-for="week-2--strategic-interaction-quality">Week 2 — strategic interaction quality</a></li><li class="depth-2"><a href="#week-3--strategic-pressure-and-saveresume" data-for="week-3--strategic-pressure-and-saveresume">Week 3 — strategic pressure and save/resume</a></li><li class="depth-2"><a href="#week-4--tactical-readability-and-core-decisions" data-for="week-4--tactical-readability-and-core-decisions">Week 4 — tactical readability and core decisions</a></li><li class="depth-2"><a href="#week-5--hrcqxz-identity" data-for="week-5--hrcqxz-identity">Week 5 — HRC/QXZ identity</a></li><li class="depth-2"><a href="#week-6--neon-champions-differentiator-integration" data-for="week-6--neon-champions-differentiator-integration">Week 6 — Neon Champions differentiator integration</a></li><li class="depth-2"><a href="#week-7--onboarding-content-and-internal-editor-path" data-for="week-7--onboarding-content-and-internal-editor-path">Week 7 — onboarding, content, and internal editor path</a></li><li class="depth-2"><a href="#week-8--integration-and-prototype-release" data-for="week-8--integration-and-prototype-release">Week 8 — integration and prototype release</a></li><li class="depth-1"><a href="#six-month-roadmap-after-prototype" data-for="six-month-roadmap-after-prototype">Six-month roadmap after prototype</a></li><li class="depth-2"><a href="#months-34--vertical-slice-and-content-production-proof" data-for="months-34--vertical-slice-and-content-production-proof">Months 3–4 — vertical slice and content-production proof</a></li><li class="depth-2"><a href="#month-5--breadth-decision-not-automatic-breadth" data-for="month-5--breadth-decision-not-automatic-breadth">Month 5 — breadth decision, not automatic breadth</a></li><li class="depth-2"><a href="#month-6--release-candidate-hardening" data-for="month-6--release-candidate-hardening">Month 6 — release candidate hardening</a></li><li class="depth-1"><a href="#team-and-lane-requirements" data-for="team-and-lane-requirements">Team and lane requirements</a></li><li class="depth-1"><a href="#production-rules" data-for="production-rules">Production rules</a></li><li class="depth-1"><a href="#owner-decisions--recorded-2026-07-12" data-for="owner-decisions--recorded-2026-07-12">Owner decisions — recorded 2026-07-12</a></li><li class="depth-2"><a href="#remaining-blocking-questions" data-for="remaining-blocking-questions">Remaining blocking questions</a></li><li class="depth-1"><a href="#recommended-immediate-authorization" data-for="recommended-immediate-authorization">Recommended immediate authorization</a></li><li class="depth-1"><a href="#final-recommendation" data-for="final-recommendation">Final recommendation</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../design/gdd/tactical-combat/mvp-content-and-faction-rosters" class="internal">Tactical Combat — MVP Content and Faction Rosters</a></li><li><a href="../../" class="internal">index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>

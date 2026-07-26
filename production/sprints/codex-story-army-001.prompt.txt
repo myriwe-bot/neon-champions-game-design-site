@@ -1,0 +1,62 @@
+Approved implementation packet: STORY-ARMY-001 MVP Faction Unit Definitions and Roster Seed.
+
+Authorization:
+- Human approval recorded 2026-06-18.
+- Before editing Unity code, read the story file and confirm it says `status: ready`, `approval: approved`, and Ambiguity Check `Status: PASS`.
+- If it does not, STOP and report the mismatch.
+
+Implementation target:
+- Unity repo: C:\Users\NordicGamer\CodexProjects\neon-champions-unity
+- Design/control repo: C:\Users\NordicGamer\CodexProjects\neon-champions-game-design
+- Branch: story/STORY-ARMY-001-mvp-faction-unit-definitions-roster-seed
+- PR title: STORY-ARMY-001 MVP faction unit definitions and roster seed
+
+Required reading before editing:
+- production/stories/story-army-001-mvp-faction-unit-definitions-and-roster-seed.md
+- production/epics/epic-vslice-mvp-008-faction-armies-recruitment-and-tactical-role-identity.md
+- production/planning/epic-008-faction-armies-recruitment-and-role-identity-plan.md
+- design/gdd/faction-unit-rosters.md
+- design/gdd/tactical-combat.md
+- design/gdd/strategic-map.md
+- docs/architecture/control-manifest.md
+- docs/architecture/testing-strategy.md
+- docs/architecture/ci-build-automation.md
+- Unity repo AGENTS.md files for every touched scope
+
+Approved scope:
+- Add/formalize an MVP unit definition schema with stable IDs and validation.
+- Add Home Rule unit definitions: Settlement Watch, Sled Logistics Team, Hunter-Scouts.
+- Add QXZ unit definitions: Meridian Security, Strato Sensor Swarm, Climate Bulwark.
+- Add neutral Survey Drones and/or Site Guards if technically appropriate.
+- Tactical setup should consume unit definitions where practical.
+- Tactical labels/event feed should display unit names/counts from definitions.
+- Add validation and tests for duplicate/missing/invalid unit data.
+- Add Unity evidence under production/evidence/STORY-ARMY-001/.
+
+Out of scope:
+- No recruitment UI/action.
+- No Sensor Lock behavior yet.
+- No full town tree.
+- No upgraded variants.
+- No balance pass beyond safe placeholders.
+- No AP/cover/morale/LOS/damage-taxonomy expansion.
+- No final art/icons/VFX/audio/animation.
+- No hard-canon rename of Home Rule Coalition.
+
+Expected verification before PR:
+- git diff --check
+- focused unit/edit-mode tests for definition validation and lookup
+- focused tactical setup tests where practical
+- PlayMode/screenshot evidence showing distinct unit definitions in tactical mode
+- Unity Foundation CI exact-head
+
+PR requirements:
+- Link STORY-ARMY-001.
+- Include tests run, evidence path, CI run URL, and omissions/deferred work.
+- Push branch and open PR if available; otherwise report exact blocker.
+
+
+Hard implementation constraints:
+- `design/gdd/faction-unit-rosters.md` is draft/pending as a broad roster document; only the exact Home Rule/QXZ 3+3 roster seed and naming guardrails cited by STORY-ARMY-001 are approved for this packet.
+- Do not implement ARMY-002 Sensor Lock behavior, ARMY-003 recruitment, or ARMY-004 composition scenario work.
+- Commit and push the actual implementation branch to remote, or clearly explain why pushing/PR creation was impossible.
